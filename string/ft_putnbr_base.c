@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:23:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/14 15:23:56 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/01 20:22:34 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@ void	putch_base(int ch, char *base)
 	write(1, &base[ch], 1);
 }
 
-void	rec_print_base(int nb, int base_size, char *base)
+void	rec_print_base(unsigned int nb, int base_size, char *base)
 {
-	if (nb < base_size && nb > base_size * -1)
+	if (nb < base_size)
 	{
-		if (nb >= 0)
-			putch_base(nb, base);
-		else
-			putch_base(nb * -1, base);
+		putch_base(nb, base);
 		return ;
 	}
 	rec_print_base(nb / base_size, base_size, base);
@@ -51,5 +48,5 @@ void	ft_putnbr_base(int nb, char *base)
 		return ;
 	if (nb < 0)
 		write(1, "-", 1);
-	rec_print_base(nb, base_size, base);
+	rec_print_base(nb < 0 ? -nb : nb, base_size, base);
 }

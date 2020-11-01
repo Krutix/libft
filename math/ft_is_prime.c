@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 14:01:51 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/15 14:01:53 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/01 19:37:04 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_sqrt_prime(unsigned int nb)
+static unsigned int	ft_sqrt_prime(unsigned int nb)
 {
 	unsigned int i;
 
@@ -20,7 +20,7 @@ unsigned int	ft_sqrt_prime(unsigned int nb)
 	return (i);
 }
 
-int				ft_is_prime(int nb)
+int					ft_is_prime(int nb)
 {
 	unsigned int i;
 	unsigned int sqrt;

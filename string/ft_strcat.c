@@ -3,24 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/13 15:29:10 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/13 15:29:14 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/01 21:42:57 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcat(char *dest, char *src)
 {
-	int i;
-	int is;
+	char *d;
 
-	i = 0;
-	is = 0;
-	while (dest[i])
-		i++;
-	while (src[is])
-		dest[i++] = src[is++];
-	dest[i] = '\0';
+	d = dest;
+	while (*d)
+		d++;
+	while (*src++)
+		*d++ = *src++;
+	*d = '\0';
 	return (dest);
 }

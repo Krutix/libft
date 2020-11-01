@@ -6,18 +6,18 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 12:06:59 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 01:32:37 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/01 19:36:02 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_pow(int nb, int power)
+#include <stddef.h>
+
+int	ft_pow(int nb, size_t power)
 {
 	int res;
 
-	if (power < 0)
-		return (0);
 	res = 1;
-	while (power > 0)
+	while (power != 0)
 	{
 		res *= nb;
 		power--;

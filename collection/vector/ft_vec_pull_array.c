@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*   ft_vec_pull_array.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/11 20:34:07 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/11 20:34:11 by fdiego           ###   ########.fr       */
+/*   Created: 2020/11/01 21:26:50 by krutix            #+#    #+#             */
+/*   Updated: 2020/11/01 21:31:00 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ultimate_div_mod(int *a, int *b)
-{
-	int buff_div;
-	int buff_mod;
+#include "ft_vector.h"
 
-	buff_div = *a / *b;
-	buff_mod = *a % *b;
-	*a = buff_div;
-	*b = buff_mod;
+void	**ft_vec_fetch_array(t_vector *vec, size_t *out_size)
+{
+	void **array;
+
+	array = vec->array;
+	if (out_size)
+		*out_size = vec->size;
+	vec->array = NULL;
+	vec->size = 0;
+	vec->reserv = 0;
+	return (array);
 }

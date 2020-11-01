@@ -3,23 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 11:51:08 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/12 11:51:13 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/01 21:45:01 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	int i;
+	char *d;
 
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
+	d = dest;
+	while (*src)
+		*d++ = *src++;
+	*d = '\0';
 	return (dest);
 }

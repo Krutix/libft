@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec_push_back.c                                 :+:      :+:    :+:   */
+/*   ft_def.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 15:13:15 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/01 21:39:47 by krutix           ###   ########.fr       */
+/*   Created: 2020/11/01 20:40:51 by krutix            #+#    #+#             */
+/*   Updated: 2020/11/01 20:41:20 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_vector.h"
+#ifndef FT_DEF_H
+# define FT_DEF_H
 
-t_bool		ft_vec_push_back(t_vector *vec, void *data)
-{
-	if (vec->reserv == vec->size)
-		if (!ft_vec_realloc(vec, vec->reserv != 0 ? vec->reserv * 2 : 4));
-			return (t_false);
-	vec->array[vec->size++] = data;
-	return (t_true);
-}
+#include <stddef.h>
+
+typedef enum e_bool { t_false = 0, t_true = 1 } t_bool;
+
+#endif

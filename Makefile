@@ -1,8 +1,14 @@
-SRCS	= $(shell find . -maxdepth 1 -name "*.c" ! -name "*_bonus.c")
-SRCS_B	= $(shell find . -maxdepth 1 -name "*_bonus.c")
+INC_DIR =	./includes \
+			./collection/btree/includes \
+			./collection/list/includes \
+			./collection/vector/includes \
+			./math/includes \
+			./string/includes \
+			./memory/includes \
+
+SRCS	= $(shell find . -name "ft_*.c")
 
 OBJS	= ${SRCS:.c=.o}
-OBJS_B	= ${SRCS_B:.c=.o}
 
 NAME	= libft.a
 
@@ -12,18 +18,15 @@ CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -f
 
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} -I ${INC_DIR} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 			@ar rc ${NAME} ${OBJS}
 
 all:		${NAME}
 
-bonus:		${NAME} ${OBJS_B}
-			@ar rc ${NAME} ${NAME} ${OBJS_B}
-
 clean:
-			@${RM} ${OBJS} ${OBJS_B}
+			@${RM} ${OBJS}
 
 fclean:		clean
 			@${RM} ${NAME}
@@ -31,7 +34,7 @@ fclean:		clean
 re:			fclean all
 
 so:
-			@gcc -fPIC -c ${SRCS} ${SRCS_B}
+			@gcc -fPIC -c ${SRCS}
 			@gcc -shared -Wl,-soname,libft.so -o libft.so *.o
 
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 16:53:48 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/23 21:44:11 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/01 21:48:40 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	sort_(char *argv[], int argc, int (*cmp)(char *, char *))
+static void	sort(char *argv[], int argc, int (*cmp)(char *, char *))
 {
 	int		ix;
 	int		jx;
@@ -35,12 +35,12 @@ void	sort_(char *argv[], int argc, int (*cmp)(char *, char *))
 	}
 }
 
-void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
+void		ft_sort_str_tab(char **tab, int (*cmp)(char *, char *))
 {
 	int len;
 
 	len = 0;
 	while (tab[len])
 		len++;
-	sort_(tab, len, cmp);
+	sort(tab, len, cmp);
 }
