@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/24 15:44:50 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:24:13 by krutix           ###   ########.fr       */
+/*   Created: 2020/10/31 22:00:34 by fdiego            #+#    #+#             */
+/*   Updated: 2020/11/02 01:14:00 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_list.h"
+#include <stddef.h>
 
-t_list	*ft_create_elem(void *data)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_list *new_node;
-
-	new_node = malloc(sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->next = NULL;
-	new_node->data = data;
-	return (new_node);
+	while (n-- != 0)
+		if (*((unsigned char*)s1++) != *((unsigned char*)s2++))
+			return (*((unsigned char*)s1 - 1) - *((unsigned char*)s2 - 1));
+	return (0);
 }

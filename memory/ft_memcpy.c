@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/24 15:44:50 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:24:13 by krutix           ###   ########.fr       */
+/*   Created: 2020/10/28 15:20:04 by fdiego            #+#    #+#             */
+/*   Updated: 2020/10/31 23:44:26 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_list.h"
+#include <stddef.h>
 
-t_list	*ft_create_elem(void *data)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_list *new_node;
+	char	*d;
 
-	new_node = malloc(sizeof(t_list));
-	if (!new_node)
+	if (!dest && !src)
 		return (NULL);
-	new_node->next = NULL;
-	new_node->data = data;
-	return (new_node);
+	d = dest;
+	while (n-- != 0)
+		*(char*)(d++) = *(char*)(src++);
+	return (dest);
 }

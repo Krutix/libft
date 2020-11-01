@@ -6,29 +6,29 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:23:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/01 20:22:34 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 00:47:15 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unistd.h"
 
-void	putch_base(int ch, char *base)
+void	putch_base(int ch, char *base, int fd)
 {
-	write(1, &base[ch], 1);
+	write(fd, &base[ch], 1);
 }
 
-void	rec_print_base(unsigned int nb, int base_size, char *base)
+void	rec_print_base(unsigned int nb, int base_size, char *base, int fd)
 {
 	if (nb < base_size)
 	{
-		putch_base(nb, base);
+		putch_base(nb, base, fd);
 		return ;
 	}
-	rec_print_base(nb / base_size, base_size, base);
-	rec_print_base(nb % base_size, base_size, base);
+	rec_print_base(nb / base_size, base_size, base, fd);
+	rec_print_base(nb % base_size, base_size, base, fd);
 }
 
-void	ft_putnbr_base(int nb, char *base)
+void	ft_putnbr_base_fd(int nb, char *base, int fd)
 {
 	int base_size;
 	int i;
@@ -47,6 +47,6 @@ void	ft_putnbr_base(int nb, char *base)
 	if (base_size < 2)
 		return ;
 	if (nb < 0)
-		write(1, "-", 1);
-	rec_print_base(nb < 0 ? -nb : nb, base_size, base);
+		write(fd, "-", 1);
+	rec_print_base(nb < 0 ? -nb : nb, base_size, base, fd);
 }

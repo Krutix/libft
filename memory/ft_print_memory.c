@@ -36,11 +36,11 @@ static void	put_hexnbr(unsigned long long nb)
 	write(1, &pr, 1);
 }
 
-static void	print_address(void *addr, int size)
+static void	print_address(void *addr, size_t size)
 {
-	int					size_adds;
+	size_t				size_adds;
 	unsigned long long	buff;
-	int					i;
+	size_t				i;
 
 	buff = (unsigned long long)addr;
 	size_adds = 0;
@@ -86,7 +86,7 @@ static void	print_data(void *addr, int size)
 	}
 }
 
-void	ft_print_memory(void *addr, unsigned int size)
+void	ft_print_memory(void *addr, size_t size)
 {
 	while (size > 16)
 	{

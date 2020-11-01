@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/11 19:31:40 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/01 21:50:15 by krutix           ###   ########.fr       */
+/*   Created: 2020/10/31 22:12:38 by fdiego            #+#    #+#             */
+/*   Updated: 2020/11/02 01:14:16 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "unistd.h"
+#include <stddef.h>
 
-void	ft_swapi(int *a, int *b)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int buff;
+	char		*d;
+	const char	*s;
 
-	buff = *a;
-	*a = *b;
-	*b = buff;
-}
-
-void	ft_swapf(float *a, float *b)
-{
-	float buff;
-
-	buff = *a;
-	*a = *b;
-	*b = buff;
+	if (!dest && !src)
+		return (NULL);
+	d = dest;
+	s = src;
+	if (dest < src)
+		while (n-- != 0)
+			*(d++) = *(s++);
+	else
+		while (n-- != 0)
+			*(d + n) = *(s + n);
+	return (dest);
 }

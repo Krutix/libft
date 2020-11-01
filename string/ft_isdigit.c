@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/24 15:44:50 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:24:13 by krutix           ###   ########.fr       */
+/*   Created: 2020/10/31 21:48:53 by fdiego            #+#    #+#             */
+/*   Updated: 2020/11/02 01:27:26 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_list.h"
+#include "ftdef.h"
 
-t_list	*ft_create_elem(void *data)
+t_bool	ft_isdigit(int c)
 {
-	t_list *new_node;
-
-	new_node = malloc(sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->next = NULL;
-	new_node->data = data;
-	return (new_node);
+	return ('0' <= (unsigned)c && (unsigned)c <= '9');
 }

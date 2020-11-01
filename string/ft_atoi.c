@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/24 15:44:50 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:24:13 by krutix           ###   ########.fr       */
+/*   Created: 2020/10/28 11:39:04 by fdiego            #+#    #+#             */
+/*   Updated: 2020/11/02 01:21:57 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
-#include "ft_list.h"
 
-t_list	*ft_create_elem(void *data)
+int				ft_atoi(const char *str)
 {
-	t_list *new_node;
+	size_t			i;
+	unsigned int	nb;
+	int				sign;
 
-	new_node = malloc(sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->next = NULL;
-	new_node->data = data;
-	return (new_node);
+	i = 0;
+	sign = 1;
+	while (str[i] && ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-')
+		sign = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	nb = 0;
+	while (str[i] && '0' <= str[i] && str[i] <= '9')
+		nb = nb * 10 + str[i++] - '0';
+	return (nb * sign);
 }

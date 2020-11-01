@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_def.h                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 20:40:51 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/01 20:41:20 by krutix           ###   ########.fr       */
+/*   Created: 2020/10/31 23:18:17 by fdiego            #+#    #+#             */
+/*   Updated: 2020/11/02 01:12:54 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_DEF_H
-# define FT_DEF_H
+#include "ft_memory.h"
+#include "stdlib.h"
 
-#include <stddef.h>
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*alloc;
 
-typedef enum e_bool { t_false = 0, t_true = 1 } t_bool;
-
-#endif
+	if (!(alloc = malloc(count * size)))
+		return (NULL);
+	ft_bzero(alloc, count * size);
+	return (alloc);
+}
