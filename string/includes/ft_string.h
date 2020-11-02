@@ -17,6 +17,7 @@ extern int		ft_tolower(int c);
 extern int		ft_toupper(int c);
 
 extern size_t	ft_strlen(const char *s);
+extern size_t	ft_strcount_if(const char *str, t_bool (*counter)(char *));
 extern char		*ft_strcpy(char *dest, char *src);
 extern char		*ft_strncpy(char *dest, char *src, unsigned int n);
 extern size_t	ft_strlcpy(char *dest, const char *src, size_t size);
