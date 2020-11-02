@@ -24,7 +24,7 @@ RM		= rm -f
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-			@ar rc ${NAME} ${OBJS}
+			@ar rc ${NAME} $?
 
 all:		${NAME}
 
