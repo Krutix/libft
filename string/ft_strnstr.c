@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:03:26 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 23:03:35 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:22:25 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/ft_string.h"
 
 char	*ft_strnstr(char *str, char *to_find, size_t size)
 {

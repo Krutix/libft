@@ -1,10 +1,13 @@
-INC_DIR =	./includes \
-			./collection/btree/includes \
-			./collection/list/includes \
-			./collection/vector/includes \
-			./math/includes \
-			./string/includes \
-			./memory/includes \
+OUT_DIR =	./out
+
+INC_DIR =	./include \
+			./collection/btree/include \
+			./collection/list/include \
+			./collection/vector/include \
+			./string/include \
+			./memory/include
+
+INC_FILES = $(shell find . -name "*.h")
 
 SRCS	= $(shell find . -name "ft_*.c")
 
@@ -13,12 +16,12 @@ OBJS	= ${SRCS:.c=.o}
 NAME	= libft.a
 
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -O3
 
 RM		= rm -f
 
 .c.o:
-			${CC} ${CFLAGS} -I ${INC_DIR} -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 			@ar rc ${NAME} ${OBJS}
@@ -34,8 +37,8 @@ fclean:		clean
 re:			fclean all
 
 so:
-			@gcc -fPIC -c ${SRCS}
-			@gcc -shared -Wl,-soname,libft.so -o libft.so *.o
+			@${CC} ${CFLAGS} -fPIC -c ${SRCS}
+			@${CC} -shared -Wl,-soname,libft.so -o libft.so *.o
 
 
 .PHONY:		all fclean re clean

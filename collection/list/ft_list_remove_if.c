@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 20:18:15 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/24 23:04:27 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:15:50 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "include/ft_list.h"
 #include <stdlib.h>
 
 void	ft_list_remove_if(t_list **begin_list, void *data_ref,

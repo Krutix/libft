@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:39:21 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:27:59 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:20:30 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftdef.h"
+#include "include/ft_string.h"
 
 t_bool	ft_isalpha(int c)
 {

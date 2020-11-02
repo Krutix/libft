@@ -6,13 +6,13 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 16:27:15 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 16:27:20 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:21:46 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftdef.h"
+#include "include/ft_string.h"
 
-size_t	ft_strcount_if(const char *str, t_bool (*counter)(char *))
+size_t	ft_strcount_if(const char *str, t_bool (*counter)(const char *))
 {
 	size_t c;
 

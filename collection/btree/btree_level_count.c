@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 22:17:05 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/25 22:30:50 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:17:18 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_btree.h"
+#include "include/ft_btree.h"
 
 int	btree_level_count(t_btree *root)
 {

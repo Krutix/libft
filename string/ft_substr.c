@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:11:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 23:16:21 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:23:15 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/ft_string.h"
 #include <stdlib.h>
 
 char		*ft_substr(char const *src, unsigned int start, size_t len)

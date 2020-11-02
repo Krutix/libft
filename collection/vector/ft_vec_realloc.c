@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vec_realloc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 19:04:04 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/01 20:42:13 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:13:51 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "ft_vector.h"
+#include "include/ft_vector.h"
 
 t_bool		ft_vec_realloc(t_vector *vec, size_t new_reserv)
 {

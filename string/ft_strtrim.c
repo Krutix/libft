@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:15:29 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 23:40:04 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:23:09 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/ft_string.h"
 
 static int	is_in_charset(char ch, char const *set)
 {

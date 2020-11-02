@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:50:23 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 23:39:03 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:22:00 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/ft_string.h"
 #include <stddef.h>
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)

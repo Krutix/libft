@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 21:35:29 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/24 23:05:22 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:15:27 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "include/ft_list.h"
 
 void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
 {

@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 21:58:01 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/26 18:06:49 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:17:23 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_btree.h"
+#include "include/ft_btree.h"
 
 void	*btree_search_item(t_btree *root,
 		void *data_ref, int (*cmpf)(void *, void *))

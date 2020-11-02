@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 20:32:42 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/25 23:03:34 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:17:01 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_btree.h"
+#include "include/ft_btree.h"
 
 void	btree_apply_suffix(t_btree *root, void (*apply)(void *))
 {

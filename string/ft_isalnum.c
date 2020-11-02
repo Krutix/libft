@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 21:52:02 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:29:30 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:19:45 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
-#include "ftdef.h"
+#include "include/ft_string.h"
 
 t_bool	ft_isalnum(int c)
 {

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:37:30 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 00:45:35 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:17:44 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "ft_io.h"
+#include "include/ft_io.h"
 
 void		ft_putendl_fd(char *s, int fd)
 {

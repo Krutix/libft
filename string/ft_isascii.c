@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 21:52:31 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:27:43 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:20:35 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftdef.h"
+#include "include/ft_string.h"
 
 t_bool	ft_isascii(int c)
 {

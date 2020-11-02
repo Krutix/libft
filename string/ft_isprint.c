@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 21:53:07 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:27:09 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:20:46 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftdef.h"
+#include "include/ft_string.h"
 
 t_bool	ft_isprint(int c)
 {

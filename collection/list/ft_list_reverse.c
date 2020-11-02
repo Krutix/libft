@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:31:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/24 23:01:00 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:16:01 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "include/ft_list.h"
 
 void	ft_list_reverse(t_list **begin_list)
 {

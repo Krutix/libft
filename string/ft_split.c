@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/20 12:53:42 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/01 21:29:03 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:29:31 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <ft_vector.h>
+#include "../collection/vector/include/ft_vector.h"
 
 static int	is_sep(char ch, char *charset)
 {
@@ -32,14 +32,13 @@ static char	*strdup_to_charset(char **src, char *charset)
 	copy = malloc((len + 1) * sizeof(char));
 	len = 0;
 	while (**src && !is_sep(**src, charset))
-		copy[len++] = (*src)++;
+		copy[len++] = *(*src)++;
 	copy[len] = '\0';
 	return (copy);
 }
 
 char		**ft_split(char *str, char *charset)
 {
-	size_t		i;
 	t_vector	*vec;
 	char		**array;
 
@@ -47,7 +46,7 @@ char		**ft_split(char *str, char *charset)
 	if (!vec)
 		return (NULL);
 	while (str)
-		if (!is_sep(str, charset))
+		if (!is_sep(*str, charset))
 		{
 			if (!ft_vec_push_back(vec, strdup_to_charset(&str, charset)))
 				return (ft_vec_returndel(vec, &free));
@@ -55,7 +54,7 @@ char		**ft_split(char *str, char *charset)
 		else
 			str++;
 	ft_vec_push_back(vec, NULL);
-	array = ft_vec_fetcharray(vec, NULL);
+	array = (char**)ft_vec_fetch_array(vec, NULL);
 	ft_vec_destructor(vec, NULL);
 	return (array);
 }

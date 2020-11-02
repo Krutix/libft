@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vector.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:42:01 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:48:04 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:23:55 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_VECTOR_H
 
 #include <stddef.h>
-#include "ftdef.h"
+#include "../../../include/ftdef.h"
 
 typedef struct	s_vector {
 	unsigned int	size;

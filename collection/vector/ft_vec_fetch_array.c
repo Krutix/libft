@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vec_pull_array.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 21:26:50 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/01 21:31:00 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:12:53 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "include/ft_vector.h"
 
 void	**ft_vec_fetch_array(t_vector *vec, size_t *out_size)
 {

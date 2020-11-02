@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_base_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:23:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 00:47:15 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/02 18:25:35 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	putch_base(int ch, char *base, int fd)
 	write(fd, &base[ch], 1);
 }
 
-void	rec_print_base(unsigned int nb, int base_size, char *base, int fd)
+void	rec_print_base(unsigned int nb, size_t base_size, char *base, int fd)
 {
 	if (nb < base_size)
 	{
@@ -30,8 +30,8 @@ void	rec_print_base(unsigned int nb, int base_size, char *base, int fd)
 
 void	ft_putnbr_base_fd(int nb, char *base, int fd)
 {
-	int base_size;
-	int i;
+	size_t	base_size;
+	size_t	i;
 
 	base_size = 0;
 	while (base[base_size])
