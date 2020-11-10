@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vec_push_back.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 15:13:15 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:24:48 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:10:46 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "include/ft_vector.h"
+#include "ft_vector.h"
 
 t_bool		ft_vec_push_back(t_vector *vec, void *data)
 {

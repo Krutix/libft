@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 21:46:30 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 21:47:00 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:22:50 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_string.h"
 
 static size_t	unum_size(unsigned int n)
 {

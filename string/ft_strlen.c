@@ -6,11 +6,12 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:48:11 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/01 22:16:28 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:26:02 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stddef.h"
+#include "ft_string.h"
 
 size_t	ft_strlen(const char *s)
 {

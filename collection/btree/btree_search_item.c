@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   btree_search_item.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 21:58:01 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:17:23 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:07:13 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_btree.h"
+#include "ft_btree.h"
 
 void	*btree_search_item(t_btree *root,
 		void *data_ref, int (*cmpf)(void *, void *))

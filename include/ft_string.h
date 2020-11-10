@@ -1,7 +1,7 @@
 #ifndef FT_STRING_H
 # define FT_STRING_H
 
-#include "../../include/ftdef.h"
+#include "ftdef.h"
 
 extern int		ft_atoi_base(char *str, char *base);
 extern int		ft_atoi(const char *str);

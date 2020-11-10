@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:03:26 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:22:25 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:26:36 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_string.h"
+#include "ft_string.h"
 
 char	*ft_strnstr(char *str, char *to_find, size_t size)
 {

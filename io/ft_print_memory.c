@@ -1,10 +1,9 @@
 
 #include "unistd.h"
+#include "memory.h"
 
 static char	to_hex(unsigned int ch)
 {
-	if (ch < 0)
-		ch *= -1;
 	if (ch < 10)
 		return (ch + '0');
 	else

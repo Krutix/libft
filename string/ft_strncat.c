@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/13 17:13:27 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/13 17:13:29 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:26:15 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_string.h"
 
 char	*ft_strncat(char *dest, char *src, unsigned int n)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:11:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:23:15 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:26:53 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_string.h"
+#include "ft_string.h"
 #include <stdlib.h>
 
 char		*ft_substr(char const *src, unsigned int start, size_t len)

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:44:50 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:14:46 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:07:49 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "include/ft_list.h"
+#include "ft_list.h"
 
 t_list	*ft_create_elem(void *data)
 {

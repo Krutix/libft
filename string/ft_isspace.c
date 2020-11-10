@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 01:22:19 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/02 18:20:51 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:22:41 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_string.h"
+#include "ft_string.h"
 
 t_bool	ft_isspace(int ch)
 {

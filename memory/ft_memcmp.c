@@ -6,11 +6,12 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:00:34 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:14:00 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:18:54 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "memory.h"
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {

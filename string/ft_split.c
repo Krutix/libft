@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/20 12:53:42 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:29:31 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:23:21 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../collection/vector/include/ft_vector.h"
+#include "ft_vector.h"
+#include "ft_string.h"
 
 static int	is_sep(char ch, char *charset)
 {

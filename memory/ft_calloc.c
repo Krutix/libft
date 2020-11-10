@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:18:17 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:18:22 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:18:26 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_memory.h"
-#include "stdlib.h"
+#include <stdlib.h>
+#include "ft_memory.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

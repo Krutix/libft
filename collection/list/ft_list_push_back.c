@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_push_back.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 17:19:00 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:15:33 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:08:24 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_list.h"
+#include "ft_list.h"
 
 void	ft_list_push_back(t_list **begin_list, void *data)
 {

@@ -6,11 +6,12 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/13 17:55:36 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/01 21:45:46 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:26:45 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "ft_string.h"
 
 char	*ft_strstr(char *str, char *to_find)
 {

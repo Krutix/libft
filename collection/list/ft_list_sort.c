@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 18:16:16 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:16:42 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:10:14 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_list.h"
+#include "ft_list.h"
 
 void	ft_list_sort(t_list **begin_list, int (*cmp)())
 {

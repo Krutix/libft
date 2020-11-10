@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:07:13 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:21:53 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:25:49 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "include/ft_string.h"
+#include "ft_string.h"
 
 char	*ft_strdup(char *src)
 {

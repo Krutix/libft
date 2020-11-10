@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:23:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:25:35 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:12:59 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unistd.h"
+#include "ft_io.h"
 
-void	putch_base(int ch, char *base, int fd)
+static void	putch_base(int ch, char *base, int fd)
 {
 	write(fd, &base[ch], 1);
 }
 
-void	rec_print_base(unsigned int nb, size_t base_size, char *base, int fd)
+static void	rec_print_base(unsigned int nb, size_t base_size, char *base, int fd)
 {
 	if (nb < base_size)
 	{
@@ -28,7 +29,7 @@ void	rec_print_base(unsigned int nb, size_t base_size, char *base, int fd)
 	rec_print_base(nb % base_size, base_size, base, fd);
 }
 
-void	ft_putnbr_base_fd(int nb, char *base, int fd)
+void		ft_putnbr_base_fd(int nb, char *base, int fd)
 {
 	size_t	base_size;
 	size_t	i;

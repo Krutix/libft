@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:41:02 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 22:41:03 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:11:39 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unistd.h"
+#include "ft_io.h"
 
 void		ft_putchar_fd(char ch, int fd)
 {

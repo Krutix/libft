@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vec_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 18:12:10 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:24:11 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:10:24 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "include/ft_vector.h"
+#include "ft_vector.h"
 
 void		ft_vec_constructor(t_vector **vec)
 {

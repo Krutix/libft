@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:40:46 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 23:25:48 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:18:40 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "memory.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

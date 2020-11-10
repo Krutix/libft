@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:01:43 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 23:56:47 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:26:24 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stddef.h"
+#include "ft_string.h"
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {

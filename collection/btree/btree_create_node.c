@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 20:33:31 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:17:07 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:07:29 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "include/ft_btree.h"
+#include "ft_btree.h"
 
 t_btree	*btree_create_node(void *item)
 {

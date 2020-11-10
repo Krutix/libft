@@ -6,11 +6,12 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:16:25 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 01:12:12 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:15:03 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "memory.h"
 
 void	ft_bzero(void *mem, size_t size)
 {

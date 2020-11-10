@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   btree_insert_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 20:32:37 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:17:12 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:07:38 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_btree.h"
+#include "ft_btree.h"
 
 void	btree_insert_data(t_btree **root, void *item,
 			int (*cmpf)(void *, void *))

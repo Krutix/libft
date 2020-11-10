@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:17:21 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 22:16:16 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:19:11 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "memory.h"
 
 void	*ft_memset(void *mem, int value, size_t size)
 {

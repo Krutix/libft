@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:36:51 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:18:00 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:13:34 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "include/ft_io.h"
+#include "ft_io.h"
 
 static void	rec_print__(unsigned int nb, int fd)
 {

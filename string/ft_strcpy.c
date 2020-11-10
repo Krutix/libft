@@ -6,9 +6,11 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 11:51:08 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/01 21:45:01 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:25:45 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_string.h"
 
 char	*ft_strcpy(char *dest, char *src)
 {

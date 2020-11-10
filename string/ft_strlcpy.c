@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:49:33 by fdiego            #+#    #+#             */
-/*   Updated: 2020/10/31 22:49:34 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:25:57 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "ft_string.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

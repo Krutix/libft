@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_foreach_if.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:41:05 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/02 18:15:10 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:08:06 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_list.h"
+#include "ft_list.h"
 
 void	ft_list_foreach_if(t_list *begin_list, void (*f)(void *),
 							void *data_ref, int (*cmp)())

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 12:45:13 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/12 12:45:15 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/09 16:26:32 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_string.h"
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
