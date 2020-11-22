@@ -6,21 +6,13 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 14:01:51 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/01 19:37:04 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/22 21:40:20 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned int	ft_sqrt_prime(unsigned int nb)
-{
-	unsigned int i;
+#include "ft_math.h"
 
-	i = 0;
-	while (i * i < nb)
-		i++;
-	return (i);
-}
-
-int					ft_is_prime(int nb)
+t_bool	ft_is_prime(ullint nb)
 {
 	unsigned int i;
 	unsigned int sqrt;
@@ -29,13 +21,13 @@ int					ft_is_prime(int nb)
 		return (0);
 	i = 5;
 	if ((nb % 2 == 0 || nb % 3 == 0) && nb != 2 && nb != 3)
-		return (0);
-	sqrt = ft_sqrt_prime((unsigned int)nb);
+		return (t_false);
+	sqrt = ft_sqrt(nb);
 	while (i < sqrt)
 	{
 		if (nb % i == 0)
-			return (0);
+			return (t_false);
 		i += 2;
 	}
-	return (1);
+	return (t_true);
 }

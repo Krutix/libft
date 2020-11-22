@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 12:06:59 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 21:37:29 by krutix           ###   ########.fr       */
+/*   Created: 2020/11/22 21:32:16 by krutix            #+#    #+#             */
+/*   Updated: 2020/11/22 21:33:25 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "ft_math.h"
+#include "ftdef.h"
 
-llint	ft_pow(llint nb, size_t power)
+ullint	ft_abs(llint num)
 {
-	int res;
-
-	res = 1;
-	while (power != 0)
-	{
-		res *= nb;
-		power--;
-	}
-	return (res);
+	return (num < 0 ? -(ullint)num : (ullint)num);
 }

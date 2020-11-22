@@ -3,46 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:47:42 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/15 18:47:44 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/22 21:40:38 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	sqrt_prime(unsigned int nb)
-{
-	unsigned int i;
-
-	i = 0;
-	while (i * i <= nb)
-	{
-		if (i * i == nb)
-			return (i);
-		i++;
-	}
-	return (i);
-}
-
-int				is_prime(int nb)
-{
-	unsigned int i;
-	unsigned int sqrt;
-
-	if (nb <= 1)
-		return (0);
-	i = 3;
-	if ((nb % 2 == 0 || nb % 3 == 0) && nb != 2 && nb != 3)
-		return (0);
-	sqrt = sqrt_prime((unsigned int)nb);
-	while (i < sqrt)
-	{
-		if (nb % i == 0)
-			return (0);
-		i += 2;
-	}
-	return (1);
-}
+#include "ft_math.h"
 
 int				ft_find_next_prime(int nb)
 {
@@ -50,7 +18,7 @@ int				ft_find_next_prime(int nb)
 		return (2);
 	while (nb <= __INT_MAX__)
 	{
-		if (is_prime(nb))
+		if (ft_is_prime(nb))
 			return (nb);
 		nb++;
 	}

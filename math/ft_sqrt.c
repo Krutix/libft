@@ -3,27 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 13:46:39 by fdiego            #+#    #+#             */
-/*   Updated: 2020/09/15 13:46:41 by fdiego           ###   ########.fr       */
+/*   Updated: 2020/11/22 21:38:49 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+#include "ft_math.h"
+
+ullint	ft_sqrt(ullint nb)
 {
-	unsigned int i;
-	unsigned int unb;
+	ullint i;
 
 	i = 0;
-	if (nb < 0)
-		return (0);
-	unb = nb;
-	while (i * i <= unb)
-	{
-		if (i * i == unb)
-			return (i);
+	while (i * i < nb)
 		i++;
-	}
-	return (0);
+	return (i);
 }
