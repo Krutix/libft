@@ -16,6 +16,15 @@ extern t_bool	ft_isspace(int c);
 extern int		ft_tolower(int c);
 extern int		ft_toupper(int c);
 
+extern void		*ft_memset(void *mem, int value, size_t size);
+extern void		ft_bzero(void *mem, size_t size);
+extern void		*ft_calloc(size_t count, size_t size);
+extern void		*ft_memcpy(void *dest, const void *src, size_t n);
+extern void		*ft_memccpy(void *dest, const void *src, int c, size_t n);
+extern void		*ft_memmove(void *dest, const void *src, size_t n);
+extern void		*ft_memchr(const void *s, int c, size_t n);
+extern int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
 extern size_t	ft_strlen(const char *s);
 extern size_t	ft_strcount_if(const char *str, t_bool (*counter)(const char *));
 extern char		*ft_strcpy(char *dest, char *src);
@@ -35,7 +44,7 @@ extern char		*ft_strchr(const char *s, int c);
 extern char		*ft_strdup(char *src);
 extern char		*ft_substr(char const *src, unsigned int start, size_t len);
 extern char		*ft_strtrim(char const *str, char const *set);
-extern char		**ft_split(char *str, char *charset);
+extern char		**ft_split(char const *str, char *charset);
 extern void		ft_sort_str_tab(char **tab, int (*cmp)(char *, char *));
 extern char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
