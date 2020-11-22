@@ -1,7 +1,6 @@
 OUT_DIR =	./out
 
 INC_DIR =	./include
-INC_F	=	$(shell find ${INC_DIR} -name "*.h")
 
 SRCS	= $(shell find . -name "ft_*.c")
 
@@ -25,14 +24,13 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 out:		${NAME}
-			mkdir ${OUT_DIR}
-			cp ${SRCS} ${INC_F} ${NAME} Makefile ${OUT_DIR}
+			mkdir ${OUT_DIR}; cp -r ${INC_DIR} ${NAME} ${OUT_DIR}
 
 clean:
 			@${RM} ${OBJS}
 
 fclean:		clean
-			@${RM} ${NAME}
+			@${RM} ${NAME} -r ${OUT_DIR}
 
 re:			fclean all
 
