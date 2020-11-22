@@ -5,7 +5,7 @@
 
 extern int		ft_putchar_fd(char ch, int fd);
 extern int		ft_putendl_fd(char *s, int fd);
-extern void		ft_putnbr_base_fd(int nb, char *base, int fd);
+extern int		ft_putnbr_base_fd(llint nb, char *base, int fd);
 extern int		ft_putnbr_fd(llint nb, int fd);
 extern int		ft_putstr_fd(char *s, int fd);
 extern int		ft_printf(char *format, ...);

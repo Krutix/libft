@@ -6,48 +6,42 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:23:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:12:59 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/22 23:07:10 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unistd.h"
 #include "ft_io.h"
+#include "ft_string.h"
 
-static void	putch_base(int ch, char *base, int fd)
+static size_t	ft_unum_size(ullint n, size_t base_size)
 {
-	write(fd, &base[ch], 1);
+	size_t i;
+
+	i = 1;
+	while (n >= base_size)
+	{
+		i++;
+		n /= base_size;
+	}
+	return (i);
 }
 
-static void	rec_print_base(unsigned int nb, size_t base_size, char *base, int fd)
+int		ft_putnbr_base_fd(llint nb, char *base, int fd)
 {
-	if (nb < base_size)
-	{
-		putch_base(nb, base, fd);
-		return ;
-	}
-	rec_print_base(nb / base_size, base_size, base, fd);
-	rec_print_base(nb % base_size, base_size, base, fd);
-}
+	const size_t	len = ft_unum_size(ft_abs(nb), ft_strlen(base)) + (nb < 0);
+	ullint			unb;
+	char			str_num[len];
+	char			*back;
 
-void		ft_putnbr_base_fd(int nb, char *base, int fd)
-{
-	size_t	base_size;
-	size_t	i;
-
-	base_size = 0;
-	while (base[base_size])
+	str_num[0] = '-';
+	back = str_num + len - 1;
+	unb = ft_abs(nb);
+	while (unb > 9)
 	{
-		if (base[base_size] == '-' || base[base_size] == '+')
-			return ;
-		i = -1;
-		while (++i < base_size)
-			if (base[i] == base[base_size])
-				return ;
-		base_size++;
+		*back-- = base[unb % 10];
+		unb /= 10;
 	}
-	if (base_size < 2)
-		return ;
-	if (nb < 0)
-		write(fd, "-", 1);
-	rec_print_base(nb < 0 ? -nb : nb, base_size, base, fd);
+	*back = base[unb];
+	return (write(fd, str_num, len));
 }
