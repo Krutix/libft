@@ -6,15 +6,14 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:37:30 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:12:33 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/22 21:20:19 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_io.h"
 
-void		ft_putendl_fd(char *s, int fd)
+int	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s, fd);
-	write(fd, "\n", 1);
+	return (ft_putstr_fd(s, fd) + write(fd, "\n", 1));
 }

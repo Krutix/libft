@@ -6,14 +6,14 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:41:02 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:11:39 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/22 21:19:54 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unistd.h"
 #include "ft_io.h"
 
-void		ft_putchar_fd(char ch, int fd)
+int	ft_putchar_fd(char ch, int fd)
 {
-	write(fd, &ch, 1);
+	return (write(fd, &ch, 1));
 }

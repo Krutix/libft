@@ -6,21 +6,15 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 14:48:46 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:13:45 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/22 21:25:58 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_io.h"
+#include "ft_string.h"
 
-void		ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	size_t i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-		i++;
-	write(fd, s, i);
+	return (write(fd, s, ft_strlen(s)));
 }
