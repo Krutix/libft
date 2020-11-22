@@ -5,57 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/20 12:53:42 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:23:21 by krutix           ###   ########.fr       */
+/*   Created: 2020/10/28 12:16:56 by fdiego            #+#    #+#             */
+/*   Updated: 2020/11/22 22:40:56 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_vector.h"
 #include "ft_string.h"
+#include <stdlib.h>
 
-static int	is_sep(char ch, char *charset)
+static int	array_size(char const *str, char *charset)
 {
-	while (*charset)
-		if (ch == *charset++)
-			return (1);
-	return (0);
-}
+	int		offset;
+	int		words_inside;
 
-static char	*strdup_to_charset(char **src, char *charset)
-{
-	unsigned int	len;
-	char			*copy;
-
-	len = 0;
-	while ((*src)[len] && !is_sep((*src)[len], charset))
-		len++;
-	copy = malloc((len + 1) * sizeof(char));
-	len = 0;
-	while (**src && !is_sep(**src, charset))
-		copy[len++] = *(*src)++;
-	copy[len] = '\0';
-	return (copy);
-}
-
-char		**ft_split(char *str, char *charset)
-{
-	t_vector	*vec;
-	char		**array;
-
-	ft_vec_create(&vec);
-	if (!vec)
-		return (NULL);
-	while (str)
-		if (!is_sep(*str, charset))
+	offset = 0;
+	words_inside = 0;
+	while (str[offset])
+	{
+		if (!ft_strchr(charset, str[offset]))
 		{
-			if (!ft_vec_push_back(vec, strdup_to_charset(&str, charset)))
-				return (ft_vec_returndel(vec, &free));
+			while (str[offset] && !ft_strchr(charset, str[offset]))
+				offset++;
+			words_inside++;
+		}
+		else
+			offset++;
+	}
+	return (words_inside);
+}
+
+static void	*free_array_nt(void **array)
+{
+	int i;
+
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
+	return (NULL);
+}
+
+char		**ft_split(char const *str, char *charset)
+{
+	int			word_counter;
+	char const	*word_start;
+	char		**arr;
+
+	word_counter = 0;
+	if (!(arr = malloc((array_size(str, charset) + 1) * sizeof(char*))))
+		return (NULL);
+	while (*str)
+	{
+		if (!ft_strchr(charset, *str))
+		{
+			word_start = str++;
+			while (*str && !ft_strchr(charset, *str))
+				str++;
+			if (!(arr[word_counter++] = ft_substr(str, 0, str - word_start)))
+				return (char **)free_array_nt((void**)arr);
 		}
 		else
 			str++;
-	ft_vec_push_back(vec, NULL);
-	array = (char**)ft_vec_fetch_array(vec, NULL);
-	ft_vec_destructor(vec, NULL);
-	return (array);
+	}
+	arr[word_counter] = NULL;
+	return (arr);
 }

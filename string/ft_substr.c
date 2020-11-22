@@ -6,7 +6,7 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:11:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:26:53 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/22 22:39:07 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,11 @@
 char		*ft_substr(char const *src, unsigned int start, size_t len)
 {
 	char			*sub_str;
-	char const		*s;
-	unsigned int	i;
 
 	sub_str = malloc(len + 1);
-	s = src;
-	if (!sub_str || !s)
+	if (!sub_str)
 		return (NULL);
-	while (*s && start != 0)
-	{
-		start--;
-		s++;
-	}
-	i = 0;
-	while (i < len)
-	{
-		if ((sub_str[i] = s[i]) == '\0')
-			return (sub_str);
-		i++;
-	}
-	sub_str[i] = '\0';
+	ft_memcpy(sub_str, src + start, len);
+	*(sub_str + len) ^= *(sub_str + len);
 	return (sub_str);
 }

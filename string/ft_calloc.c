@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 22:49:33 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 22:38:45 by krutix           ###   ########.fr       */
+/*   Created: 2020/10/31 23:18:17 by fdiego            #+#    #+#             */
+/*   Updated: 2020/11/22 22:37:56 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 #include "ft_string.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	const size_t	len = ft_strlen(src);
-	const size_t	n = len < (size - 1) ? len : (size - 1);
+	void	*alloc;
 
-	if (size != 0)
-	{
-		ft_memcpy(dest, src, n);
-		dest[n] = '\0';
-	}
-	return (len);
+	if (!(alloc = malloc(count * size)))
+		return (NULL);
+	ft_bzero(alloc, count * size);
+	return (alloc);
 }

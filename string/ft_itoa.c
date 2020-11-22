@@ -6,12 +6,11 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 21:46:30 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:22:50 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/22 03:15:57 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "ft_string.h"
 
 static size_t	unum_size(unsigned int n)
 {
@@ -33,14 +32,8 @@ char			*ft_itoa(int num)
 	size_t			size;
 	int				unirminus;
 
-	unirminus = 0;
-	if (num < 0)
-	{
-		unirminus = 1;
-		unum = -num;
-	}
-	else
-		unum = num;
+	unirminus = (num < 0);
+	unum = num < 0 ? -(unsigned)num : (unsigned)num;
 	size = unum_size(unum) + unirminus;
 	if (!(num_str = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
