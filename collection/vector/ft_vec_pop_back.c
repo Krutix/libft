@@ -6,13 +6,13 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 18:12:40 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:10:42 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/19 22:57:29 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_vector.h"
 
-void	*ft_vec_pop_back(t_vector *vec)
+t_data	ft_vec_pop_back(t_vector *vec)
 {
 	return (vec->array[--vec->size]);
 }

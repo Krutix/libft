@@ -6,15 +6,15 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 21:26:50 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/09 16:10:33 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/22 22:36:24 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_vector.h"
 
-void	**ft_vec_fetch_array(t_vector *vec, size_t *out_size)
+t_data	*ft_vec_fetch_array(t_vector *vec, size_t *out_size)
 {
-	void **array;
+	t_data	*array;
 
 	array = vec->array;
 	if (out_size)

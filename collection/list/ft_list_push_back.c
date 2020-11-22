@@ -6,13 +6,13 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 17:19:00 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:08:24 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/19 23:04:08 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_list_push_back(t_list **begin_list, void *data)
+void	ft_list_push_back(t_list **begin_list, t_data data)
 {
 	t_list	*buff;
 

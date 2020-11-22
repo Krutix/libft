@@ -6,14 +6,14 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:41:05 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:08:06 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/19 23:03:00 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_list_foreach_if(t_list *begin_list, void (*f)(void *),
-							void *data_ref, int (*cmp)())
+void	ft_list_foreach_if(t_list *begin_list, void (*f)(t_data),
+							t_data data_ref, int (*cmp)())
 {
 	while (begin_list)
 	{

@@ -6,7 +6,7 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 19:04:04 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/09 16:10:51 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/19 22:56:31 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 t_bool		ft_vec_realloc(t_vector *vec, size_t new_reserv)
 {
-	void	**new_arr;
+	t_data	*new_arr;
 	size_t	i;
 
-	new_arr = malloc(new_reserv * sizeof(void*));
+	new_arr = malloc(new_reserv * sizeof(t_data));
 	if (!new_arr)
 		return (t_false);
 	if (vec->size > new_reserv)

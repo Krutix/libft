@@ -6,13 +6,13 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:15:00 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:08:10 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/19 23:02:45 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
+void	ft_list_foreach(t_list *begin_list, void (*f)(t_data))
 {
 	while (begin_list)
 	{
