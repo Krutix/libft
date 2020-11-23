@@ -6,7 +6,7 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:42:01 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 22:36:49 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/23 05:52:31 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ typedef struct	s_vector {
 	t_data			*array;
 }				t_vector;
 
-extern void			ft_vec_create(t_vector **vec);
+extern t_vector		*ft_vec_create(void);
+extern t_vector		*ft_vec_create_reserv(size_t reserv);
 extern t_bool		ft_vec_realloc(t_vector *vec, size_t new_reserv);
 extern void			ft_vec_destructor(t_vector *vec, void (*del)(t_data));
 extern void			*ft_vec_returndel(t_vector *vec, void (*del)(t_data));
