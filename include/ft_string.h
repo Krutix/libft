@@ -29,9 +29,9 @@ extern size_t	ft_strlen(const char *s);
 extern size_t	ft_strcount_if(const char *str, t_bool (*counter)(const char *));
 extern char		*ft_strcpy(char *dest, char *src);
 extern char		*ft_strncpy(char *dest, char *src, unsigned int n);
-extern size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 extern char		*ft_strcat(char *dest, char *src);
 extern char		*ft_strncat(char *dest, char *src, unsigned int n);
+extern size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 extern size_t	ft_strlcat(char *dest, const char *src, size_t size);
 
 extern int		ft_strcmp(char *s1, char *s2);
@@ -42,6 +42,7 @@ extern char		*ft_strrchr(const char *s, int c);
 extern char		*ft_strchr(const char *s, int c);
 
 extern char		*ft_strdup(char *src);
+/*			ft_substr dont check src len */
 extern char		*ft_substr(char const *src, unsigned int start, size_t len);
 extern char		*ft_strtrim(char const *str, char const *set);
 extern char		**ft_split(char const *str, char *charset);
