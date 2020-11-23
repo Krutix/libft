@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:48:11 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 02:56:26 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/23 05:23:47 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 ** The 0-bits provide holes for carries to fall into.
 */
 
-inline static const char	*ft_strlen_check(const char *char_ptr)	
+inline static const char	*ft_strnlen_check(const char *char_ptr)	
 {
 	if (char_ptr[0] == 0)
 		return (char_ptr);
@@ -46,7 +46,7 @@ inline static const char	*ft_strlen_check(const char *char_ptr)
 	return (NULL);
 }
 
-inline static const char	*ft_strlen_longword(const char *start)
+inline static const char	*ft_strnlen_longword(const char *start, const char *end_ptr)
 {
 	const __uint64_t *longword_ptr;
 	const __uint64_t himagic = 0x8080808080808080LL;
@@ -54,22 +54,29 @@ inline static const char	*ft_strlen_longword(const char *start)
 	__uint64_t longword;
 
 	longword_ptr = (__uint64_t*) start;
-	while (1)
+	while ((char*)longword_ptr < end_ptr - sizeof(__uint64_t))
 	{
 		longword = *longword_ptr++;
 		if (((longword - lomagic) & ~longword & himagic) != 0)
-			if ((start = ft_strlen_check((const char*)(longword_ptr - 1))))
+			if ((start = ft_strnlen_check((const char*)(longword_ptr - 1))))
 				return (start);
 	}
+	start = (char*)longword_ptr;
+	while (start != end_ptr)
+		if (!*start++)
+			return (--start);
+	return (end_ptr);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strnlen(const char *str, size_t n)
 {
 	const char *char_ptr;
+	const char *end_ptr;
 
 	char_ptr = str;
-	while ((((__uint64_t)char_ptr & (sizeof(__uint64_t) - 1)) != 0))
+	end_ptr = str + n;
+	while (char_ptr != end_ptr && (((__uint64_t)char_ptr & (sizeof(__uint64_t) - 1)) != 0))
 		if (*char_ptr++ == '\0')
 			return (--char_ptr - str);
-	return (ft_strlen_longword(char_ptr) - str);
+	return (ft_strnlen_longword(char_ptr, end_ptr) - str);
 }
