@@ -6,7 +6,7 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 11:51:08 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:25:45 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/26 14:14:53 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,5 @@
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	char *d;
-
-	d = dest;
-	while (*src)
-		*d++ = *src++;
-	*d = '\0';
-	return (dest);
+	return (ft_memcpy(dest, src, ft_strlen(src)));
 }

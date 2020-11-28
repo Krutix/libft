@@ -16,15 +16,17 @@ H_INC	= -I ${INC_DIR}
 RM		= rm -f
 
 .c.o:
-			${CC} ${CFLAGS} ${H_INC} -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} ${H_INC} -c $< -o ${<:.c=.o} -MD
+
+include (wildcard ${D_FILES})
 
 ${NAME}:	${OBJS}
-			@ar rc ${NAME} ${OBJS}
+			@ar rcs ${NAME} $?
 
 all:		${NAME}
 
 out:		${NAME}
-			mkdir ${OUT_DIR}; cp -r ${INC_DIR} ${NAME} ${OUT_DIR}
+			@mkdir ${OUT_DIR}; cp -r ${INC_DIR} ${NAME} ${OUT_DIR}
 
 clean:
 			@${RM} ${OBJS}

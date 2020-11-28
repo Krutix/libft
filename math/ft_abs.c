@@ -6,7 +6,7 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 21:32:16 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/22 21:33:25 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/26 15:16:03 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 ullint	ft_abs(llint num)
 {
-	return (num < 0 ? -(ullint)num : (ullint)num);
+	return (num < 0 ? -num : num);
 }

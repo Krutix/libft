@@ -6,7 +6,7 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:17:21 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 18:02:30 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/26 14:02:13 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 void	*ft_memset(void *mem, int value, size_t size)
 {
 	const void	*m = mem;
+
 	while (size-- != 0)
 		*(unsigned char*)(mem++) = (unsigned char)value;
 	return ((void*)m);

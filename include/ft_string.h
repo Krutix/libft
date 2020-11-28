@@ -25,8 +25,42 @@ extern void		*ft_memmove(void *dest, const void *src, size_t n);
 extern void		*ft_memchr(const void *s, int c, size_t n);
 extern int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
+/*
+****************************************************
+**
+!		PROCESSES ONLY WITH VALID STRING
+**
+* 	strlen		|	return length of string
+*	strnlen		|	return length <= n
+**
+****************************************************
+*/
+
 extern size_t	ft_strlen(const char *s);
-extern size_t	ft_strcount_if(const char *str, t_bool (*counter)(const char *));
+extern size_t	ft_strnlen(const char *str, size_t n);
+
+/*
+****************************************************
+**
+*	strcpy		|	copy string to null terminant
+*	strncpy		|	copy string to null terminant	
+*				-		max 'n' characters
+*				-	not guarantees null terminated string
+*	strlcpy		|	copy string in 'dest'
+*				-		with 'size' the 'dest' size
+**
+****************************************************
+**
+*	strcat		|	cat 'src' to 'dest'
+*	strncat		|	cat 'src' to 'dest'
+*				-		max 'n' characters
+*				-	not guarantees null terminated string
+*	strlcat		|	cat 'src' to 'dest'
+*				-		with 'size' the 'dest' size
+**
+****************************************************
+*/
+
 extern char		*ft_strcpy(char *dest, char *src);
 extern char		*ft_strncpy(char *dest, char *src, unsigned int n);
 extern char		*ft_strcat(char *dest, char *src);
@@ -41,12 +75,34 @@ extern char		*ft_strnstr(char *str, char *to_find, size_t size);
 extern char		*ft_strrchr(const char *s, int c);
 extern char		*ft_strchr(const char *s, int c);
 
+/*
+****************************************************
+**
+!		PROCESSES ONLY WITH VALID STRING
+**
+* 	strdup		|	dublicate src string
+* 	substr		|	create substr from src
+*				--		from start with 'len' size
+*				--	when start >= strlen(src)
+*				--		begavior is undefined
+*	strtrim		|	trimed characters from start
+*				--		and end of string
+*	split		|	covert string to string tab 
+*				--		divided by any character
+*				--		from charset
+*	strmapi		|	copy string coverting all
+*				--		characters by f
+**
+!	all			|	return NULL when alloc fails
+**
+****************************************************
+*/
+
 extern char		*ft_strdup(char *src);
-/*			ft_substr dont check src len */
 extern char		*ft_substr(char const *src, unsigned int start, size_t len);
 extern char		*ft_strtrim(char const *str, char const *set);
 extern char		**ft_split(char const *str, char *charset);
-extern void		ft_sort_str_tab(char **tab, int (*cmp)(char *, char *));
 extern char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+extern void		ft_sort_str_tab(char **tab, int (*cmp)(char *, char *));
 
 #endif

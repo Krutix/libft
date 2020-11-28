@@ -6,34 +6,11 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:01:43 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/23 03:37:05 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/26 14:38:04 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stddef.h>
-#include <stdio.h>
-
-inline static int	ft_strlen_check(const char *char_ptr)	
-{
-	if (char_ptr[0] == 0)
-		return (1);
-	if (char_ptr[1] == 0)
-		return (2);
-	if (char_ptr[2] == 0)
-		return (3);
-	if (char_ptr[3] == 0)
-		return (4);
-	if (char_ptr[4] == 0)
-		return (5);
-	if (char_ptr[5] == 0)
-		return (6);
-	if (char_ptr[6] == 0)
-		return (7);
-	if (char_ptr[7] == 0)
-		return (8);
-	return (0);
-}
+#include "ft_string.h"
 
 inline static int	ft_memcmp_cmp(const unsigned char *s1, const unsigned char *s2)
 {
@@ -58,19 +35,26 @@ inline static int	ft_memcmp_cmp(const unsigned char *s1, const unsigned char *s2
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	bign;
+	size_t			bign;
+	const uint64_t	himagic = 0x8080808080808080LL;
+	const uint64_t	lomagic = 0x0101010101010101LL;
+	uint64_t		s1_longword;
+	uint64_t		s2_longword;
 
-	bign = n / sizeof(__int64_t);
+	bign = n / sizeof(int64_t);
 	while (bign-- != 0)
 	{
-		if (ft_strlen_check(s1) && ft_strlen_check(s1) == ft_strlen_check(s2))
-			return (0);
-		else if (*((__int64_t*)s1) != *((__int64_t*)s2))
+		s1_longword = *(int64_t*)s1;
+		s2_longword = *(int64_t*)s2;
+		if (((s1_longword - lomagic) & ~s1_longword & himagic) != 0 ||
+			((s2_longword - lomagic) & ~s2_longword & himagic) != 0)
+			break;
+		if (*((int64_t*)s1++) != *((int64_t*)s2++))
 			return (ft_memcmp_cmp((const unsigned char*)s1 - 1, (const unsigned char*)s2 - 1));
 	}
-	n %= sizeof(__int64_t);
+	n %= sizeof(int64_t);
 	while (n-- != 0 && (*s1 || *s2))
-		if (*((unsigned char*)s1++) != *((unsigned char*)s2++))
-			return (*((unsigned char*)s1 - 1) - *((unsigned char*)s2 - 1));
+		if (*((uchar*)s1++) != *((uchar*)s2++))
+			return (*((uchar*)s1 - 1) - *((uchar*)s2 - 1));
 	return (0);
 }

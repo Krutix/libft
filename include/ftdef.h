@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ftdef.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:40:51 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/25 19:22:27 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/28 23:33:49 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,26 @@
 #include <limits.h>
 #include <stdint.h>
 
+/*
+************************************************
+**
+?				boolean type
+**
+*	to transform non zero value to t_true
+*			apply !!(x)
+**
+************************************************
+*/
+
 typedef enum e_bool { t_false = 0, t_true = 1 } t_bool;
 
+/*
+************************************************
+**
+*	short representation of common types
+**
+************************************************
+*/
 typedef unsigned int			uint;
 typedef long int				lint;
 typedef unsigned long int		ulint;
@@ -29,7 +47,11 @@ typedef unsigned short int		usint;
 typedef unsigned char			uchar;
 
 /*
-**	general data type for data structure
+************************************************
+**
+*	general data type for data structures
+**
+************************************************
 */
 typedef union	u_data {
 	void		*p;

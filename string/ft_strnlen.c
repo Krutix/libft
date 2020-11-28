@@ -6,7 +6,7 @@
 /*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:48:11 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/23 05:23:47 by krutix           ###   ########.fr       */
+/*   Updated: 2020/11/26 14:18:01 by krutix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ inline static const char	*ft_strnlen_longword(const char *start, const char *end
 	__uint64_t longword;
 
 	longword_ptr = (__uint64_t*) start;
-	while ((char*)longword_ptr < end_ptr - sizeof(__uint64_t))
+	while (end_ptr - (char*)longword_ptr > sizeof(__uint64_t))
 	{
 		longword = *longword_ptr++;
 		if (((longword - lomagic) & ~longword & himagic) != 0)
