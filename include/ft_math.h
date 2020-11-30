@@ -13,4 +13,7 @@ void	ft_swap_32(int32_t *v1, int32_t *v2);
 void	ft_swap_16(int16_t *v1, int16_t *v2);
 void	ft_swap_8(int8_t *v1, int8_t *v2);
 
+llint	ft_maxi(llint a1, llint a2);
+llint	ft_mini(llint a1, llint a2);
+
 #endif
