@@ -3,23 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 16:42:16 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:20:57 by krutix           ###   ########.fr       */
+/*   Updated: 2020/12/31 23:02:10 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-int	is_white_space_base(char ch)
-{
-	if (ch == ' ' || (9 <= ch && ch <= 13))
-		return (1);
-	return (0);
-}
-
-int	base_validate(char *base)
+static int	base_validate(char *base)
 {
 	int i;
 	int base_size;
@@ -41,7 +34,7 @@ int	base_validate(char *base)
 	return (base_size);
 }
 
-int	in_base(char ch, char *base)
+static int	in_base(char ch, char *base)
 {
 	int i;
 
@@ -55,7 +48,7 @@ int	in_base(char ch, char *base)
 	return (-1);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int			ft_atoi_base(char *str, char *base)
 {
 	int n;
 	int i;
@@ -68,7 +61,7 @@ int	ft_atoi_base(char *str, char *base)
 	base_size = base_validate(base);
 	if (base_size < 2)
 		return (0);
-	while (str[i] && is_white_space_base(str[i]) && in_base(str[i], base) == -1)
+	while (str[i] && ft_isspace(str[i]) && in_base(str[i], base) == -1)
 		i++;
 	while (str[i] && (str[i] == '-' || str[i] == '+'))
 		if (str[i++] == '-')

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:48:11 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 02:56:26 by krutix           ###   ########.fr       */
+/*   Updated: 2020/12/31 23:31:52 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stddef.h"
 #include "stdio.h"
 
-/* 
+/*
 ** Bits 31, 24, 16, and 8 of this number are zero.  Call these bits
 ** the "holes."  Note that there is a hole just to the left of
 ** each byte, with an extra at the end:
@@ -48,12 +48,12 @@ inline static const char	*ft_strlen_check(const char *char_ptr)
 
 inline static const char	*ft_strlen_longword(const char *start)
 {
-	const __uint64_t *longword_ptr;
-	const __uint64_t himagic = 0x8080808080808080LL;
-	const __uint64_t lomagic = 0x0101010101010101LL;
-	__uint64_t longword;
+	const __uint64_t	*longword_ptr;
+	const __uint64_t	himagic = 0x8080808080808080LL;
+	const __uint64_t	lomagic = 0x0101010101010101LL;
+	__uint64_t			longword;
 
-	longword_ptr = (__uint64_t*) start;
+	longword_ptr = (__uint64_t*)start;
 	while (1)
 	{
 		longword = *longword_ptr++;
@@ -63,7 +63,7 @@ inline static const char	*ft_strlen_longword(const char *start)
 	}
 }
 
-size_t	ft_strlen(const char *str)
+size_t						ft_strlen(const char *str)
 {
 	const char *char_ptr;
 
