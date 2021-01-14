@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftdef.h"
+#include "ft_math.h"
 
 void	ft_swap_n(void *v1, void *v2, size_t n)
 {

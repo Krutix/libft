@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include "libft.h"
+#include "ft_string.h"
 
 inline static const char
 			*ft_strchr_longword(const char *start, unsigned char c)

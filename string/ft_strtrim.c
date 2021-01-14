@@ -16,7 +16,6 @@
 char		*ft_strtrim(char const *str, char const *set)
 {
 	size_t	len;
-	char	*copy;
 
 	while (*str && ft_strchr(set, *str))
 		str++;
