@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:40:51 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/28 23:33:49 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/01/22 10:47:30 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef unsigned long long int	ullint;
 typedef short int				sint;
 typedef unsigned short int		usint;
 typedef unsigned char			uchar;
+typedef long double				ldouble;
 
 /*
 ************************************************
