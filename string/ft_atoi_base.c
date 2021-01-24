@@ -12,13 +12,6 @@
 
 #include "ft_string.h"
 
-int	is_white_space_base(char ch)
-{
-	if (ch == ' ' || (9 <= ch && ch <= 13))
-		return (1);
-	return (0);
-}
-
 int	base_validate(char *base)
 {
 	int i;
@@ -68,7 +61,7 @@ int	ft_atoi_base(char *str, char *base)
 	base_size = base_validate(base);
 	if (base_size < 2)
 		return (0);
-	while (str[i] && is_white_space_base(str[i]) && in_base(str[i], base) == -1)
+	while (str[i] && ft_isspace(str[i]) && in_base(str[i], base) == -1)
 		i++;
 	while (str[i] && (str[i] == '-' || str[i] == '+'))
 		if (str[i++] == '-')

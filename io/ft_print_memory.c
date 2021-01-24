@@ -1,5 +1,6 @@
 
 #include "unistd.h"
+#include "ft_io.h"
 #include "memory.h"
 
 static char	to_hex(unsigned int ch)
@@ -22,17 +23,13 @@ static void	print_hex_code(unsigned long long ch)
 
 static void	put_hexnbr(unsigned long long nb)
 {
-	char pr;
-
 	if (nb < 16)
 	{
-		pr = to_hex(nb);
-		write(1, &pr, 1);
+		ft_putchar_fd(to_hex(nb), 1);
 		return ;
 	}
 	put_hexnbr(nb / 16);
-	pr = to_hex(nb % 16);
-	write(1, &pr, 1);
+	ft_putchar_fd(to_hex(nb % 16), 1);
 }
 
 static void	print_address(void *addr, size_t size)

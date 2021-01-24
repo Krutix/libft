@@ -2,9 +2,11 @@ OUT_DIR =	./out
 
 INC_DIR =	./include
 
-SRCS	= $(shell find . -name "ft_*.c")
+SRCS	= ${shell find . -name "ft_*.c"}
 
 OBJS	= ${SRCS:.c=.o}
+
+D_FILES = ${shell find . -name "*.d"}
 
 
 NAME	= libft.a
@@ -18,7 +20,6 @@ RM		= rm -f
 .c.o:
 			${CC} ${CFLAGS} ${H_INC} -c $< -o ${<:.c=.o} -MD
 
-include (wildcard ${D_FILES})
 
 ${NAME}:	${OBJS}
 			@ar rcs ${NAME} $?
@@ -29,7 +30,7 @@ out:		${NAME}
 			@mkdir ${OUT_DIR}; cp -r ${INC_DIR} ${NAME} ${OUT_DIR}
 
 clean:
-			@${RM} ${OBJS}
+			@${RM} ${OBJS} ${D_FILES}
 
 fclean:		clean
 			@${RM} ${NAME} -r ${OUT_DIR}
