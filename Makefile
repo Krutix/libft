@@ -5,6 +5,7 @@ INC_DIR =	./include
 SRCS	= ${shell find . -name "ft_*.c"}
 
 OBJS	= ${SRCS:.c=.o}
+D_FILES	= $(shell find . -name "*.d")
 
 D_FILES = ${shell find . -name "*.d"}
 
@@ -20,7 +21,10 @@ RM		= rm -f
 .c.o:
 			${CC} ${CFLAGS} ${H_INC} -c $< -o ${<:.c=.o} -MD
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30180586a5ca73ee032a9d6e0bedc168b58a2910
 ${NAME}:	${OBJS}
 			@ar rcs ${NAME} $?
 

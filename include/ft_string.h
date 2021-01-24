@@ -1,7 +1,7 @@
 #ifndef FT_STRING_H
 # define FT_STRING_H
 
-#include "ftdef.h"
+# include "ftdef.h"
 
 extern int		ft_atoi_base(char *str, char *base);
 extern int		ft_atoi(const char *str);
@@ -78,22 +78,22 @@ extern char		*ft_strchr(const char *s, int c);
 /*
 ****************************************************
 **
-!		PROCESSES ONLY WITH VALID STRING
+**		PROCESSES ONLY WITH VALID STRING
 **
-* 	strdup		|	dublicate src string
-* 	substr		|	create substr from src
-*				--		from start with 'len' size
-*				--	when start >= strlen(src)
-*				--		begavior is undefined
-*	strtrim		|	trimed characters from start
-*				--		and end of string
-*	split		|	covert string to string tab 
-*				--		divided by any character
-*				--		from charset
-*	strmapi		|	copy string coverting all
-*				--		characters by f
+** 	strdup		|	dublicate src string
+** 	substr		|	create substr from src
+**				--		from start with 'len' size
+**				--	when start >= strlen(src)
+**				--		begavior is undefined
+**	strtrim		|	trimed characters from start
+**				--		and end of string
+**	split		|	covert string to string tab 
+**				--		divided by any character
+**				--		from charset
+**	strmapi		|	copy string coverting all
+**				--		characters by f
 **
-!	all			|	return NULL when alloc fails
+**	all			|	return NULL when alloc fails
 **
 ****************************************************
 */

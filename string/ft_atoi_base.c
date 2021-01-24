@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 16:42:16 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:20:57 by krutix           ###   ########.fr       */
+/*   Updated: 2020/12/31 23:02:10 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
+<<<<<<< HEAD
 int	base_validate(char *base)
+=======
+static int	base_validate(char *base)
+>>>>>>> 30180586a5ca73ee032a9d6e0bedc168b58a2910
 {
 	int i;
 	int base_size;
@@ -34,7 +38,7 @@ int	base_validate(char *base)
 	return (base_size);
 }
 
-int	in_base(char ch, char *base)
+static int	in_base(char ch, char *base)
 {
 	int i;
 
@@ -48,7 +52,7 @@ int	in_base(char ch, char *base)
 	return (-1);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int			ft_atoi_base(char *str, char *base)
 {
 	int n;
 	int i;

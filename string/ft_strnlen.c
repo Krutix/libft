@@ -54,7 +54,11 @@ inline static const char	*ft_strnlen_longword(const char *start, const char *end
 	__uint64_t longword;
 
 	longword_ptr = (__uint64_t*) start;
+<<<<<<< HEAD
 	while (end_ptr - (char*)longword_ptr > (long)sizeof(__uint64_t))
+=======
+	while ((__uint64_t)(end_ptr - (char*)longword_ptr) > sizeof(__uint64_t))
+>>>>>>> 30180586a5ca73ee032a9d6e0bedc168b58a2910
 	{
 		longword = *longword_ptr++;
 		if (((longword - lomagic) & ~longword & himagic) != 0)

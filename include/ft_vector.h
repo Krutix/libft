@@ -13,8 +13,8 @@
 #ifndef FT_VECTOR_H
 # define FT_VECTOR_H
 
-#include <stddef.h>
-#include "ftdef.h"
+# include <stddef.h>
+# include "ftdef.h"
 
 typedef struct	s_vector {
 	unsigned int	size;

@@ -13,7 +13,7 @@
 #ifndef FT_BTREE_H
 # define FT_BTREE_H
 
-#include "ftdef.h"
+# include "ftdef.h"
 
 typedef struct		s_btree
 {
