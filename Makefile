@@ -21,10 +21,6 @@ RM		= rm -f
 .c.o:
 			${CC} ${CFLAGS} ${H_INC} -c $< -o ${<:.c=.o} -MD
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 30180586a5ca73ee032a9d6e0bedc168b58a2910
 ${NAME}:	${OBJS}
 			@ar rcs ${NAME} $?
 

@@ -12,11 +12,7 @@
 
 #include "ft_string.h"
 
-<<<<<<< HEAD
-int	base_validate(char *base)
-=======
 static int	base_validate(char *base)
->>>>>>> 30180586a5ca73ee032a9d6e0bedc168b58a2910
 {
 	int i;
 	int base_size;

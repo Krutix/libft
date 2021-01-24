@@ -10,11 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-<<<<<<< HEAD
-#include <stddef.h>
-#include <stdio.h>
-=======
->>>>>>> 30180586a5ca73ee032a9d6e0bedc168b58a2910
 #include "ft_string.h"
 
 inline static const char
