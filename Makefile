@@ -1,5 +1,8 @@
 INC_DIR =	include/
 
+PYTHON	= python
+
+FTST	=
 SRCS	= 
 include string/Makefile
 include math/Makefile
@@ -24,6 +27,14 @@ ${OBJ_DIR}%.o:	%.c
 
 ${NAME}:	${OBJS}
 			ar rcs ${NAME} $?
+
+.PHONY:		test
+test:		${NAME}
+			@${PYTHON} ./gettests.py ${FTST}
+			@${CC} ${H_INC} -I ftst/include/ ${FTST} ftst_test_runner.c ${NAME} -D FTST_SILENT=1
+			@./a.out
+			@${RM} ./a.out
+
 
 all:
 			${MAKE} -j 16 ${NAME}

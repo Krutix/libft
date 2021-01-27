@@ -3,3 +3,4 @@
 obj/
 *.a
 *.d
+ftst_test_runner.c

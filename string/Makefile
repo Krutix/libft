@@ -35,6 +35,9 @@ STR_SRCS	=	ft_atoi_base.c \
 				ft_tolower.c \
 				ft_toupper.c
 
+STR_FTST	=	ft_strlen.ftst.c
+
 STR_DIR		=	string/
 
 SRCS			+=	${addprefix ${STR_DIR}, ${STR_SRCS}}
+FTST			+=	${addprefix ${STR_DIR}, ${STR_FTST}}
