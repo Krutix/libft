@@ -35,7 +35,8 @@ STR_SRCS	=	ft_atoi_base.c \
 				ft_tolower.c \
 				ft_toupper.c
 
-STR_FTST	=	ft_strlen.ftst.c
+STR_FTST	=	ft_strlen.ftst.c \
+				ft_memccpy.ftst.c
 
 STR_DIR		=	string/
 

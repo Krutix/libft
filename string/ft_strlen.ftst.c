@@ -13,8 +13,14 @@ TEST(ft_strlen_basic_test)
     }
 }
 
-TEST(ft_strlen_second_test)
+TEST(ft_strlen_freak_test)
 {
     char* str = "\0";
+    EQ(ft_strlen(str), strlen(str), zu);
+    str = "---------------\0";
+    EQ(ft_strlen(str), strlen(str), zu);
+    str = "---------------\0-";
+    EQ(ft_strlen(str), strlen(str), zu);
+    str = "---------------\0--";
     EQ(ft_strlen(str), strlen(str), zu);
 }

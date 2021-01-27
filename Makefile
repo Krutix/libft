@@ -25,19 +25,19 @@ ${OBJ_DIR}%.o:	%.c
 			mkdir -p ${dir $@}
 			${CC} ${CFLAGS} ${H_INC} -c $< -o $@
 
+all:
+			@${MAKE} -j 16 ${NAME} -s
+			@${MAKE} test -s
+
 ${NAME}:	${OBJS}
-			ar rcs ${NAME} $?
+			@ar rcs ${NAME} $?
 
 .PHONY:		test
 test:		${NAME}
 			@${PYTHON} ./gettests.py ${FTST}
-			@${CC} ${H_INC} -I ftst/include/ ${FTST} ftst_test_runner.c ${NAME} -D FTST_SILENT=1
+			@${CC} ${H_INC} -I ftst/include/ ${FTST} ftst_test_runner.c ${NAME} -ldl -D FTST_SILENT=1 -D FTST_ALLOC_TEST=1
 			@./a.out
-			@${RM} ./a.out
-
-
-all:
-			${MAKE} -j 16 ${NAME}
+			@${RM} ./a.out ftst_test_runner.c
 
 clean:
 			@${RM} ${OBJS_REAL}

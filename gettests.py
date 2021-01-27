@@ -3,7 +3,7 @@ import subprocess
 import os
 
 def get_all_tests(files):
-    pattern = '-G \'TEST(.*)$\''
+    pattern = '-G \'^TEST(.*)$\''
     cmd = f'grep {pattern} -h {" ".join(str(file) for file in files)}'
     output = subprocess.check_output(cmd, shell=True)
     s = str(output).strip("'b\\n").split("\\n")
