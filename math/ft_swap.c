@@ -10,22 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-<<<<<<< HEAD
-void	ft_swap_n(void *v1, void *v2, size_t n)
-{
-	while (n > 8)
-	{
-		ft_swap_8(v1, v2);
-		n -= 8;
-		v1 += 8;
-		v2 += 8;
-	}
-	while (n-- != 0)
-	{
-		ft_swap_1(v1, v2);
-		v1++;
-		v2++;
-=======
 #include "ft_math.h"
 
 void	ft_swap_n(void *v1, void *v2, size_t n)
@@ -43,7 +27,6 @@ void	ft_swap_n(void *v1, void *v2, size_t n)
 	{
 		ft_swap_1(v1 + offset, v2 + offset);
 		offset++;
->>>>>>> 30180586a5ca73ee032a9d6e0bedc168b58a2910
 	}
 }
 

@@ -1,5 +1,3 @@
-OBJ_DIR =	obj/
-
 INC_DIR =	include/
 
 SRCS	= 
@@ -9,8 +7,8 @@ include io/Makefile
 include data_structure/vector/Makefile
 include data_structure/list/Makefile
 
-OBJS		= ${SRCS:.c=.o}
-OBJS_REAL	:= ${foreach obj, ${OBJS}, ${dir ${obj}}${OBJ_DIR}${notdir ${obj}}}
+OBJ_DIR =	obj/
+OBJS		= ${SRCS:%.c=${OBJ_DIR}%.o}
 
 NAME	= libft.a
 
@@ -20,12 +18,12 @@ H_INC	= ${addprefix -I , ${INC_DIR}}
 
 RM		= rm -f
 
-%.o:	%.c
-			mkdir -p ${dir $<}${OBJ_DIR}
-			${CC} ${CFLAGS} ${H_INC} -c $< -o ${dir $@}${OBJ_DIR}${notdir $@}
+${OBJ_DIR}%.o:	%.c
+			mkdir -p ${dir $@}
+			${CC} ${CFLAGS} ${H_INC} -c $< -o $@
 
 ${NAME}:	${OBJS}
-			ar rcs ${NAME} ${OBJS_REAL}
+			ar rcs ${NAME} $?
 
 all:
 			${MAKE} -j 16 ${NAME}
