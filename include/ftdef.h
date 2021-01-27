@@ -59,6 +59,7 @@ typedef union	u_data {
 	char		*s;
 	intptr_t	i;
 	uintptr_t	u;
+	double		d;
 }				t_data;
 
 #endif

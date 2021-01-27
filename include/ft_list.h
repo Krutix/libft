@@ -21,9 +21,10 @@ typedef struct		s_list
 	t_data			data;
 }					t_list;
 
-t_list	*ft_create_elem(t_data data);
-void	ft_list_push_back(t_list **begin_list, t_data data);
-void	ft_list_push_front(t_list **begin_list, t_data data);
+t_list	*ft_create_list_i(t_data data);
+t_list	*ft_create_list(size_t data_size);
+t_bool	ft_list_push_back(t_list **begin_list, t_list *node);
+t_bool	ft_list_push_front(t_list **begin_list, t_list *node);
 t_list	*ft_list_push_strs(int size, char **strs);
 
 int		ft_list_size(t_list *begin_list);

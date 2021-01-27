@@ -22,6 +22,6 @@ t_list	*ft_list_push_strs(int size, char **strs)
 	i = -1;
 	b_list = 0;
 	while (++i < size)
-		ft_list_push_front(&b_list, ((t_data)(void*)strs[i]));
+		ft_list_push_front(&b_list, ft_create_list_i((t_data)(void*)strs[i])); /* TODO protect malloc */
 	return (b_list);
 }

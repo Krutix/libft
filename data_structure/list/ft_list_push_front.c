@@ -12,13 +12,11 @@
 
 #include "ft_list.h"
 
-void	ft_list_push_front(t_list **begin_list, t_data data)
+t_bool	ft_list_push_front(t_list **begin_list, t_list *node)
 {
-	t_list *new_node;
-
-	new_node = ft_create_elem(data);
-	if (!new_node)
-		return ;
-	new_node->next = *begin_list;
-	*begin_list = new_node;
+	if (!node)
+		return (t_false);
+	node->next = *begin_list;
+	*begin_list = node;
+	return (t_true);
 }

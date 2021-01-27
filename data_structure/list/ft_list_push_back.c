@@ -12,17 +12,20 @@
 
 #include "ft_list.h"
 
-void	ft_list_push_back(t_list **begin_list, t_data data)
+t_bool	ft_list_push_back(t_list **begin_list, t_list *node)
 {
 	t_list	*buff;
 
+	if (!node)
+		return (t_false);
 	if (*begin_list)
 	{
 		buff = *begin_list;
 		while (buff->next)
 			buff = buff->next;
-		buff->next = ft_create_elem(data);
+		buff->next = node;
 	}
 	else
-		*begin_list = ft_create_elem(data);
+		*begin_list = node;
+	return (t_true);
 }
