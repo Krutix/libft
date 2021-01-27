@@ -1,7 +1,5 @@
 *.o
 *.d
-out/
+obj/
 *.a
-tt*
-*.out
 *.d

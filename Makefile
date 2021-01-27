@@ -1,39 +1,40 @@
-OUT_DIR =	./out
+OBJ_DIR =	obj/
 
-INC_DIR =	./include
+INC_DIR =	include/
 
-SRCS	= ${shell find . -name "ft_*.c"}
+SRCS	= 
+include string/Makefile
+include math/Makefile
+include io/Makefile
+include data_structure/vector/Makefile
+include data_structure/list/Makefile
 
-OBJS	= ${SRCS:.c=.o}
-D_FILES	= $(shell find . -name "*.d")
-
-D_FILES = ${shell find . -name "*.d"}
-
+OBJS		= ${SRCS:.c=.o}
+OBJS_REAL	:= ${foreach obj, ${OBJS}, ${dir ${obj}}${OBJ_DIR}${notdir ${obj}}}
 
 NAME	= libft.a
 
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -O3
-H_INC	= -I ${INC_DIR}
+CFLAGS	= -Wall -Wextra -Werror -O2
+H_INC	= ${addprefix -I , ${INC_DIR}}
 
 RM		= rm -f
 
-.c.o:
-			${CC} ${CFLAGS} ${H_INC} -c $< -o ${<:.c=.o} -MD
+%.o:	%.c
+			mkdir -p ${dir $<}${OBJ_DIR}
+			${CC} ${CFLAGS} ${H_INC} -c $< -o ${dir $@}${OBJ_DIR}${notdir $@}
 
 ${NAME}:	${OBJS}
-			@ar rcs ${NAME} $?
+			ar rcs ${NAME} ${OBJS_REAL}
 
-all:		${NAME}
-
-out:		${NAME}
-			@mkdir ${OUT_DIR}; cp -r ${INC_DIR} ${NAME} ${OUT_DIR}
+all:
+			${MAKE} -j 16 ${NAME}
 
 clean:
-			@${RM} ${OBJS} ${D_FILES}
+			@${RM} ${OBJS_REAL}
 
 fclean:		clean
-			@${RM} ${NAME} -r ${OUT_DIR}
+			@${RM} ${NAME}
 
 re:			fclean all
 
