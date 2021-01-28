@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:48:11 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/26 14:18:01 by krutix           ###   ########.fr       */
+/*   Updated: 2021/01/28 17:38:46 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stddef.h"
 #include "stdio.h"
 
-/* 
+/*
 ** Bits 31, 24, 16, and 8 of this number are zero.  Call these bits
 ** the "holes."  Note that there is a hole just to the left of
 ** each byte, with an extra at the end:
@@ -25,7 +25,7 @@
 ** The 0-bits provide holes for carries to fall into.
 */
 
-inline static const char	*ft_strnlen_check(const char *char_ptr)	
+inline static const char	*ft_strnlen_check(const char *char_ptr)
 {
 	if (char_ptr[0] == 0)
 		return (char_ptr);
@@ -46,14 +46,15 @@ inline static const char	*ft_strnlen_check(const char *char_ptr)
 	return (NULL);
 }
 
-inline static const char	*ft_strnlen_longword(const char *start, const char *end_ptr)
+inline static const char	*ft_strnlen_longword(
+				const char *start, const char *end_ptr)
 {
-	const __uint64_t *longword_ptr;
-	const __uint64_t himagic = 0x8080808080808080LL;
-	const __uint64_t lomagic = 0x0101010101010101LL;
-	__uint64_t longword;
+	const __uint64_t	*longword_ptr;
+	const __uint64_t	himagic = 0x8080808080808080LL;
+	const __uint64_t	lomagic = 0x0101010101010101LL;
+	__uint64_t			longword;
 
-	longword_ptr = (__uint64_t*) start;
+	longword_ptr = (__uint64_t*)start;
 	while ((__uint64_t)(end_ptr - (char*)longword_ptr) > sizeof(__uint64_t))
 	{
 		longword = *longword_ptr++;
@@ -68,14 +69,15 @@ inline static const char	*ft_strnlen_longword(const char *start, const char *end
 	return (end_ptr);
 }
 
-size_t	ft_strnlen(const char *str, size_t n)
+size_t						ft_strnlen(const char *str, size_t n)
 {
 	const char *char_ptr;
 	const char *end_ptr;
 
 	char_ptr = str;
 	end_ptr = str + n;
-	while (char_ptr != end_ptr && (((__uint64_t)char_ptr & (sizeof(__uint64_t) - 1)) != 0))
+	while (char_ptr != end_ptr &&
+			(((__uint64_t)char_ptr & (sizeof(__uint64_t) - 1)) != 0))
 		if (*char_ptr++ == '\0')
 			return (--char_ptr - str);
 	return (ft_strnlen_longword(char_ptr, end_ptr) - str);

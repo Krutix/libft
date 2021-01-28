@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 14:01:51 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 21:40:20 by krutix           ###   ########.fr       */
+/*   Updated: 2021/01/28 17:28:53 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-t_bool	ft_is_prime(ullint nb)
+t_bool	ft_is_prime(t_ullint nb)
 {
 	unsigned int i;
 	unsigned int sqrt;

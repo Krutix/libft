@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vec_returndel.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 18:14:00 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/19 22:56:46 by krutix           ###   ########.fr       */
+/*   Updated: 2021/01/28 17:36:29 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	*ft_vec_returndel(t_vector *vec, void (*del)(t_data))
 {
-	ft_vec_destructor(vec, del);
+	(void)del;
+	ft_vec_destructor(vec);
 	return (NULL);
 }

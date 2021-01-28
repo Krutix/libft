@@ -1,6 +1,6 @@
 INC_DIR =	include/
 
-PYTHON	= python
+PYTHON	= python3
 
 FTST	=
 SRCS	= 
@@ -31,6 +31,10 @@ all:
 
 ${NAME}:	${OBJS}
 			@ar rcs ${NAME} $?
+
+.PHONY:		norm
+norm:
+			norminette ${SRCS} ${INC_DIR}
 
 .PHONY:		test
 test:		${NAME}

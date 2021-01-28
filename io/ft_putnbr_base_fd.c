@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:23:54 by fdiego            #+#    #+#             */
-/*   Updated: 2020/12/31 23:42:48 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/01/28 17:28:17 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_string.h"
 #include "ft_math.h"
 
-static size_t	ft_unum_size(ullint n, size_t base_size)
+static size_t	ft_unum_size(t_ullint n, size_t base_size)
 {
 	size_t i;
 
@@ -28,11 +28,11 @@ static size_t	ft_unum_size(ullint n, size_t base_size)
 	return (i);
 }
 
-int				ft_putnbr_base_fd(llint nb, char *base, int fd)
+int				ft_putnbr_base_fd(t_llint nb, char *base, int fd)
 {
 	const size_t	base_length = ft_strlen(base);
 	const size_t	len = ft_unum_size(ft_abs(nb), base_length) + (nb < 0);
-	ullint			unb;
+	t_ullint		unb;
 	char			str_num[len];
 	char			*back;
 

@@ -6,13 +6,13 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 21:32:16 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/29 03:55:24 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/01/28 17:28:43 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftdef.h"
 
-ullint	ft_abs(llint num)
+t_ullint	ft_abs(t_llint num)
 {
 	return (num < 0 ? -num : num);
 }

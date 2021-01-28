@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_string.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/28 17:34:23 by fdiego            #+#    #+#             */
+/*   Updated: 2021/01/28 17:35:53 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_STRING_H
 # define FT_STRING_H
 
@@ -28,10 +40,10 @@ extern int		ft_memcmp(const void *s1, const void *s2, size_t n);
 /*
 ****************************************************
 **
-!		PROCESSES ONLY WITH VALID STRING
+**		PROCESSES ONLY WITH VALID STRING
 **
-* 	strlen		|	return length of string
-*	strnlen		|	return length <= n
+** 	strlen		|	return length of string
+**  strnlen		|	return length <= n
 **
 ****************************************************
 */
@@ -42,21 +54,21 @@ extern size_t	ft_strnlen(const char *str, size_t n);
 /*
 ****************************************************
 **
-*	strcpy		|	copy string to null terminant
-*	strncpy		|	copy string to null terminant	
-*				-		max 'n' characters
-*				-	not guarantees null terminated string
-*	strlcpy		|	copy string in 'dest'
-*				-		with 'size' the 'dest' size
+**	strcpy		|	copy string to null terminant
+**	strncpy		|	copy string to null terminant
+**				-		max 'n' characters
+**				-	not guarantees null terminated string
+**	strlcpy		|	copy string in 'dest'
+**				-		with 'size' the 'dest' size
 **
 ****************************************************
 **
-*	strcat		|	cat 'src' to 'dest'
-*	strncat		|	cat 'src' to 'dest'
-*				-		max 'n' characters
-*				-	not guarantees null terminated string
-*	strlcat		|	cat 'src' to 'dest'
-*				-		with 'size' the 'dest' size
+**	strcat		|	cat 'src' to 'dest'
+**	strncat		|	cat 'src' to 'dest'
+**				-		max 'n' characters
+**				-	not guarantees null terminated string
+**	strlcat		|	cat 'src' to 'dest'
+**				-		with 'size' the 'dest' size
 **
 ****************************************************
 */
@@ -87,7 +99,7 @@ extern char		*ft_strchr(const char *s, int c);
 **				--		begavior is undefined
 **	strtrim		|	trimed characters from start
 **				--		and end of string
-**	split		|	covert string to string tab 
+**	split		|	covert string to string tab
 **				--		divided by any character
 **				--		from charset
 **	strmapi		|	copy string coverting all

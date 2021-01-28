@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:01:43 by fdiego            #+#    #+#             */
-/*   Updated: 2020/12/31 23:35:28 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/01/28 17:36:54 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ inline static int	ft_memcmp_cmp(const unsigned char *s1,
 	return (0);
 }
 
-int				ft_strncmp(const char *s1, const char *s2, size_t n)
+int					ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			bign;
 	const uint64_t	himagic = 0x8080808080808080LL;
@@ -56,7 +56,7 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	n %= sizeof(int64_t);
 	while (n-- != 0 && (*s1 || *s2))
-		if (*((uchar*)s1++) != *((uchar*)s2++))
-			return (*((uchar*)s1 - 1) - *((uchar*)s2 - 1));
+		if (*((t_uchar*)s1++) != *((t_uchar*)s2++))
+			return (*((t_uchar*)s1 - 1) - *((t_uchar*)s2 - 1));
 	return (0);
 }

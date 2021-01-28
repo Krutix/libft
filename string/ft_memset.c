@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:17:21 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/26 14:02:13 by krutix           ###   ########.fr       */
+/*   Updated: 2021/01/28 17:32:22 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*
 **	__uint32_t	vvvv;
 **	size_t		big_word;
-** 
+**
 **	vvvv = (unsigned char)value;
 **	vvvv = (vvvv << 8) | vvvv;
 **	vvvv = (vvvv << 16) | vvvv;

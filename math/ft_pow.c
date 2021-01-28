@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 12:06:59 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 21:37:29 by krutix           ###   ########.fr       */
+/*   Updated: 2021/01/28 17:30:05 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "ft_math.h"
 
-llint	ft_pow(llint nb, size_t power)
+t_llint	ft_pow(t_llint nb, size_t power)
 {
 	int res;
 
