@@ -9,8 +9,7 @@ LIST_SRCS	=	ft_create_elem.c \
 				ft_list_push_front.c \
 				ft_list_remove_if.c \
 				ft_list_reverse.c \
-				ft_list_size.c \
-				ft_list_sort.c
+				ft_list_size.c
 
 LIST_DIR	= data_structure/list/
 

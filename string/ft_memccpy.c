@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:23:22 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 17:31:18 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/01/28 17:49:24 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void			*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	}
 	while (n-- != 0)
 		if ((*((t_uchar*)dest++) = *((t_uchar*)src++))
-						== (uchar)c)
+						== (t_uchar)c)
 			return (dest);
 	return (NULL);
 }
