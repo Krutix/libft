@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 17:34:23 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 19:40:33 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/01/28 19:51:49 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ftdef.h"
 
 extern int		ft_atoi_base(char *str, char *base);
-extern int		ft_atoi(const char *str);
+extern t_lint	ft_atoi(const char *str);
 extern char		*ft_itoa(int num);
 
 extern t_bool	ft_isdigit(int c);

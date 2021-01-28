@@ -38,6 +38,7 @@ STR_SRCS	=	ft_atoi_base.c \
 
 STR_FTST	=	ft_strlen.ftst.c \
 				ft_memccpy.ftst.c \
+				ft_atoi.ftst.c \
 				ft_ulen.ftst.c
 
 STR_DIR		=	string/
