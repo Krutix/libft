@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 17:34:23 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 17:35:53 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/01/28 19:40:33 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,10 @@ extern char		*ft_strtrim(char const *str, char const *set);
 extern char		**ft_split(char const *str, char *charset);
 extern char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 extern void		ft_sort_str_tab(char **tab, int (*cmp)(char *, char *));
+
+t_uint			ft_ulen(t_ullint num);
+t_uint			ft_ulen_n(t_ullint num, t_uint base);
+t_uint			ft_ulen_2(t_ullint num);
+t_uint			ft_ulen_16(t_ullint num);
 
 #endif
