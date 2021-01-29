@@ -1,6 +1,8 @@
 *.o
 *.d
 obj/
+release/
+debug/
 *.a
 *.d
 *.out
