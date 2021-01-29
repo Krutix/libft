@@ -1,9 +1,14 @@
-*.o
-*.d
-obj/
+# Compiler output
 release/
 debug/
-*.a
-*.d
 *.out
+*.o
+*.d
+*.d
+*.a
+
+# Test files
 ftst_test_runner.c
+
+# Editor files
+.vscode

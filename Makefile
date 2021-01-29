@@ -43,7 +43,7 @@ include string/Makefile
 include math/Makefile
 include io/Makefile
 #include data_structure/vector/Makefile
-include data_structure/list/Makefile
+#include data_structure/list/Makefile
 
 INC_DIR =	include/
 NAME	=	libft.a
@@ -62,24 +62,26 @@ H_INC	= ${addprefix -I , ${INC_DIR}}
 DEBUG_DIR		= debug/
 DEBUG_LIB		= ${DEBUG_DIR}${NAME}
 DEBUG_OBJS		= ${SRCS:%.c=${DEBUG_DIR}%.o}
+DEBUG_D_FILES	= ${SRCS:%.c=${DEBUG_DIR}%.d}
+include ${wildcard ${DEBUG_D_FILES}}
 
 DEBUG_FLAGS	= -O0 -g3 -fsanitize=undefined -fsanitize=address
 DEBUG_TEST_FLAGS = -static-libubsan -static-libasan
 
 ${DEBUG_DIR}%.o:	%.c
 			@${MKDIR} ${dir $@}
-			@${CC} ${CFLAGS} ${H_INC} -c $< -o $@
+			@${CC} ${CFLAGS} ${H_INC} -c $< -o $@ -MD
 
 .PHONY:	debug_test
 debug_test:	${FTST_TEST_RUNNER_SRC} ${DEBUG_LIB}
 			@${CC} ${DEBUG_TEST_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${DEBUG_LIB}
 			@./a.out
 			@${RM} ./a.out ${FTST_TEST_RUNNER_SRC}
-			printf ${PRETTY_STATUS} "${PRETTY_DEBUG}" "${NAME}" "test" "${PRETTY_DONE}"
+			printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "test" "${PRETTY_DONE}"
 
 ${DEBUG_LIB}:	${DEBUG_OBJS}
 			@${AR} ${DEBUG_LIB} ${DEBUG_OBJS}
-			printf ${PRETTY_STATUS} "${PRETTY_DEBUG}" "${NAME}" "compile" "${PRETTY_DONE}"
+			printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "compile" "${PRETTY_DONE}"
 
 .PHONY:	debug
 debug:
@@ -94,22 +96,25 @@ RELEASE_DIR		= release/
 RELEASE_LIB		= ${RELEASE_DIR}${NAME}
 RELEASE_OBJS	= ${SRCS:%.c=${RELEASE_DIR}%.o}
 
+RELEASE_D_FILES	= ${SRCS:%.c=${RELEASE_DIR}%.d}
+include ${wildcard ${RELEASE_D_FILES}}
+
 RELEASE_FLAGS	= -O2 -fomit-frame-pointer
 
 ${RELEASE_DIR}%.o:	%.c
 			@${MKDIR} ${dir $@}
-			@${CC} ${CFLAGS} ${RELEASE_FLAGS} ${H_INC} -c $< -o $@
+			@${CC} ${CFLAGS} ${RELEASE_FLAGS} ${H_INC} -c $< -o $@ -MD
 
 .PHONY:	rel_test
 rel_test:	${FTST_TEST_RUNNER_SRC} release
 			@${CC} ${RELEASE_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${RELEASE_LIB}
 			@./a.out
 			@${RM} ./a.out ${FTST_TEST_RUNNER_SRC}
-			printf ${PRETTY_STATUS} "${PRETTY_RELEASE}" "${NAME}" "test" "${PRETTY_DONE}"
+			printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "test" "${PRETTY_DONE}"
 
 ${RELEASE_LIB}:	${RELEASE_OBJS}
 			@${AR} ${RELEASE_LIB} ${RELEASE_OBJS}
-			printf ${PRETTY_STATUS} "${PRETTY_RELEASE}" "${NAME}" "compile" "${PRETTY_DONE}"
+			printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "compile" "${PRETTY_DONE}"
 
 .PHONY:	rel
 rel:
@@ -132,7 +137,7 @@ clean:
 
 .PHONY:	fclean
 fclean:		clean
-			@${RM} ${RELEASE_LIB} ${DEBUG_LIB} -r ${DEBUG_DIR} -r ${RELEASE_DIR}
+			@${RM} -r ${DEBUG_DIR} -r ${RELEASE_DIR}
 
 re:			fclean all
 
