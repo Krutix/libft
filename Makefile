@@ -72,23 +72,26 @@ DEBUG_TEST_FLAGS = -static-libubsan -static-libasan
 
 ${DEBUG_DIR}%.o:	%.c
 			@${MKDIR} ${dir $@}
-			@${CC} ${CFLAGS} ${H_INC} -c $< -o $@ -MD
+			@${CC} ${CFLAGS} ${H_INC} -c $< -o $@ -MD || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "$<" "compile" "${PRETTY_FAIL}"; exit 1;	}
 
-.PHONY:	debug_test
-debug_test:	${FTST_TEST_RUNNER_SRC} ${DEBUG_LIB}
+.PHONY:	db_test
+db_test:	${FTST_TEST_RUNNER_SRC} ${DEBUG_LIB}
 			@${CC} ${DEBUG_TEST_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${DEBUG_LIB}
-			@./a.out
+			@./a.out && \
+				printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "test" "${PRETTY_DONE}" || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "test" "${PRETTY_FAIL}"; exit 1;	}
 			@${RM} ./a.out ${FTST_TEST_RUNNER_SRC}
-			printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "test" "${PRETTY_DONE}"
 
 ${DEBUG_LIB}:	${DEBUG_OBJS}
-			@${AR} ${DEBUG_LIB} ${DEBUG_OBJS}
-			printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "compile" "${PRETTY_DONE}"
+			@${AR} ${DEBUG_LIB} ${DEBUG_OBJS} && \
+				printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "compile" "${PRETTY_DONE}"	|| \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "compile" "${PRETTY_FAIL}"; exit 1;	}
 
-.PHONY:	debug
-debug:
-			@${MAKE} -j 16 ${DEBUG_LIB} -s
-			@${MAKE} debug_test FTST_SILENT_MODE=1 -s
+.PHONY:	db
+db:
+			@${MAKE} -j 16 ${DEBUG_LIB} -s -i
+			@${MAKE} db_test FTST_SILENT_MODE=1 -s -i
 
 #######################################################
 #
@@ -105,29 +108,32 @@ RELEASE_FLAGS	= -O2 -fomit-frame-pointer
 
 ${RELEASE_DIR}%.o:	%.c
 			@${MKDIR} ${dir $@}
-			@${CC} ${CFLAGS} ${RELEASE_FLAGS} ${H_INC} -c $< -o $@ -MD
+			@${CC} ${CFLAGS} ${RELEASE_FLAGS} ${H_INC} -c $< -o $@ -MD || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "$<" "compile" "${PRETTY_FAIL}"; exit 1;	}
 
-.PHONY:	rel_test
-rel_test:	${FTST_TEST_RUNNER_SRC} release
+.PHONY:	rl_test
+rl_test:	${FTST_TEST_RUNNER_SRC} ${RELEASE_LIB}
 			@${CC} ${RELEASE_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${RELEASE_LIB}
-			@./a.out
+			@./a.out && \
+				printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "test" "${PRETTY_DONE}" || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "test" "${PRETTY_FAIL}"; exit 1;	}
 			@${RM} ./a.out ${FTST_TEST_RUNNER_SRC}
-			printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "test" "${PRETTY_DONE}"
 
 ${RELEASE_LIB}:	${RELEASE_OBJS}
-			@${AR} ${RELEASE_LIB} ${RELEASE_OBJS}
-			printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "compile" "${PRETTY_DONE}"
+			@${AR} ${RELEASE_LIB} ${RELEASE_OBJS} && \
+				printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "compile" "${PRETTY_DONE}"	|| \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "compile" "${PRETTY_FAIL}"; exit 1;	}
 
-.PHONY:	rel
-rel:
-			@${MAKE} -j 16 ${RELEASE_LIB} -s
-			@${MAKE} rel_test -s
+.PHONY:	rl
+rl:
+			@${MAKE} -j 16 ${RELEASE_LIB} -s -i
+			@${MAKE} rl_test -s -i
 
 #######################################################
 
 .PHONY:	all
-all:		rel
-${NAME}:	rel
+all:		rl
+${NAME}:	rl
 
 .PHONY:	norm
 norm:
@@ -141,10 +147,14 @@ clean:
 fclean:		clean
 			@${RM} -r ${DEBUG_DIR} -r ${RELEASE_DIR}
 
-re:			fclean all
+.PHONY:	re
+re:			rerl
+
+.PHONY:	rerl
+rerl:		fclean all
 
 .PHONY:	redb
-redb:		fclean debug
+redb:		fclean db
 
 #so:
 #			@${CC} ${CFLAGS} -fPIC -c ${SRCS}
