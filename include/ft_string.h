@@ -18,7 +18,7 @@
 extern int		ft_atoi_base(char *str, char *base);
 extern t_lint	ft_atoi(const char *str);
 extern size_t   ft_utob(char *buffer, t_ullint num);
-extern char		*ft_itoa(int num);
+extern char		*ft_itoa(t_llint num);
 
 extern t_bool	ft_isdigit(int c);
 extern t_bool	ft_isalpha(int c);

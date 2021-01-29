@@ -12,9 +12,9 @@
 
 #include "ft_math.h"
 
-ullint	ft_sqrt(ullint nb)
+t_ullint	ft_sqrt(t_ullint nb)
 {
-	ullint i;
+	t_ullint i;
 
 	i = 0;
 	while (i * i < nb)

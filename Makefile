@@ -1,28 +1,44 @@
-INC_DIR =	include/
+# External programms
+PYTHON		= python3
+NORMINETTE	= norminette
+RM			= rm -f
+AR			= ar rcs
+MKDIR		= mkdir -p
 
-PYTHON	= python3
 
-FTST	=
-SRCS	= 
+# FTST test setup
+FTST_TEST_GENERATOR	=	ftst/gen_test_main.py
+FTST_TEST_RUNNER_SRC =	./ftst_test_runner.c
+FTST_INC			=	ftst/include/
+FTST_H_INC			=	${addprefix -I , ${FTST_INC}}
+FTST_SILENT_MODE	?=	1
+FTST_SILENT			=	-D FTST_SILENT=${FTST_SILENT_MODE} 
+FTST_FLAGS			=	-ldl -D FTST_ALLOC_TEST=1 ${FTST_SILENT} ${FTST_H_INC}
+
+
+# include source files from sub dirs
+FTST_SRCS	=
+SRCS		=
 include string/Makefile
 include math/Makefile
 include io/Makefile
-include data_structure/vector/Makefile
+#include data_structure/vector/Makefile
 include data_structure/list/Makefile
 
 OBJ_DIR =	obj/
 OBJS		= ${SRCS:%.c=${OBJ_DIR}%.o}
 
+INC_DIR =	include/
+
 NAME	= libft.a
 
+# Compiler setup
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -O2
+CFLAGS	= -Wall -Wextra -Werror
 H_INC	= ${addprefix -I , ${INC_DIR}}
 
-RM		= rm -f
-
 ${OBJ_DIR}%.o:	%.c
-			mkdir -p ${dir $@}
+			${MKDIR} ${dir $@}
 			${CC} ${CFLAGS} ${H_INC} -c $< -o $@
 
 all:
@@ -30,21 +46,22 @@ all:
 			@${MAKE} test -s
 
 ${NAME}:	${OBJS}
-			@ar rcs ${NAME} $?
+			@${AR} ${NAME} $?
 
 .PHONY:		norm
 norm:
-			norminette ${SRCS} ${INC_DIR}
+			${NORMINETTE} ${SRCS} ${INC_DIR}
 
 .PHONY:		test
 test:		${NAME}
-			@${PYTHON} ./gettests.py ${FTST}
-			@${CC} ${H_INC} -I ftst/include/ ${FTST} ftst_test_runner.c ${NAME} -ldl -D FTST_SILENT=1 -D FTST_ALLOC_TEST=1
+			# generate FTST_TEST_RUNNER_SRC
+			@${PYTHON} ${FTST_TEST_GENERATOR} ${FTST_SRCS}
+			@${CC} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${NAME}
 			@./a.out
-			@${RM} ./a.out ftst_test_runner.c
+			@${RM} ./a.out ${FTST_TEST_RUNNER_SRC}
 
 clean:
-			@${RM} ${OBJS_REAL}
+			@${RM} -r ${OBJ_DIR}
 
 fclean:		clean
 			@${RM} ${NAME}

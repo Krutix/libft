@@ -11,21 +11,9 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_string.h"
 
-static size_t	unum_size(unsigned int n)
-{
-	size_t i;
-
-	i = 1;
-	while (n >= 10)
-	{
-		i++;
-		n /= 10;
-	}
-	return (i);
-}
-
-char			*ft_itoa(int num)
+char			*ft_itoa(t_llint num)
 {
 	char			*num_str;
 	unsigned int	unum;
@@ -34,7 +22,7 @@ char			*ft_itoa(int num)
 
 	unirminus = (num < 0);
 	unum = num < 0 ? -(unsigned)num : (unsigned)num;
-	size = unum_size(unum) + unirminus;
+	size = ft_ulen(unum) + unirminus;
 	if (!(num_str = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	num_str[size--] = '\0';

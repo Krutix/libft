@@ -13,19 +13,7 @@
 #include "stddef.h"
 #include <stdint.h>
 
-/*
-** Bits 31, 24, 16, and 8 of this number are zero.  Call these bits
-** the "holes."  Note that there is a hole just to the left of
-** each byte, with an extra at the end:
-**
-** bits:  01111110 11111110 11111110 11111111
-** bytes: AAAAAAAA BBBBBBBB CCCCCCCC DDDDDDDD
-**
-** The 1-bits make sure that carries propagate to the next 0-bit.
-** The 0-bits provide holes for carries to fall into.
-*/
-
-inline const char	*ft_strlen_check(const char *char_ptr)
+inline static const char	*ft_strlen_check(const char *char_ptr)
 {
 	if (*char_ptr == 0)
 		return (char_ptr);
@@ -46,7 +34,7 @@ inline const char	*ft_strlen_check(const char *char_ptr)
 	return (NULL);
 }
 
-size_t				ft_strlen(const char *str)
+size_t						ft_strlen(const char *str)
 {
 	uint64_t const		*longword_ptr;
 	char const *const	start_ptr = str;
