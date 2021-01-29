@@ -6,7 +6,8 @@ RM			= rm -f
 AR			= ar rcs
 MKDIR		= mkdir -p
 
-# colors
+
+# Pretty print
 COLOR_RED		= \x1b[31m
 COLOR_GREEN		= \x1b[32m
 COLOR_YELLOW	= \x1b[33m
@@ -22,6 +23,7 @@ PRETTY_RELEASE	= [${COLOR_CYAN}r${COLOR_RESET}]
 PRETTY_DEBUG	= [${COLOR_CYAN}d${COLOR_RESET}]
 
 PRETTY_STATUS	= "%b ${COLOR_YELLOW}%b${COLOR_RESET} %-10b %b\n"
+
 
 # FTST test setup
 FTST_TEST_GENERATOR	=	ftst/gen_test_main.py
