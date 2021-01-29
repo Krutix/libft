@@ -8,7 +8,7 @@ MKDIR		= mkdir -p
 
 # FTST test setup
 FTST_TEST_GENERATOR	=	ftst/gen_test_main.py
-FTST_TEST_RUNNER_SRC =	./ftst_test_runner.c
+FTST_TEST_RUNNER_SRC =	ftst_test_runner.c
 FTST_INC			=	ftst/include/
 FTST_H_INC			=	${addprefix -I , ${FTST_INC}}
 FTST_SILENT_MODE	?=	1
@@ -25,7 +25,7 @@ include io/Makefile
 #include data_structure/vector/Makefile
 include data_structure/list/Makefile
 
-OBJ_DIR =	obj/
+OBJ_DIR		= obj/
 OBJS		= ${SRCS:%.c=${OBJ_DIR}%.o}
 
 INC_DIR =	include/
@@ -34,8 +34,9 @@ NAME	= libft.a
 
 # Compiler setup
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -O2
 H_INC	= ${addprefix -I , ${INC_DIR}}
+
 
 ${OBJ_DIR}%.o:	%.c
 			${MKDIR} ${dir $@}
@@ -54,7 +55,6 @@ norm:
 
 .PHONY:		test
 test:		${NAME}
-			# generate FTST_TEST_RUNNER_SRC
 			@${PYTHON} ${FTST_TEST_GENERATOR} ${FTST_SRCS}
 			@${CC} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${NAME}
 			@./a.out
