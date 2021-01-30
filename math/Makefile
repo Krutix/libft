@@ -12,4 +12,4 @@ FTST_MATH	=	ft_swap.ftst.c
 MATH_DIR	= math/
 
 SRCS		+= ${addprefix ${MATH_DIR}, ${SRCS_MATH}}
-FTST_SRCS	+= ${addprefix ${MATH_DIR}, ${FTST_MATH}}
+FTST_SRCS	+= ${addprefix ${MATH_DIR}ftst/, ${FTST_MATH}}

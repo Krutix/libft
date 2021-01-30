@@ -45,7 +45,7 @@ STR_FTST	=	ft_strlen.ftst.c \
 				ft_ito_str.ftst.c \
 				ft_strchr.ftst.c
 
-STR_DIR		=	string/
+STR_DIR			=	string/
 
 SRCS			+=	${addprefix ${STR_DIR}, ${STR_SRCS}}
-FTST_SRCS		+=	${addprefix ${STR_DIR}, ${STR_FTST}}
+FTST_SRCS		+=	${addprefix ${STR_DIR}ftst/, ${STR_FTST}}
