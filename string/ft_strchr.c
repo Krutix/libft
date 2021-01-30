@@ -29,7 +29,7 @@ inline static const char	*ft_strchr_longword(
 	{
 		longword = *longword_ptr;
 		if (((longword - lomagic) & ~longword & himagic) != 0 ||
-			(((longword ^ repeat_c) - lomagic) & ~longword & himagic) != 0)
+			(((longword ^ repeat_c) - lomagic) & ~(longword ^ repeat_c) & himagic) != 0)
 			break ;
 		longword_ptr++;
 	}

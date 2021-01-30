@@ -13,10 +13,10 @@
 #include "ft_string.h"
 #include <stdlib.h>
 
-long			ft_atoi(const char *str)
+long long		ft_atoi(const char *str)
 {
 	size_t			i;
-	t_ulint			nb;
+	t_ullint		nb;
 	char			sign;
 
 	i = 0;

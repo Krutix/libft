@@ -90,8 +90,8 @@ ${DEBUG_LIB}:	${DEBUG_OBJS}
 
 .PHONY:	db
 db:
-			@${MAKE} -j 16 ${DEBUG_LIB} -s -i
-			@${MAKE} db_test FTST_SILENT_MODE=1 -s -i
+			@${MAKE} -j 16 ${DEBUG_LIB} -s && \
+			${MAKE} db_test FTST_SILENT_MODE=1 -s
 
 #######################################################
 #
@@ -126,8 +126,8 @@ ${RELEASE_LIB}:	${RELEASE_OBJS}
 
 .PHONY:	rl
 rl:
-			@${MAKE} -j 16 ${RELEASE_LIB} -s -i
-			@${MAKE} rl_test -s -i
+			@${MAKE} -j 16 ${RELEASE_LIB} -s && \
+			${MAKE} rl_test -s
 
 #######################################################
 

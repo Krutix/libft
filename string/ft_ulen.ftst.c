@@ -1,6 +1,5 @@
 #include "ft_string.h"
 
-#define FTST_SUB_TEST
 #include "ftst.h"
 
 TEST(ft_ulen_basic)

@@ -15,9 +15,17 @@
 
 # include "ftdef.h"
 
-extern int		ft_atoi_base(char *str, char *base);
-extern t_lint	ft_atoi(const char *str);
+extern t_llint	ft_atoi_base(char *str, char *base);
+extern t_llint	ft_atoi(const char *str);
+
 extern size_t   ft_utob(char *buffer, t_ullint num);
+extern size_t   ft_utob_16(char *buffer, t_ullint num, char *base);
+extern size_t   ft_utob_n(char *buffer, t_ullint num, char *base);
+extern char     *ft_utob_bt(char *buffer_end, t_ullint num);
+extern char     *ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
+extern char     *ft_utob_bt_16(char *buffer_end, t_ullint num, char *base);
+extern char     *ft_utob_bt_2(char *buffer_end, t_ullint num);
+
 extern char		*ft_itoa(t_llint num);
 
 extern t_bool	ft_isdigit(int c);
@@ -118,9 +126,9 @@ extern char		**ft_split(char const *str, char *charset);
 extern char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 extern void		ft_sort_str_tab(char **tab, int (*cmp)(char *, char *));
 
-t_uint			ft_ulen(t_ullint num);
-t_uint			ft_ulen_n(t_ullint num, t_uint base);
-t_uint			ft_ulen_2(t_ullint num);
-t_uint			ft_ulen_16(t_ullint num);
+extern t_uint	ft_ulen(t_ullint num);
+extern t_uint	ft_ulen_n(t_ullint num, t_uint base);
+extern t_uint	ft_ulen_2(t_ullint num);
+extern t_uint	ft_ulen_16(t_ullint num);
 
 #endif
