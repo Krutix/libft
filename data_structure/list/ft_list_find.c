@@ -20,5 +20,5 @@ t_list	*ft_list_find(t_list *begin_list, t_data data_ref, int (*cmp)())
 			return (begin_list);
 		begin_list = begin_list->next;
 	}
-	return (0);
+	return (NULL);
 }

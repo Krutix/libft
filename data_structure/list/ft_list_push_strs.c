@@ -12,16 +12,21 @@
 
 #include "ft_list.h"
 
-t_list	*ft_list_push_strs(int size, char **strs)
+t_list	*ft_list_push_strs(size_t size, char **strs)
 {
 	t_list	*b_list;
-	int		i;
+	size_t	i;
 
-	if (size <= 0)
-		return (0);
-	i = -1;
-	b_list = 0;
-	while (++i < size)
-		ft_list_push_front(&b_list, ft_create_list_i((t_data)(void*)strs[i])); /* TODO protect malloc */
+	b_list = NULL;
+	i = 0;
+	while (i < size)
+	{
+		if (!ft_list_push_front(&b_list, ft_create_list((t_data)(void*)strs[i]))) /* TODO protect malloc */
+		{
+			ft_list_clear(b_list, NULL);
+			return (NULL);
+		}
+		i++;
+	}
 	return (b_list);
 }

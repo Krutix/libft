@@ -12,14 +12,17 @@
 
 #include "ft_list.h"
 
-t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+t_list	*ft_list_at(t_list *begin_list, size_t nbr)
 {
-	unsigned int	i;
-	t_list			*buff;
+	size_t	i;
+	t_list	*buff;
 
-	i = -1;
+	i = 0;
 	buff = begin_list;
-	while (buff && ++i < nbr)
+	while (buff && i != nbr)
+	{
 		buff = buff->next;
+		i++;
+	}
 	return (buff);
 }

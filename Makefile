@@ -45,7 +45,7 @@ include string/Makefile
 include math/Makefile
 include io/Makefile
 #include data_structure/vector/Makefile
-#include data_structure/list/Makefile
+include data_structure/list/Makefile
 
 INC_DIR =	include/
 NAME	=	libft.a
@@ -67,8 +67,8 @@ DEBUG_OBJS		= ${SRCS:%.c=${DEBUG_DIR}%.o}
 DEBUG_D_FILES	= ${SRCS:%.c=${DEBUG_DIR}%.d}
 include ${wildcard ${DEBUG_D_FILES}}
 
-DEBUG_FLAGS	= -O0 -g3 -fsanitize=undefined -fsanitize=address
-DEBUG_TEST_FLAGS = -static-libubsan -static-libasan
+DEBUG_FLAGS	= -O0 -g3
+DEBUG_TEST_FLAGS = 
 
 ${DEBUG_DIR}%.o:	%.c
 			@${MKDIR} ${dir $@}
@@ -77,7 +77,8 @@ ${DEBUG_DIR}%.o:	%.c
 
 .PHONY:	db_test
 db_test:	${FTST_TEST_RUNNER_SRC} ${DEBUG_LIB}
-			@${CC} ${DEBUG_TEST_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${DEBUG_LIB}
+			@${CC} ${DEBUG_TEST_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${DEBUG_LIB} || \
+				${RM} ${FTST_TEST_RUNNER_SRC}
 			@./a.out && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "test" "${PRETTY_DONE}" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "test" "${PRETTY_FAIL}"; exit 1;	}
@@ -113,7 +114,8 @@ ${RELEASE_DIR}%.o:	%.c
 
 .PHONY:	rl_test
 rl_test:	${FTST_TEST_RUNNER_SRC} ${RELEASE_LIB}
-			@${CC} ${RELEASE_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${RELEASE_LIB}
+			@${CC} ${RELEASE_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${RELEASE_LIB} || \
+				${RM} ${FTST_TEST_RUNNER_SRC}
 			@./a.out && \
 				printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "test" "${PRETTY_DONE}" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "test" "${PRETTY_FAIL}"; exit 1;	}

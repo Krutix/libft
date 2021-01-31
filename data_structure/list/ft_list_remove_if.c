@@ -27,7 +27,8 @@ void	ft_list_remove_if(t_list **begin_list, t_data data_ref,
 		next = buff->next;
 		if (cmp(buff->data, data_ref) == 0)
 		{
-			free_fct(buff->data);
+			if (free_fct)
+				free_fct(buff->data);
 			if (prev)
 				prev->next = buff->next;
 			else

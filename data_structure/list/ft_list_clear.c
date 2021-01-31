@@ -20,7 +20,8 @@ void	ft_list_clear(t_list *begin_list, void (*free_fct)(t_data))
 	while (begin_list)
 	{
 		buff = begin_list;
-		free_fct(buff->data);
+		if (free_fct)
+			free_fct(buff->data);
 		begin_list = buff->next;
 		free(buff);
 	}
