@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft_string.h"
 #include "ft_vector.h"
 
-t_bool		ft_vec_push_back(t_vector *vec, t_data data)
+t_bool		ft_vec_push_back(t_vector *vec, void *data)
 {
-	if (vec->reserv == vec->size)
-		if (!ft_vec_realloc(vec, vec->reserv != 0 ? vec->reserv * 2 : 4))
-			return (t_false);
-	vec->array[vec->size++] = data;
+	if (!ft_vec_push_reserv(vec))
+		return (t_false);
+	ft_memcpy(ft_vec_at(vec, vec->size), data, vec->cell_size);
+	(*(size_t*)&vec->size)++;
 	return (t_true);
 }

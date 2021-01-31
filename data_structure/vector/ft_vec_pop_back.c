@@ -12,7 +12,7 @@
 
 #include "ft_vector.h"
 
-t_data	ft_vec_pop_back(t_vector *vec)
+void	ft_vec_pop_back(t_vector *vec)
 {
-	return (vec->array[--vec->size]);
+	(*(size_t*)&vec->size)--;
 }

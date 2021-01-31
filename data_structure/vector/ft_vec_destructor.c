@@ -13,17 +13,8 @@
 #include <stdlib.h>
 #include "ft_vector.h"
 
-void		ft_vec_destructor(t_vector *vec, void (*del)(t_data))
+void		ft_vec_destructor(t_vector *vec)
 {
-	size_t i;
-
 	if (vec->array)
-	{
-		i = 0;
-		if (del)
-			while (i < vec->size)
-				del(vec->array[i++]);
 		free(vec->array);
-	}
-	free(vec);
 }

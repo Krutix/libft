@@ -44,7 +44,7 @@ SRCS		=
 include string/Makefile
 include math/Makefile
 include io/Makefile
-#include data_structure/vector/Makefile
+include data_structure/vector/Makefile
 include data_structure/list/Makefile
 
 INC_DIR =	include/
@@ -92,7 +92,7 @@ ${DEBUG_LIB}:	${DEBUG_OBJS}
 .PHONY:	db
 db:
 			@${MAKE} -j 16 ${DEBUG_LIB} -s && \
-			${MAKE} db_test FTST_SILENT_MODE=1 -s
+			${MAKE} db_test -s
 
 #######################################################
 #

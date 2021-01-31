@@ -13,22 +13,30 @@
 #ifndef FT_VECTOR_H
 # define FT_VECTOR_H
 
-# include <stddef.h>
 # include "ftdef.h"
 
 typedef struct		s_vector {
-	unsigned int	size;
-	unsigned int	reserv;
-	t_data			*array;
+	size_t const	size;
+	size_t const	reserv;
+	t_uint const	cell_size;
+	void *const		array;
 }					t_vector;
 
-extern t_vector		*ft_vec_create(void);
-extern t_vector		*ft_vec_create_reserv(size_t reserv);
-extern void			ft_vec_realloc(t_vector *vec, size_t new_reserv);
+extern t_bool		ft_vec_realloc(t_vector *vec, size_t new_reserv);
+
+extern t_vector		*ft_vec_create(t_uint cell_size);
+extern void			ft_vec_construct(t_vector *vec, t_uint cell_size);
 extern void			ft_vec_destructor(t_vector *vec);
-extern void			*ft_vec_returndel(t_vector *vec, void (*del)(t_data));
-extern void			ft_vec_push_back(t_vector *vec, t_data data);
-extern t_data		ft_vec_pop_back(t_vector *vec);
-extern t_data		*ft_vec_fetch_array(t_vector *vec, size_t *out_size);
+
+extern void			ft_vec_pop_back(t_vector *vec);
+
+extern t_bool		ft_vec_push_reserv(t_vector *vec);
+extern t_bool		ft_vec_push_back(t_vector *vec, void *data);
+
+extern void			*ft_vec_at(t_vector *vec, size_t pos);
+extern void			*ft_vec_top(t_vector *vec);
+extern void			*ft_vec_back(t_vector *vec);
+
+extern void			*ft_vec_fetch_array(t_vector *vec, size_t *out_size);
 
 #endif

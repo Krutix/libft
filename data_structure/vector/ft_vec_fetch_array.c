@@ -12,15 +12,15 @@
 
 #include "ft_vector.h"
 
-t_data	*ft_vec_fetch_array(t_vector *vec, size_t *out_size)
+void	*ft_vec_fetch_array(t_vector *vec, size_t *out_size)
 {
-	t_data	*array;
+	void	*array;
 
 	array = vec->array;
 	if (out_size)
 		*out_size = vec->size;
-	vec->array = NULL;
-	vec->size = 0;
-	vec->reserv = 0;
+	*(void**)&vec->array = NULL;
+	*(size_t*)&vec->size = 0;
+	*(size_t*)&vec->reserv = 0;
 	return (array);
 }
