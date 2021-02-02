@@ -19,10 +19,8 @@ RESET_LINE		= \033[A\033[2K
 
 PRETTY_DONE		= [${COLOR_GREEN}✓${COLOR_RESET}]
 PRETTY_FAIL		= [${COLOR_RED}✕${COLOR_RESET}]
-PRETTY_RELEASE	= [${COLOR_CYAN}r${COLOR_RESET}]
-PRETTY_DEBUG	= [${COLOR_CYAN}d${COLOR_RESET}]
 
-PRETTY_STATUS	= "%b ${COLOR_YELLOW}%b${COLOR_RESET} %-10b %b\n"
+PRETTY_STATUS	= "%b%b ${COLOR_YELLOW}%b${COLOR_RESET} %b\n"
 
 
 # FTST test setup
@@ -33,19 +31,25 @@ FTST_H_INC			=	${addprefix -I , ${FTST_INC}}
 FTST_SILENT_MODE	?=	1
 FTST_SILENT			=	-D FTST_SILENT=${FTST_SILENT_MODE} 
 FTST_FLAGS			=	-ldl -D FTST_ALLOC_TEST=1 ${FTST_SILENT} ${FTST_H_INC}
+FTST_EXE			=	ftst.out
 
+.INTERMEDIATE: ${FTST_TEST_RUNNER_SRC}
 ${FTST_TEST_RUNNER_SRC}: ${FTST_SRCS}
 			@${PYTHON} ${FTST_TEST_GENERATOR} ${FTST_SRCS}
 
+.INTERMEDIATE: ${FTST_EXE}
+${FTST_EXE}:	${FTST_TEST_RUNNER_SRC} ${BUILD_LIB}
+			@${CC} ${BUILD_TEST_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${BUILD_LIB} -o ${FTST_EXE} || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "$<" "compile" ; exit 1;	}
 
 # include source files from sub dirs
 FTST_SRCS	=
 SRCS		=
-include string/Makefile
-include math/Makefile
-include io/Makefile
-include data_structure/vector/Makefile
-include data_structure/list/Makefile
+include string/srcs.mk
+include math/srcs.mk
+include io/srcs.mk
+include data_structure/vector/srcs.mk
+include data_structure/list/srcs.mk
 
 INC_DIR =	include/
 NAME	=	libft.a
@@ -56,107 +60,129 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 H_INC	= ${addprefix -I , ${INC_DIR}}
 
+#######################################################
+#
+# Real build
+#
+BUILD_DIR		?= objs
+BUILD_LIB		= ${BUILD_DIR}${NAME}
+BUILD_OBJS		= ${SRCS:%.c=${BUILD_DIR}%.o}
+BUILD_D_FILES	= ${SRCS:%.c=${BUILD_DIR}%.d}
+include ${wildcard ${BUILD_D_FILES}}
+
+BUILD_FLAGS			?=
+BUILD_TEST_FLAGS	?=
+
+BUILD_NAME		?= 
+PRETTY_BUILD_NAME = [${COLOR_CYAN}${BUILD_NAME}${COLOR_RESET}]
+
+${BUILD_DIR}%.o:	%.c
+			@${MKDIR} ${dir $@}
+			@${CC} ${CFLAGS} ${BUILD_FLAGS} ${H_INC} -c $< -o $@ -MD || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "$<" "compile" ; exit 1;	}
+
+.PHONY:	build_test
+build_test:	${FTST_EXE}
+			./${FTST_EXE} && \
+				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "test" || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "test" ; exit 1;	}
+
+${BUILD_LIB}:	${BUILD_OBJS}
+			@${AR} ${BUILD_LIB} $? && \
+				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "build" || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "archive" ; exit 1;	}
+
+.PHONY:	build
+build:
+			@${MAKE} -j 16 ${BUILD_LIB} -s && \
+			${MAKE} -j 4 build_test -s
+
+.PHONY:	b_clean
+b_clean:
+			${RM}	${BUILD_OBJS} ${BUILD_D_FILES} && \
+				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "clean"
+
+.PHONY:	b_fclean
+b_fclean:	b_clean
+			${RM}	${BUILD_LIB} -rd ${BUILD_DIR} && \
+				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "fclean"
+
+.PHONY:	b_re
+b_re:		b_fclean build
 
 #######################################################
 #
 # Debug build
 #
 DEBUG_DIR		= debug/
-DEBUG_LIB		= ${DEBUG_DIR}${NAME}
-DEBUG_OBJS		= ${SRCS:%.c=${DEBUG_DIR}%.o}
-DEBUG_D_FILES	= ${SRCS:%.c=${DEBUG_DIR}%.d}
-include ${wildcard ${DEBUG_D_FILES}}
 
 DEBUG_FLAGS	= -O0 -g3
 DEBUG_TEST_FLAGS = 
 
-${DEBUG_DIR}%.o:	%.c
-			@${MKDIR} ${dir $@}
-			@${CC} ${CFLAGS} ${H_INC} -c $< -o $@ -MD || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "$<" "compile" "${PRETTY_FAIL}"; exit 1;	}
+DEBUG_SETUP	= BUILD_DIR=${DEBUG_DIR} ${addprefix BUILD_FLAGS+=, ${DEBUG_FLAGS}} BUILD_NAME=debug
 
-.PHONY:	db_test
-db_test:	${FTST_TEST_RUNNER_SRC} ${DEBUG_LIB}
-			@${CC} ${DEBUG_TEST_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${DEBUG_LIB} || \
-				${RM} ${FTST_TEST_RUNNER_SRC}
-			@./a.out && \
-				printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "test" "${PRETTY_DONE}" || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "test" "${PRETTY_FAIL}"; exit 1;	}
-			@${RM} ./a.out ${FTST_TEST_RUNNER_SRC}
-
-${DEBUG_LIB}:	${DEBUG_OBJS}
-			@${AR} ${DEBUG_LIB} ${DEBUG_OBJS} && \
-				printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "compile" "${PRETTY_DONE}"	|| \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "${NAME}" "compile" "${PRETTY_FAIL}"; exit 1;	}
-
-.PHONY:	db
 db:
-			@${MAKE} -j 16 ${DEBUG_LIB} -s && \
-			${MAKE} db_test -s
+		@${MAKE} build ${DEBUG_SETUP} -s
+
+.PHONY: cleandb
+cleandb:
+		@${MAKE} b_clean ${DEBUG_SETUP} -s
+
+.PHONY: fcleandb
+fcleandb:
+		@${MAKE} b_fclean ${DEBUG_SETUP} -s
+
+.PHONY: redb
+redb:
+		@${MAKE} b_re ${DEBUG_SETUP} -s
 
 #######################################################
 #
 # Release build
 #
 RELEASE_DIR		= release/
-RELEASE_LIB		= ${RELEASE_DIR}${NAME}
-RELEASE_OBJS	= ${SRCS:%.c=${RELEASE_DIR}%.o}
-
-RELEASE_D_FILES	= ${SRCS:%.c=${RELEASE_DIR}%.d}
-include ${wildcard ${RELEASE_D_FILES}}
 
 RELEASE_FLAGS	= -O2 -fomit-frame-pointer
 
-${RELEASE_DIR}%.o:	%.c
-			@${MKDIR} ${dir $@}
-			@${CC} ${CFLAGS} ${RELEASE_FLAGS} ${H_INC} -c $< -o $@ -MD || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_DEBUG}" "$<" "compile" "${PRETTY_FAIL}"; exit 1;	}
+RELEASE_SETUP	= BUILD_DIR=${RELEASE_DIR} ${addprefix BUILD_FLAGS+=, ${RELEASE_FLAGS}} BUILD_NAME=release
 
-.PHONY:	rl_test
-rl_test:	${FTST_TEST_RUNNER_SRC} ${RELEASE_LIB}
-			@${CC} ${RELEASE_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${RELEASE_LIB} || \
-				${RM} ${FTST_TEST_RUNNER_SRC}
-			@./a.out && \
-				printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "test" "${PRETTY_DONE}" || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "test" "${PRETTY_FAIL}"; exit 1;	}
-			@${RM} ./a.out ${FTST_TEST_RUNNER_SRC}
-
-${RELEASE_LIB}:	${RELEASE_OBJS}
-			@${AR} ${RELEASE_LIB} ${RELEASE_OBJS} && \
-				printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "compile" "${PRETTY_DONE}"	|| \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_RELEASE}" "${NAME}" "compile" "${PRETTY_FAIL}"; exit 1;	}
-
-.PHONY:	rl
+.PHONY: rl
 rl:
-			@${MAKE} -j 16 ${RELEASE_LIB} -s && \
-			${MAKE} rl_test -s
+		@${MAKE} build ${RELEASE_SETUP} -s
+
+.PHONY: cleanrl
+cleanrl:
+		@${MAKE} b_clean ${RELEASE_SETUP} -s
+
+.PHONY: fcleanrl
+fcleanrl:
+		@${MAKE} b_fclean ${RELEASE_SETUP} -s
+
+.PHONY: rerl
+rerl:
+		@${MAKE} b_re ${RELEASE_SETUP} -s
 
 #######################################################
 
 .PHONY:	all
 all:		rl
+
 ${NAME}:	rl
 
 .PHONY:	norm
 norm:
-			${NORMINETTE} ${SRCS} ${INC_DIR}
+			@${NORMINETTE} ${SRCS} ${INC_DIR} && \
+				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "norminette" || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "norminette" ; exit 1;	}
 
 .PHONY:	clean
-clean:
-			@${RM} ${RELEASE_OBJS} ${DEBUG_OBJS}
+clean:		cleanrl		cleandb
 
 .PHONY:	fclean
-fclean:		clean
-			@${RM} -r ${DEBUG_DIR} -r ${RELEASE_DIR}
+fclean:		fcleanrl	fcleandb
 
 .PHONY:	re
 re:			rerl
-
-.PHONY:	rerl
-rerl:		fclean all
-
-.PHONY:	redb
-redb:		fclean db
 
 #so:
 #			@${CC} ${CFLAGS} -fPIC -c ${SRCS}
