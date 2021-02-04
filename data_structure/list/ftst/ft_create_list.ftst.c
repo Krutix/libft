@@ -8,13 +8,9 @@ TEST(ft_create_list_i)
 {
     char buffer[256];
 
-    ALLOC_LIMIT_SET(sizeof(t_list) + sizeof(buffer));
     t_list* list = ft_create_list_i(sizeof(buffer));
 
-    ALLOC_IF_ERROR(
-        STR_EQ("allocation failed", "allocation success", ASSERT);
-    );
-    ALLOC_LIMIT_CLEAN();
+    EQ(MALLOC_SIZE(list), sizeof(t_list) + sizeof(buffer), p);
 
     NE(list, NULL, p, ASSERT);
 
@@ -29,16 +25,6 @@ TEST(ft_create_list_i)
 
     free(list);
 
-    ALLOC_LIMIT_SET(sizeof(t_list) + sizeof(buffer) - 1);
-    list = ft_create_list_i(sizeof(buffer));
-    ALLOC_IF_ERROR_ELSE(
-        STR_EQ("allocation failed", "allocation failed");
-        EQ(list, NULL, p);
-        ,
-        STR_EQ("allocation success", "allocation failed", ASSERT);
-        free(list);
-    );
-    ALLOC_LIMIT_CLEAN();
 }
 
 TEST(ft_create_list)
@@ -46,12 +32,9 @@ TEST(ft_create_list)
     typedef struct {
         char buffer[256];
     } t_test;
-    ALLOC_LIMIT_SET(sizeof(t_list));
     t_list* list = ft_create_list((t_data)999.);
 
-    ALLOC_IF_ERROR(
-        STR_EQ("allocation failed", "allocation success", ASSERT);
-    );
+    EQ(MALLOC_SIZE(list), sizeof(list), p);
 
     NE(list, NULL, p, ASSERT);
 
@@ -59,17 +42,6 @@ TEST(ft_create_list)
     EQ(list->next, NULL, p);
 
     free(list);
-
-    ALLOC_LIMIT_SET(sizeof(t_list) - 1);
-    list = ft_create_list((t_data)999.);
-    ALLOC_IF_ERROR_ELSE(
-        STR_EQ("allocation failed", "allocation failed");
-        EQ(list, NULL, p);
-        ,
-        STR_EQ("allocation success", "allocation failed", ASSERT);
-        free(list);
-    );
-    ALLOC_LIMIT_CLEAN();
 }
 
 TEST(ft_list_push_front)

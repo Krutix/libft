@@ -17,7 +17,7 @@ t_vector	*ft_vec_create(t_uint cell_size)
 {
 	t_vector *vec;
 
-	vec = malloc(sizeof(vec));
+	vec = malloc(sizeof(t_vector));
 	if (!vec)
 		return (NULL);
 	ft_vec_construct(vec, cell_size);

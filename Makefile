@@ -171,7 +171,7 @@ ${NAME}:	rl
 
 .PHONY:	norm
 norm:
-			@${NORMINETTE} ${SRCS} ${INC_DIR} && \
+			@${NORMINETTE} ${SRCS} ${INC_DIR} >> /dev/null && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "norminette" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "norminette" ; exit 1;	}
 
