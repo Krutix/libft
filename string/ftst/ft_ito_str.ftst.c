@@ -63,6 +63,25 @@ TEST(ft_utob_16_base_test)
     IS_TRUE(buffer_sanitize(buffer));
 }
 
+TEST(ft_utob_2_base_test)
+{
+    char buffer[1024];
+    char* ptr = &buffer[16];
+    bzero(buffer, sizeof(buffer));
+    memset(&buffer[16], 's', 100);
+    EQ(ft_utob_2(ptr, 0), 1);
+    STR_EQ(ptr, "0");
+    IS_TRUE(buffer_sanitize(buffer));
+
+    EQ(ft_utob_2(ptr, UINT32_MAX), 32);
+    STR_EQ(ptr, "11111111111111111111111111111111");
+    IS_TRUE(buffer_sanitize(buffer));
+
+    EQ(ft_utob_2(ptr, UINT64_MAX), 64);
+    STR_EQ(ptr, "1111111111111111111111111111111111111111111111111111111111111111");
+    IS_TRUE(buffer_sanitize(buffer));
+}
+
 TEST(ft_utob_n_base_test)
 {
     char* base = "0123456789abcdef";

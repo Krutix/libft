@@ -20,6 +20,7 @@ extern t_llint	ft_atoi(const char *str);
 
 extern size_t   ft_utob(char *buffer, t_ullint num);
 extern size_t   ft_utob_16(char *buffer, t_ullint num, char *base);
+extern size_t   ft_utob_2(char *buffer, t_ullint num);
 extern size_t   ft_utob_n(char *buffer, t_ullint num, char *base);
 extern char     *ft_utob_bt(char *buffer_end, t_ullint num);
 extern char     *ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
