@@ -82,7 +82,7 @@ ${BUILD_DIR}%.o:	%.c
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "$<" "compile" ; exit 1;	}
 
 .PHONY:	build_test
-build_test:	${FTST_EXE}
+build_test:	${FTST_EXE} ${BUILD_LIB}
 			./${FTST_EXE} && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "test" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "test" ; exit 1;	}
@@ -91,11 +91,11 @@ ${BUILD_LIB}:	${BUILD_OBJS}
 			@${AR} ${BUILD_LIB} $? && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "build" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "archive" ; exit 1;	}
+			${MAKE} build_test -s
 
 .PHONY:	build
 build:
-			@${MAKE} -j 16 ${BUILD_LIB} -s && \
-			${MAKE} -j 4 build_test -s
+			@${MAKE} -j 16 ${BUILD_LIB} -s
 
 .PHONY:	b_clean
 b_clean:
@@ -121,8 +121,13 @@ DEBUG_TEST_FLAGS =
 
 DEBUG_SETUP	= BUILD_DIR=${DEBUG_DIR} ${addprefix BUILD_FLAGS+=, ${DEBUG_FLAGS}} BUILD_NAME=debug
 
+.PHONY: db
 db:
 		@${MAKE} build ${DEBUG_SETUP} -s
+
+.PHONY: tdb
+tdb:
+		@${MAKE} build_test ${DEBUG_SETUP} -s
 
 .PHONY: cleandb
 cleandb:
@@ -149,6 +154,10 @@ RELEASE_SETUP	= BUILD_DIR=${RELEASE_DIR} ${addprefix BUILD_FLAGS+=, ${RELEASE_FL
 .PHONY: rl
 rl:
 		@${MAKE} build ${RELEASE_SETUP} -s
+
+.PHONY: trl
+trl:
+		@${MAKE} build_test ${RELEASE_SETUP} -s
 
 .PHONY: cleanrl
 cleanrl:
