@@ -99,13 +99,11 @@ build:
 
 .PHONY:	b_clean
 b_clean:
-			${RM}	${BUILD_OBJS} ${BUILD_D_FILES} && \
-				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "clean"
+			${RM}	${BUILD_OBJS} ${BUILD_D_FILES}
 
 .PHONY:	b_fclean
 b_fclean:	b_clean
-			${RM}	${BUILD_LIB} -rd ${BUILD_DIR} && \
-				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "fclean"
+			${RM}	${BUILD_LIB} -rd ${BUILD_DIR}
 
 .PHONY:	b_re
 b_re:		b_fclean build
