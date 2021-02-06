@@ -36,7 +36,8 @@ STR_SRCS	=	ft_atoi_base.c \
 				ft_toupper.c \
 				ft_ulen.c \
 				ft_utob_bt.c \
-				ft_utob.c
+				ft_utob.c \
+				ft_wchar.c
 
 STR_FTST	=	ft_strlen.ftst.c \
 				ft_memccpy.ftst.c \
