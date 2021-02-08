@@ -22,25 +22,10 @@ PRETTY_FAIL		= [${COLOR_RED}✕${COLOR_RESET}]
 
 PRETTY_STATUS	= "%b%b ${COLOR_YELLOW}%b${COLOR_RESET} %b\n"
 
-
-# FTST test setup
-FTST_TEST_GENERATOR	=	ftst/gen_test_main.py
-FTST_TEST_RUNNER_SRC =	ftst_test_runner.c
-FTST_INC			=	ftst/include/
-FTST_H_INC			=	${addprefix -I , ${FTST_INC}}
-FTST_SILENT_MODE	?=	1
-FTST_SILENT			=	-D FTST_SILENT=${FTST_SILENT_MODE} 
-FTST_FLAGS			=	-ldl -D FTST_ALLOC_TEST=1 ${FTST_SILENT} ${FTST_H_INC}
-FTST_EXE			=	ftst.out
-
-.INTERMEDIATE: ${FTST_TEST_RUNNER_SRC}
-${FTST_TEST_RUNNER_SRC}: ${FTST_SRCS}
-			@${PYTHON} ${FTST_TEST_GENERATOR} ${FTST_SRCS}
-
-.INTERMEDIATE: ${FTST_EXE}
-${FTST_EXE}:	${FTST_TEST_RUNNER_SRC} ${BUILD_LIB}
-			@${CC} ${BUILD_TEST_FLAGS} ${H_INC} ${FTST_SRCS} ${FTST_TEST_RUNNER_SRC} ${FTST_FLAGS} ${BUILD_LIB} -o ${FTST_EXE} || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "$<" "compile" ; exit 1;	}
+include ftst/ftst.mk
+FTST_DIR	= ftst/
+FTST_INC	+= ${INC_DIR}
+FTST_TARGET	= ${BUILD_LIB}
 
 # include source files from sub dirs
 FTST_SRCS	=

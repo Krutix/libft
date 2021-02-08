@@ -10,7 +10,7 @@ TEST(ft_create_list_i)
 
     t_list* list = ft_create_list_i(sizeof(buffer));
 
-    EQ(MALLOC_SIZE(list), sizeof(t_list) + sizeof(buffer), p);
+    EQ(MALLOC_SIZE(list), sizeof(t_list) + sizeof(buffer), zu);
 
     NE(list, NULL, p, ASSERT);
 
@@ -34,7 +34,7 @@ TEST(ft_create_list)
     } t_test;
     t_list* list = ft_create_list((t_data)999.);
 
-    EQ(MALLOC_SIZE(list), sizeof(list), p);
+    EQ(MALLOC_SIZE(list), sizeof(t_list), zu);
 
     NE(list, NULL, p, ASSERT);
 
