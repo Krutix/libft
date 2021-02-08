@@ -7,7 +7,7 @@ char    *ft_utob_bt(char *buffer_end, t_ullint num)
         *buffer_end-- = "0123456789"[num % 10];
         num /= 10;
     }
-    *buffer_end-- = "0123456789"[num % 10];
+    *buffer_end = "0123456789"[num % 10];
     return (buffer_end);
 }
 
@@ -42,6 +42,6 @@ char    *ft_utob_bt_n(char *buffer_end, t_ullint num, char *base)
         *buffer_end-- = base[num % base_len];
         num /= base_len;
     }
-    *buffer_end-- = base[num % base_len];
+    *buffer_end = base[num % base_len];
     return (buffer_end);
 }

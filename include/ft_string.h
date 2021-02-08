@@ -20,6 +20,7 @@ extern t_llint	ft_atoi(const char *str);
 
 extern size_t   ft_utob(char *buffer, t_ullint num);
 extern size_t   ft_utob_16(char *buffer, t_ullint num, char *base);
+extern size_t   ft_utob_2(char *buffer, t_ullint num);
 extern size_t   ft_utob_n(char *buffer, t_ullint num, char *base);
 extern char     *ft_utob_bt(char *buffer_end, t_ullint num);
 extern char     *ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
@@ -45,6 +46,9 @@ extern void		*ft_memccpy(void *dest, const void *src, int c, size_t n);
 extern void		*ft_memmove(void *dest, const void *src, size_t n);
 extern void		*ft_memchr(const void *s, int c, size_t n);
 extern int		ft_memcmp(const void *s1, const void *s2, size_t n);
+
+extern int      ft_wstrtostr(wchar_t *str, char *buffer);
+extern int      ft_wchtoch(wchar_t ch, char *buffer);
 
 /*
 ****************************************************
