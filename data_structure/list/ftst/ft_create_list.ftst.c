@@ -2,6 +2,7 @@
 #define FTST_ALLOC_TEST 1
 #include "ftst.h"
 
+#include "stdlib.h"
 #include "string.h"
 
 TEST(ft_create_list_i)

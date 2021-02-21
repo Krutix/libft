@@ -88,7 +88,7 @@ b_clean:
 
 .PHONY:	b_fclean
 b_fclean:	b_clean
-			${RM}	${BUILD_LIB} -rd ${BUILD_DIR}
+			${RM}	-rd ${BUILD_LIB} ${BUILD_DIR}
 
 .PHONY:	b_re
 b_re:		b_fclean build
