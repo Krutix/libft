@@ -22,8 +22,8 @@ typedef struct {
 
 float       ft_v2f_mag(t_vec_2f vec);
 void        ft_v2f_mul_f(t_vec_2f *vec, float mul);
-t_vec_2f    *ft_v2f_norm(t_vec_2f *vec);
-t_vec_2f    *ft_v2f_fnorm(t_vec_2f *vec);
+t_vec_2f    ft_v2f_norm(t_vec_2f vec);
+t_vec_2f    ft_v2f_fnorm(t_vec_2f vec);
 
 t_ullint	ft_abs(t_llint num);
 float	    ft_absf(float num);

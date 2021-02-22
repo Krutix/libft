@@ -3,24 +3,16 @@
 
 TEST(ft_v2f_fnorm)
 {
-    t_vec_2f v = (t_vec_2f){ 10.f, 10.f };
-    EQ(ft_v2f_mag(*ft_v2f_fnorm(&v)), 1., g);
-
-    v = (t_vec_2f){ 10.f, 5.f };
-    EQ(ft_v2f_mag(*ft_v2f_fnorm(&v)), 1., g);
-
-    v = (t_vec_2f){ 1.f, 1.f };
-    EQ(ft_v2f_mag(*ft_v2f_fnorm(&v)), 1., g);
+    EQ(ft_v2f_mag(ft_v2f_fnorm((t_vec_2f){ 10.f, 10.f })), 1., ff);
+    EQ(ft_v2f_mag(ft_v2f_fnorm((t_vec_2f){ 10.f, 5.f })), 1., ff);
+    EQ(ft_v2f_mag(ft_v2f_fnorm((t_vec_2f){ 10.f, 3.f })), 1., ff);
+    EQ(ft_v2f_mag(ft_v2f_fnorm((t_vec_2f){ 1.f, 1.f })), 1., ff);
 }
 
 TEST(ft_v2f_norm)
 {
-    t_vec_2f v = (t_vec_2f){ 10.f, 10.f };
-    EQ(ft_v2f_mag(*ft_v2f_norm(&v)), 1., g);
-
-    v = (t_vec_2f){ 10.f, 5.f };
-    EQ(ft_v2f_mag(*ft_v2f_norm(&v)), 1., g);
-
-    v = (t_vec_2f){ 1.f, 1.f };
-    EQ(ft_v2f_mag(*ft_v2f_fnorm(&v)), 1., g);
+    EQ(ft_v2f_mag(ft_v2f_norm((t_vec_2f){ 10.f, 10.f })), 1., ff);
+    EQ(ft_v2f_mag(ft_v2f_norm((t_vec_2f){ 10.f, 5.f })), 1., ff);
+    EQ(ft_v2f_mag(ft_v2f_norm((t_vec_2f){ 10.f, 3.f })), 1., ff);
+    EQ(ft_v2f_mag(ft_v2f_norm((t_vec_2f){ 1.f, 1.f })), 1., ff);
 }
