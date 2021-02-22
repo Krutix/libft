@@ -10,6 +10,7 @@ SRCS_MATH	=	ft_abs.c \
 
 FTST_MATH	=	ft_swap.ftst.c \
 				ft_abs.ftst.c \
+				ft_max_min.ftst.c \
 				ft_v2f.ftst.c
 
 MATH_DIR	= math/

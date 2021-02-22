@@ -26,7 +26,7 @@ t_vec_2f        ft_v2f_fnorm(t_vec_2f vec)
     float const ay = ft_absf(vec.y);
     float       ratio;
 
-    ratio = 1 / ft_maxf(ax, ay);
+    ratio = 1.f / ft_maxf(ax, ay);
     ratio = ratio * (1.29289 - (ax + ay) * ratio * 0.29289);
     return ((t_vec_2f){ vec.x * ratio, vec.y * ratio});
 }

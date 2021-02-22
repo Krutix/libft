@@ -41,7 +41,21 @@ t_llint		ft_maxi(t_llint a1, t_llint a2);
 t_llint		ft_mini(t_llint a1, t_llint a2);
 t_ullint	ft_maxu(t_ullint a1, t_ullint a2);
 t_ullint	ft_minu(t_ullint a1, t_ullint a2);
+double	    ft_maxd(double a1, double a2);
+double	    ft_mind(double a1, double a2);
 float		ft_maxf(float a1, float a2);
 float		ft_minf(float a1, float a2);
+
+union t_double_unpack
+{
+    double      f;
+    uint64_t    i;
+};
+
+union t_float_unpack
+{
+    float       f;
+    uint32_t    i;
+};
 
 #endif

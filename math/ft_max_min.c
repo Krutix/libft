@@ -14,7 +14,7 @@
 
 t_llint		ft_maxi(t_llint a1, t_llint a2)
 {
-	return (a1 < a2 ? a2 : a1);
+	return (a1 > a2 ? a1 : a2);
 }
 
 t_llint		ft_mini(t_llint a1, t_llint a2)
@@ -24,7 +24,7 @@ t_llint		ft_mini(t_llint a1, t_llint a2)
 
 t_ullint	ft_maxu(t_ullint a1, t_ullint a2)
 {
-	return (a1 < a2 ? a2 : a1);
+	return (a1 > a2 ? a1 : a2);
 }
 
 t_ullint	ft_minu(t_ullint a1, t_ullint a2)

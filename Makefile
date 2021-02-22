@@ -43,7 +43,7 @@ NAME	=	libft.a
 
 # Compiler setup
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= #-Wall -Wextra -Werror
 H_INC	= ${addprefix -I , ${INC_DIR}}
 
 #######################################################

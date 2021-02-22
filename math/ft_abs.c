@@ -14,10 +14,7 @@
 
 t_ullint	ft_abs(t_llint num)
 {
-	int const		i = num >= 0;
-	t_ullint const	ti = 0ull - i;
-
-	return ((num & ti) | (-num & ~ti));
+	return (num >= 0 ? num : -num);
 }
 
 float		ft_absf(float num)

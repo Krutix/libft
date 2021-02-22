@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_math.h"
+
 double	ft_maxd(double a1, double a2)
 {
-	return (a1 < a2 ? a2 : a1);
+	return (a1 > a2 ? a1 : a2);
 }
 
 double	ft_mind(double a1, double a2)
