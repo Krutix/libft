@@ -1,5 +1,5 @@
 #include "ft_list.h"
-#define FTST_ALLOC_TEST 1
+#define FTST_MALLOC_TEST 1
 #include "ftst.h"
 
 #include "stdlib.h"
@@ -60,9 +60,9 @@ TEST(ft_list_push_front)
     EQ(head->next->next, NULL, p);
     EQ(head->next->data.d, 220., f);
 
-    ALLOC_LIMIT_SET(0);
+    MALLOC_LIMIT_SET(0);
     IS_FALSE(ft_list_push_front(&head, tbh = ft_create_list((t_data)NULL)));
-    ALLOC_LIMIT_CLEAN();
+    MALLOC_LIMIT_CLEAN();
 
     free(head->next);
     free(head);
@@ -92,9 +92,9 @@ TEST(ft_list_push_back)
     EQ(head->next->next->next, NULL, p);
     EQ(head->next->next->data.d, 10., f);
 
-    ALLOC_LIMIT_SET(0);
+    MALLOC_LIMIT_SET(0);
     IS_FALSE(ft_list_push_front(&head, tbh = ft_create_list((t_data)NULL)));
-    ALLOC_LIMIT_CLEAN();
+    MALLOC_LIMIT_CLEAN();
 
     free(head);
     free(tbh);
