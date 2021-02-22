@@ -15,7 +15,18 @@
 
 # include "ftdef.h"
 
+typedef struct {
+    float   x;
+    float   y;
+}           t_vec_2f;
+
+float       ft_v2f_mag(t_vec_2f vec);
+void        ft_v2f_mul_f(t_vec_2f *vec, float mul);
+t_vec_2f    *ft_v2f_norm(t_vec_2f *vec);
+t_vec_2f    *ft_v2f_fnorm(t_vec_2f *vec);
+
 t_ullint	ft_abs(t_llint num);
+float	    ft_absf(float num);
 t_bool		ft_is_prime(t_ullint num);
 t_llint		ft_pow(t_llint num, size_t pow);
 t_ullint	ft_sqrt(t_ullint nb);

@@ -14,5 +14,18 @@
 
 t_ullint	ft_abs(t_llint num)
 {
-	return (num < 0 ? -num : num);
+	int const		i = num >= 0;
+	t_ullint const	ti = 0ull - i;
+
+	return ((num & ti) | (-num & ~ti));
+}
+
+float		ft_absf(float num)
+{
+	union {
+		t_uint	i;
+		float	f;
+	} *f = (void*)&num;
+	f->i = f->i & 0x7fffffff;
+	return (f->f);
 }

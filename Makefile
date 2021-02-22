@@ -25,6 +25,7 @@ PRETTY_STATUS	= "%b%b ${COLOR_YELLOW}%b${COLOR_RESET} %b\n"
 include ftst/ftst.mk
 FTST_DIR	= ftst/
 FTST_INC	+= ${INC_DIR}
+FTST_FLAGS	+= -lm
 FTST_TARGET	= ${BUILD_LIB}
 
 # include source files from sub dirs
