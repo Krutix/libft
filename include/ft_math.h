@@ -16,13 +16,18 @@
 # include "ftdef.h"
 
 typedef struct {
+    int     x;
+    int     y;
+}           t_v2i;
+
+typedef struct {
     float   x;
     float   y;
-}           t_vec_2f;
+}           t_v2f;
 
-float       ft_v2f_mag(t_vec_2f vec);
-t_vec_2f    ft_v2f_norm(t_vec_2f vec);
-t_vec_2f    ft_v2f_fnorm(t_vec_2f vec);
+float       ft_v2f_mag(t_v2f vec);
+t_v2f       ft_v2f_norm(t_v2f vec);
+t_v2f       ft_v2f_fnorm(t_v2f vec);
 
 t_ullint	ft_abs(t_llint num);
 float	    ft_absf(float num);
