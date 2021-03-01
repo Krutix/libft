@@ -26,6 +26,7 @@ typedef struct {
 }           t_v2f;
 
 float       ft_v2f_mag(t_v2f vec);
+float       ft_v2f_sqmag(t_v2f vec);
 t_v2f       ft_v2f_norm(t_v2f vec);
 t_v2f       ft_v2f_fnorm(t_v2f vec);
 

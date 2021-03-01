@@ -6,12 +6,16 @@ float           ft_v2f_mag(t_v2f vec)
     return (sqrtf(vec.x * vec.x + vec.y * vec.y));
 }
 
+float           ft_v2f_sqmag(t_v2f vec)
+{
+    return (vec.x * vec.x + vec.y * vec.y);
+}
+
 t_v2f        ft_v2f_norm(t_v2f vec)
 {
-    float const mag = ft_v2f_mag(vec);
-    float const fmag = 1.f / mag;
+    float const mag = 1.f / ft_v2f_mag(vec);
 
-    return ((t_v2f){ vec.x * fmag, vec.y * fmag});
+    return ((t_v2f){ vec.x * mag, vec.y * mag});
 }
 
 t_v2f        ft_v2f_fnorm(t_v2f vec)
