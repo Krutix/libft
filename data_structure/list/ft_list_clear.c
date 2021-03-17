@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "ft_list.h"
 
-void	ft_list_clear(t_list *begin_list, void (*free_fct)(t_data))
+void	ft_list_clear(t_list *begin_list, void (*free_fct)(void*))
 {
 	t_list *buff;
 

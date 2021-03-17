@@ -16,7 +16,7 @@
 #include "ft_string.h"
 #include "ft_list.h"
 
-t_list	*ft_create_list(t_data data)
+t_list	*ft_create_list(void* data)
 {
 	t_list *new_node;
 
@@ -36,7 +36,7 @@ t_list	*ft_create_list_i(size_t data_size)
 	if (!new_node)
 		return (NULL);
 	new_node->next = NULL;
-	new_node->data.p = ((void*)new_node) + sizeof(t_list);
-	bzero(new_node->data.p, data_size);
+	new_node->data = ((void*)new_node) + sizeof(t_list);
+	bzero(new_node->data, data_size);
 	return (new_node);
 }

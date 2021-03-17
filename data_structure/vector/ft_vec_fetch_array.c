@@ -19,8 +19,8 @@ void	*ft_vec_fetch_array(t_vector *vec, size_t *out_size)
 	array = vec->array;
 	if (out_size)
 		*out_size = vec->size;
-	*(void**)&vec->array = NULL;
-	*(size_t*)&vec->size = 0;
-	*(size_t*)&vec->reserv = 0;
+	vec->array = NULL;
+	vec->size = 0;
+	vec->reserv = 0;
 	return (array);
 }

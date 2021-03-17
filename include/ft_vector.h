@@ -16,10 +16,10 @@
 # include "ftdef.h"
 
 typedef struct		s_vector {
-	size_t const	size;
-	size_t const	reserv;
-	t_uint const	cell_size;
-	void *const		array;
+	size_t	size;
+	size_t	reserv;
+	t_uint	cell_size;
+	void *	array;
 }					t_vector;
 
 extern t_bool		ft_vec_realloc(t_vector *vec, size_t new_reserv);

@@ -13,8 +13,8 @@
 #include "ft_list.h"
 #include <stdlib.h>
 
-void	ft_list_remove_if(t_list **begin_list, t_data data_ref,
-					int (*cmp)(), void (*free_fct)(t_data))
+void	ft_list_remove_if(t_list **begin_list, void *data_ref,
+					int (*cmp)(), void (*free_fct)(void*))
 {
 	t_list	*buff;
 	t_list	*prev;

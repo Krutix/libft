@@ -21,7 +21,7 @@ t_list	*ft_list_push_strs(size_t size, char **strs)
 	i = 0;
 	while (i < size)
 	{
-		if (!ft_list_push_front(&b_list, ft_create_list((t_data)(void*)strs[i]))) /* TODO protect malloc */
+		if (!ft_list_push_front(&b_list, ft_create_list((void*)strs[i]))) /* TODO protect malloc */
 		{
 			ft_list_clear(b_list, NULL);
 			return (NULL);

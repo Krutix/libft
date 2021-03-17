@@ -26,8 +26,8 @@ t_vector	*ft_vec_create(t_uint cell_size)
 
 void	ft_vec_construct(t_vector *vec, t_uint cell_size)
 {
-	*(t_uint*)&vec->cell_size = cell_size;
-	*(size_t*)&vec->size = 0;
-	*(size_t*)&vec->reserv = 0;
-	*(void**)&vec->array = NULL;
+	vec->cell_size = cell_size;
+	vec->size = 0;
+	vec->reserv = 0;
+	vec->array = NULL;
 }

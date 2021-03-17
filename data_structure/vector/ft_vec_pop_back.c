@@ -14,5 +14,5 @@
 
 void	ft_vec_pop_back(t_vector *vec)
 {
-	(*(size_t*)&vec->size)--;
+	vec->size--;
 }

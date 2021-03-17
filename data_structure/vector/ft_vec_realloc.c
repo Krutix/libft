@@ -22,11 +22,11 @@ t_bool		ft_vec_realloc(t_vector *vec, size_t new_reserv)
 	if (!new_arr)
 		return (t_false);
 	if (vec->size > new_reserv)
-		*(size_t*)&vec->size = new_reserv;
+		vec->size = new_reserv;
 	ft_memcpy(new_arr, vec->array, vec->size * vec->cell_size);
 	if (vec->array)
 		free(vec->array);
-	*(size_t*)&vec->reserv = new_reserv;
-	*(void**)&vec->array = new_arr;
+	vec->reserv = new_reserv;
+	vec->array = new_arr;
 	return (t_true);
 }
