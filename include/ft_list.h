@@ -30,7 +30,7 @@ t_list				*ft_list_push_strs(int size, char **strs);
 size_t				ft_list_size(t_list *begin_list);
 t_list				*ft_list_at(t_list *begin_list, size_t nbr);
 t_list				*ft_list_last(t_list *begin_list);
-t_list				*ft_list_find(t_list *begin_list, void *data_ref,
+t_list				*ft_list_find(t_list *begin_list, void const *data_ref,
 							int (*cmp)());
 
 void				ft_list_clear(t_list *begin_list, void (*free_fct)(void*));

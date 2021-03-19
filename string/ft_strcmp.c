@@ -12,7 +12,7 @@
 
 #include "ft_string.h"
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char const *s1, char const *s2)
 {
 	while (*s1 || *s2)
 		if (*s1++ != *s2++)

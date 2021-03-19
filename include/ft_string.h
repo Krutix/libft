@@ -93,7 +93,7 @@ extern char		*ft_strncat(char *dest, char *src, unsigned int n);
 extern size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 extern size_t	ft_strlcat(char *dest, const char *src, size_t size);
 
-extern int		ft_strcmp(char *s1, char *s2);
+extern int		ft_strcmp(char const *s1, char const *s2);
 extern int		ft_strncmp(const char *s1, const char *s2, size_t n);
 extern char		*ft_strstr(char *str, char *to_find);
 extern char		*ft_strnstr(char *str, char *to_find, size_t size);
@@ -123,7 +123,7 @@ extern char		*ft_strchr(const char *s, int c);
 ****************************************************
 */
 
-extern char		*ft_strdup(char *src);
+extern char		*ft_strdup(char const *src);
 extern char		*ft_substr(char const *src, unsigned int start, size_t len);
 extern char		*ft_strtrim(char const *str, char const *set);
 extern char		**ft_split(char const *str, char *charset);
