@@ -44,7 +44,7 @@ static void	*free_array_nt(void **array)
 	free(array);
 	return (NULL);
 }
-
+#include <stdio.h>
 char		**ft_split(char const *str, char *charset)
 {
 	int			word_counter;
@@ -61,7 +61,7 @@ char		**ft_split(char const *str, char *charset)
 			word_start = str++;
 			while (*str && !ft_strchr(charset, *str))
 				str++;
-			if (!(arr[word_counter++] = ft_substr(str, 0, str - word_start)))
+			if (!(arr[word_counter++] = ft_substr(word_start, 0, str - word_start)))
 				return (char **)free_array_nt((void**)arr);
 		}
 		else

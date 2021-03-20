@@ -53,9 +53,9 @@ static t_bool	ft_rnl_append_to(t_rnl_buffer *src, char **line,
 	return (reach_ch);
 }
 
-static int		fd_list_cmp(t_rnl_buffer *gnl_buffer, int *fd)
+static int		fd_list_cmp(t_rnl_buffer *rnl_buffer, int *fd)
 {
-	if (gnl_buffer->fd == *fd)
+	if (rnl_buffer->fd == *fd)
 		return (0);
 	return (-1);
 }
@@ -72,7 +72,7 @@ static int		ft_rnl_error(char **free_str,
 	return (-1);
 }
 
-int				ft_read_next_line(int fd, char **line, char ch)
+int				ft_read_next_line(int fd, char **line)
 {
 	static t_list	*buffer_list;
 	size_t			line_size;
@@ -87,22 +87,23 @@ int				ft_read_next_line(int fd, char **line, char ch)
 				fd_node = ft_create_list_i(sizeof(t_rnl_buffer))))
 			return (-1);
 		ft_bzero(fd_node->data, sizeof(t_rnl_buffer));
+		((t_rnl_buffer*)fd_node->data)->fd = fd;
 	}
 	*line = NULL;
 	buffer = fd_node->data; 
 	line_size = 0;
 	while (buffer->start_pos ||
-		(buffer->size = read(fd, &(buffer->str[0]), RNL_BUFFER_SIZE)) > 0)
+		(buffer->size = read(fd, &buffer->str[0], RNL_BUFFER_SIZE)) > 0)
 	{
 		if (ft_rnl_append_to(buffer, line, &line_size))
-			return (line_size + 1);
+			return (line_size+1);
 		if (!*line)
 			return (ft_rnl_error(line, fd, &buffer_list));
 	}
 	if (buffer->size == 0)
 	{
 		ft_list_remove_if(&buffer_list, &fd, &fd_list_cmp, NULL);
-		return (*line ? ft_strlen(*line) + 1 : 0);
+		return (*line ? line_size + 1 : 0);
 	}
 	return (ft_rnl_error(line, fd, &buffer_list));
 }

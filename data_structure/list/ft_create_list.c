@@ -37,6 +37,6 @@ t_list	*ft_create_list_i(size_t data_size)
 		return (NULL);
 	new_node->next = NULL;
 	new_node->data = ((void*)new_node) + sizeof(t_list);
-	bzero(new_node->data, data_size);
+	ft_bzero(new_node->data, data_size);
 	return (new_node);
 }

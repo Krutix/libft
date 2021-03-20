@@ -45,7 +45,8 @@ STR_FTST	=	ft_strlen.ftst.c \
 				ft_ulen.ftst.c \
 				ft_ito_str.ftst.c \
 				ft_strchr.ftst.c \
-				ft_wchar.ftst.c
+				ft_wchar.ftst.c \
+				ft_split.ftst.c
 
 STR_DIR			=	string/
 

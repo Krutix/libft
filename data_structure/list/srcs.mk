@@ -3,6 +3,7 @@ LIST_SRCS	=	ft_create_list.c \
 				ft_list_clear.c \
 				ft_list_find.c \
 				ft_list_foreach_if.c \
+				ft_list_foreach.c \
 				ft_list_last.c \
 				ft_list_merge.c \
 				ft_list_push_back.c \
