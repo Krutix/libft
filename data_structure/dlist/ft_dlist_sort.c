@@ -13,46 +13,49 @@
 #include "ft_dlist.h"
 #include <stddef.h>
 
-void    ft_dlist_insert(t_dlist *position, t_dlist *node)
+static void    __ft_dlist_insert(t_dlist **sorted, t_dlist **sorted_end, t_dlist *node, int(*cmp)())
 {
-    if (node->prev)
-        node->prev->next = node->next;
-    if (node->next)
-        node->next->prev = node->prev;
-    node->prev = position;
-    node->next = position->next;
-    position->next = node;
+    t_dlist *current;
+
+    if (!*sorted)
+        *sorted = *sorted_end = node;
+    else
+    {
+        current = *sorted_end;
+        while (current && cmp(current->data, node->data) > 0)
+            current = current->prev;
+        if (current)
+        {
+            if (current == *sorted_end)
+                *sorted_end = node;
+            node->next = current->next;
+            if (node->next)
+                node->next->prev = node;
+            current->next = node;
+            node->prev = current;
+        }
+        else
+            ft_dlist_push_front(sorted, node);
+    }
 }
 
 void    ft_dlist_sort(t_dlist **begin_list, void(*upd)(void*, void*), void *addition_data, int(*cmp)())
 {
     t_dlist *sorted;
+    t_dlist *sorted_end;
+    t_dlist *current;
     t_dlist *next;
-    t_dlist *t;
 
-    sorted = *begin_list;
-    while (sorted)
+    sorted = NULL;
+    current = *begin_list;
+    while (current)
     {
-        next = sorted->next;
+        next = current->next;
         if (upd)
-            upd(sorted->data, addition_data);
-        t = sorted->prev;
-        while (t && cmp(t->data, sorted->data) > 0)
-            t = t->prev;
-        if (t != sorted->prev)
-        {
-            if (t)
-                ft_dlist_insert(t, sorted);
-            else
-            {
-                if (sorted->prev)
-                    sorted->prev->next = sorted->next;
-                if (sorted->next)
-                    sorted->next->prev = sorted->prev;
-                sorted->prev = NULL;
-                ft_dlist_push_front(begin_list, sorted);
-            }
-        }
-        sorted = next;
+            upd(current->data, addition_data);
+        current->next = current->prev = NULL;
+        __ft_dlist_insert(&sorted, &sorted_end, current, cmp);
+        current = next;
     }
+    *begin_list = sorted;
 }

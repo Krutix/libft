@@ -3,7 +3,12 @@
 
 static int cmp(void *l, void *r)
 {
-    return l > r;
+    return l - r;
+}
+
+static void debug(void*p)
+{
+    printf("%lli | ", (long long)p);
 }
 
 TEST(ft_dlist_sort)
@@ -20,6 +25,8 @@ TEST(ft_dlist_sort)
     NE(head->next->next, NULL, p, ASSERT);
     EQ((long long)head->next->next->data, 330, lli);
     RUNTIME_ASSERT(ft_dlist_push_back(&head, ft_create_dlist((void*)150)), "malloc error");
+    RUNTIME_ASSERT(ft_dlist_push_front(&head, ft_create_dlist((void*)150)), "malloc error");
     ft_dlist_sort(&head, NULL, NULL, cmp);
     EQ((long long)head->next->data, 150, lli);
+    //ft_list_foreach((t_list*)head, debug);
 }
