@@ -29,10 +29,10 @@ void	ft_dlist_remove_if(t_dlist **begin_list, void *data_ref,
 				free_fct(buff->data);
 			if (buff->prev)
 				buff->prev->next = buff->next;
-			if (buff->next)
-				buff->next->prev = buff->prev;
 			else
 				*begin_list = buff->next;
+			if (buff->next)
+				buff->next->prev = buff->prev;
 			free(buff);
 		}
 		buff = next;

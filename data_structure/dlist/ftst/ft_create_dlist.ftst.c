@@ -131,3 +131,29 @@ TEST(ft_dlist_clear)
     RUNTIME_ASSERT(ft_dlist_push_front(&head, ft_create_dlist_i(10)), "malloc error");
     ft_list_clear((t_list*)head, NULL); /* no crash */
 }
+
+TEST(ft_dlist_remove_node)
+{
+    t_dlist* head = NULL;
+    t_dlist* n = NULL;
+    RUNTIME_ASSERT(ft_dlist_push_front(&head, ft_create_dlist((void*)330)), "malloc error");
+    RUNTIME_ASSERT(ft_dlist_push_front(&head, n = ft_create_dlist((void*)220)), "malloc error");
+    RUNTIME_ASSERT(ft_dlist_push_front(&head, ft_create_dlist((void*)110)), "malloc error");
+    
+    ft_dlist_remove_node(&head, n, NULL);
+
+    EQ(head->data, (void*)110, p);
+    EQ(head->prev, NULL, p);
+    NE(head->next, NULL, p, ASSERT);
+    EQ(head->next->data, (void*)330, p);
+    EQ(head->next->prev, head, p);
+    EQ(head->next->next, NULL, p);
+
+    ft_dlist_remove_node(&head, head, NULL);
+    EQ(head->data, (void*)330, p);
+    EQ(head->prev, NULL, p);
+    EQ(head->next, NULL, p);
+
+    ft_dlist_remove_node(&head, head, NULL);
+    EQ(head, NULL, p);
+}
