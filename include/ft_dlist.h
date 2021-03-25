@@ -32,7 +32,9 @@ void				ft_dlist_remove_node(t_dlist **begin_list, t_dlist *node,
 							void (*free_fct)(void*));
 void				ft_dlist_remove_if(t_dlist **begin_list, void *data_ref,
 							int (*cmp)(), void (*free_fct)(void*));
+void				ft_dlist_sort_insert(t_dlist **begin_list,
+							t_dlist *node, int (*cmp)());
 void				ft_dlist_sort(t_dlist **begin_list, void(*upd)(void*, void*),
-										void *addition_data, int(*cmp)());
+							void *addition_data, int(*cmp)());
 
 #endif
