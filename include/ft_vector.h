@@ -33,6 +33,7 @@ extern void			ft_vec_pop_back(t_vector *vec);
 extern t_bool		ft_vec_push_reserv(t_vector *vec);
 extern t_bool		ft_vec_push_back(t_vector *vec, void *data);
 
+extern void			ft_vec_remove_at(t_vector *vec, size_t pos, void (*del)(void*));
 extern void			*ft_vec_at(t_vector *vec, size_t pos);
 extern void			*ft_vec_top(t_vector *vec);
 extern void			*ft_vec_back(t_vector *vec);
