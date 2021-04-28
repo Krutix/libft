@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:20:04 by fdiego            #+#    #+#             */
-/*   Updated: 2020/12/31 22:54:33 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:20:35 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	n %= sizeof(long);
 	while (big_word-- != 0)
 	{
-		*(long*)dest = *(long*)src;
+		*(long *)dest = *(long *)src;
 		dest += sizeof(long);
 		src += sizeof(long);
 	}
 	while (n-- != 0)
-		*(char*)dest++ = *(char*)(src++);
+		*(char *)dest++ = *(char *)(src++);
 	return (d);
 }

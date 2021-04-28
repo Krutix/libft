@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:50:06 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:27:07 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 09:09:09 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	return (('a' <= c && c <= 'z') ? c - ('a' - 'A') : c);
+	return (c - ('a' - 'A') * ('a' <= c && c <= 'z'));
 }

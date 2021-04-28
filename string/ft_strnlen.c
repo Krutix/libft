@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:48:11 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 17:38:46 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 09:15:41 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,29 +54,28 @@ inline static const char	*ft_strnlen_longword(
 	const __uint64_t	lomagic = 0x0101010101010101LL;
 	__uint64_t			longword;
 
-	longword_ptr = (__uint64_t*)start;
-	while ((__uint64_t)(end_ptr - (char*)longword_ptr) > sizeof(__uint64_t))
+	longword_ptr = (__uint64_t *)start;
+	while ((__uint64_t)(end_ptr - (char *)longword_ptr) > sizeof(__uint64_t))
 	{
 		longword = *longword_ptr++;
 		if (((longword - lomagic) & ~longword & himagic) != 0)
-			if ((start = ft_strnlen_check((const char*)(longword_ptr - 1))))
-				return (start);
+			return (ft_strnlen_check((const char *)(longword_ptr - 1)));
 	}
-	start = (char*)longword_ptr;
+	start = (char *)longword_ptr;
 	while (start != end_ptr)
 		if (!*start++)
 			return (--start);
 	return (end_ptr);
 }
 
-size_t						ft_strnlen(const char *str, size_t n)
+size_t	ft_strnlen(const char *str, size_t n)
 {
-	const char *char_ptr;
-	const char *end_ptr;
+	const char	*char_ptr;
+	const char	*end_ptr;
 
 	char_ptr = str;
 	end_ptr = str + n;
-	while (char_ptr != end_ptr &&
+	while (char_ptr != end_ptr && \
 			(((__uint64_t)char_ptr & (sizeof(__uint64_t) - 1)) != 0))
 		if (*char_ptr++ == '\0')
 			return (--char_ptr - str);

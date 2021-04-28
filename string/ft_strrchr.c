@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:56:59 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:26:41 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 09:12:14 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *l;
+	char	*l;
 
 	l = NULL;
 	while (*s)
 	{
 		if (*s == (char)c)
-			l = (char*)s;
+			l = (char *)s;
 		s++;
 	}
 	if (l == NULL)
-		return (c == '\0' ? (char*)s : NULL);
+	{
+		if (c == '\0')
+			return ((char *)s);
+		return (NULL);
+	}
 	return (l);
 }

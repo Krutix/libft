@@ -6,18 +6,18 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:39:04 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 19:55:21 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:30:39 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 #include <stdlib.h>
 
-long long		ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
-	size_t			i;
-	t_ullint		nb;
-	char			sign;
+	size_t		i;
+	t_ullint	nb;
+	char		sign;
 
 	i = 0;
 	sign = 1;

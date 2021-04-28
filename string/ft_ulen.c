@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:06:52 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 19:36:51 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 09:07:48 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_uint	ft_ulen(t_ullint num)
 {
-	t_uint i;
+	t_uint	i;
 
 	i = 1;
 	while (t_true)
@@ -34,7 +34,7 @@ t_uint	ft_ulen(t_ullint num)
 
 t_uint	ft_ulen_16(t_ullint num)
 {
-	t_uint i;
+	t_uint	i;
 
 	i = 1;
 	while (t_true)
@@ -77,7 +77,7 @@ t_uint	ft_ulen_n(t_ullint num, t_uint base)
 
 t_uint	ft_ulen_2(t_ullint num)
 {
-	t_uint i;
+	t_uint	i;
 
 	i = 1;
 	while (t_true)

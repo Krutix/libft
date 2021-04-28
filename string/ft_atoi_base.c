@@ -6,13 +6,13 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 16:42:16 by fdiego            #+#    #+#             */
-/*   Updated: 2020/12/31 23:02:10 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:31:38 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-t_llint			ft_atoi_base(char *str, char *base)
+t_llint	ft_atoi_base(char *str, char *base)
 {
 	t_ullint	n;
 	int			i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:18:17 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 22:37:56 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:30:13 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*alloc;
 
-	if (!(alloc = malloc(count * size)))
+	alloc = malloc(count * size);
+	if (!alloc)
 		return (NULL);
 	ft_bzero(alloc, count * size);
 	return (alloc);

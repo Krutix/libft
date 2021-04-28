@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/13 15:29:10 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/26 14:22:21 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 09:28:02 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcat(char *dest, char *src)
 {
-	char *d;
+	char	*d;
 
 	d = dest + ft_strlen(dest);
 	ft_strcpy(d, src);

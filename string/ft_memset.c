@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:17:21 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 17:32:22 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:19:30 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void	*ft_memset(void *mem, int value, size_t size)
 	const void	*m = mem;
 
 	while (size-- != 0)
-		*(unsigned char*)(mem++) = (unsigned char)value;
-	return ((void*)m);
+		*(unsigned char *)(mem++) = (unsigned char)value;
+	return ((void *)m);
 }

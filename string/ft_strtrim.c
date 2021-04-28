@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:15:29 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/26 14:59:51 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 09:10:17 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 #include <stdlib.h>
 
-char		*ft_strtrim(char const *str, char const *set)
+char	*ft_strtrim(char const *str, char const *set)
 {
 	size_t	len;
 

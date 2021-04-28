@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_str_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 16:53:48 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:22:56 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:19:07 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static void	sort(char *argv[], int argc, int (*cmp)(char *, char *))
 	}
 }
 
-void		ft_sort_str_tab(char **tab, int (*cmp)(char *, char *))
+void	ft_sort_str_tab(char **tab, int (*cmp)(char *, char *))
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (tab[len])

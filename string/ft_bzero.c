@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:16:25 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 22:38:02 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:31:55 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_bzero(void *mem, size_t size)
 {
 	while (size-- != 0)
 	{
-		*(char*)(mem) ^= *(char*)(mem);
+		*(char *)(mem) ^= *(char *)(mem);
 		mem++;
 	}
 }

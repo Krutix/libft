@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:39:21 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:21:38 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:34:21 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 t_bool	ft_isalpha(int c)
 {
-	return (('a' <= (unsigned)c && (unsigned)c <= 'z')
+	return (('a' <= (unsigned)c && (unsigned)c <= 'z') \
 			|| ('A' <= (unsigned)c && (unsigned)c <= 'Z'));
 }

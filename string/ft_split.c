@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:16:56 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 22:40:56 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:18:30 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	array_size(char const *str, char *charset)
 
 static void	*free_array_nt(void **array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (array[i])
@@ -44,15 +44,16 @@ static void	*free_array_nt(void **array)
 	free(array);
 	return (NULL);
 }
-#include <stdio.h>
-char		**ft_split(char const *str, char *charset)
+
+char	**ft_split(char const *str, char *charset)
 {
 	int			word_counter;
 	char const	*word_start;
 	char		**arr;
 
 	word_counter = 0;
-	if (!(arr = malloc((array_size(str, charset) + 1) * sizeof(char*))))
+	arr = malloc((array_size(str, charset) + 1) * sizeof(char *));
+	if (!arr)
 		return (NULL);
 	while (*str)
 	{
@@ -61,8 +62,9 @@ char		**ft_split(char const *str, char *charset)
 			word_start = str++;
 			while (*str && !ft_strchr(charset, *str))
 				str++;
-			if (!(arr[word_counter++] = ft_substr(word_start, 0, str - word_start)))
-				return (char **)free_array_nt((void**)arr);
+			arr[word_counter++] = ft_substr(word_start, 0, str - word_start);
+			if (!arr[word_counter++])
+				return ((char **)free_array_nt((void **)arr));
 		}
 		else
 			str++;

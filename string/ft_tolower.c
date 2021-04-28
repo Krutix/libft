@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:09:32 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/09 16:27:01 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 09:09:42 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	return (('A' <= c && c <= 'Z') ? c + ('a' - 'A') : c);
+	return (c + ('a' - 'A') * ('A' <= c && c <= 'Z'));
 }
