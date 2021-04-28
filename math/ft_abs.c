@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 21:32:16 by krutix            #+#    #+#             */
-/*   Updated: 2021/01/28 17:28:43 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:43:18 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 t_ullint	ft_abs(t_llint num)
 {
-	return (num >= 0 ? num : -num);
+	if (num < 0)
+		return (-num);
+	else
+		return (num);
 }
 
-float		ft_absf(float num)
+float	ft_absf(float num)
 {
-	union {
-		t_uint	i;
-		float	f;
-	} *f = (void*)&num;
-	f->i = f->i & 0x7fffffff;
-	return (f->f);
+	if (num < 0)
+		return (-num);
+	else
+		return (num);
 }

@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 12:06:59 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 17:30:05 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:40:58 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 t_llint	ft_pow(t_llint nb, size_t power)
 {
-	int res;
+	int	res;
 
 	res = 1;
 	while (power != 0)

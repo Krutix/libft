@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:47:42 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 21:40:38 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:37:08 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
-int				ft_find_next_prime(int nb)
+int	ft_find_next_prime(int nb)
 {
 	if (nb <= 2)
 		return (2);

@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 14:01:51 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 17:28:53 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 10:37:16 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_bool	ft_is_prime(t_ullint nb)
 {
-	unsigned int i;
-	unsigned int sqrt;
+	unsigned int	i;
+	unsigned int	sqrt;
 
 	if (nb <= 1)
 		return (0);
