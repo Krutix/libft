@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_next_line.c                                   :+:      :+:    :+:   */
+/*   ft_read_next_line.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 17:36:27 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/08 21:47:38 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 11:31:40 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ft_read_next_line.h"
 #include "ft_list.h"
 
-static char		*ft_memjoin(void const *s1, void const *s2,
+static char	*ft_memjoin(void const *s1, void const *s2,
 							size_t len1, size_t len2)
 {
 	char	*join_str;
@@ -86,7 +86,6 @@ int				ft_read_next_line(int fd, char **line)
 		if (!ft_list_push_front(&buffer_list,
 				fd_node = ft_create_list_i(sizeof(t_rnl_buffer))))
 			return (-1);
-		ft_bzero(fd_node->data, sizeof(t_rnl_buffer));
 		((t_rnl_buffer*)fd_node->data)->fd = fd;
 	}
 	*line = NULL;

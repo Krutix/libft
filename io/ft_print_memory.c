@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 17:16:35 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 17:16:40 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 11:20:09 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "ft_io.h"
 #include "memory.h"
 
-static void		print_hex_code(unsigned long long ch)
+static void	print_hex_code(unsigned long long ch)
 {
-	char b;
+	char	b;
 
 	b = "0123456789abcdef"[ch / 16];
 	write(1, &b, 1);
@@ -24,7 +24,7 @@ static void		print_hex_code(unsigned long long ch)
 	write(1, &b, 1);
 }
 
-static void		put_hexnbr(unsigned long long nb)
+static void	put_hexnbr(unsigned long long nb)
 {
 	if (nb < 16)
 	{
@@ -35,7 +35,7 @@ static void		put_hexnbr(unsigned long long nb)
 	ft_putchar_fd("0123456789abcdef"[nb % 16], 1);
 }
 
-static void		print_address(void *addr, size_t size)
+static void	print_address(void *addr, size_t size)
 {
 	size_t				size_adds;
 	unsigned long long	buff;
@@ -57,14 +57,14 @@ static void		print_address(void *addr, size_t size)
 	{
 		if (i % 2 == 0)
 			write(1, " ", 1);
-		print_hex_code(*(char*)(addr + i));
+		print_hex_code(*(char *)(addr + i));
 		i++;
 	}
 }
 
-static void		print_data(void *addr, int size)
+static void	print_data(void *addr, int size)
 {
-	int i;
+	int	i;
 
 	i = size;
 	while (i < 18)
@@ -77,7 +77,7 @@ static void		print_data(void *addr, int size)
 	i = 0;
 	while (i < size)
 	{
-		if (*(char*)(addr + i) <= '\x1f' || *(char*)(addr + i) == '\x7f')
+		if (*(char *)(addr + i) <= '\x1f' || *(char *)(addr + i) == '\x7f')
 			write(1, ".", 1);
 		else
 			write(1, addr + i, 1);
@@ -85,7 +85,7 @@ static void		print_data(void *addr, int size)
 	}
 }
 
-void			ft_print_memory(void *addr, size_t size)
+void	ft_print_memory(void *addr, size_t size)
 {
 	while (size > 16)
 	{

@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:23:54 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 17:28:17 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/28 11:21:20 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static size_t	ft_unum_size(t_ullint n, size_t base_size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 1;
 	while (n >= base_size)
@@ -28,12 +28,12 @@ static size_t	ft_unum_size(t_ullint n, size_t base_size)
 	return (i);
 }
 
-int				ft_putnbr_base_fd(t_llint nb, char *base, int fd)
+int	ft_putnbr_base_fd(t_llint nb, char *base, int fd)
 {
 	const size_t	base_length = ft_strlen(base);
 	const size_t	len = ft_unum_size(ft_abs(nb), base_length) + (nb < 0);
 	t_ullint		unb;
-	char			str_num[len];
+	char			str_num[64];
 	char			*back;
 
 	str_num[0] = '-';
