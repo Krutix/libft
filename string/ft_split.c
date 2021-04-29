@@ -63,7 +63,7 @@ char	**ft_split(char const *str, char *charset)
 			while (*str && !ft_strchr(charset, *str))
 				str++;
 			arr[word_counter++] = ft_substr(word_start, 0, str - word_start);
-			if (!arr[word_counter++])
+			if (!arr[word_counter - 1])
 				return ((char **)free_array_nt((void **)arr));
 		}
 		else

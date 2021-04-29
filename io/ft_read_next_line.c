@@ -15,23 +15,10 @@
 #include "ft_string.h"
 #include "ft_read_next_line.h"
 #include "ft_list.h"
+#include "stdio.h"
 
-static char	*ft_memjoin(void const *s1, void const *s2,
-							size_t len1, size_t len2)
-{
-	char	*join_str;
-
-	join_str = malloc(sizeof(char) * (len1 + len2 + 1));
-	if (!join_str)
-		return (NULL);
-	ft_memcpy(join_str, s1, len1);
-	ft_memcpy(join_str + len1, s2, len2);
-	join_str[len1 + len2] = '\0';
-	return (join_str);
-}
-
-static t_bool	ft_rnl_append_to(t_rnl_buffer *src, char **line,
-						size_t *line_size)
+static t_bool	ft_rnl_append_to(t_rnl_buffer *src, \
+					char **line, size_t *line_size)
 {
 	size_t	i;
 	t_bool	reach_ch;
@@ -42,7 +29,7 @@ static t_bool	ft_rnl_append_to(t_rnl_buffer *src, char **line,
 		i++;
 	reach_ch = (i != (size_t)src->size);
 	t = *line;
-	*line = ft_memjoin(*line, &src->str[src->start_pos],
+	*line = ft_memjoin(*line, &src->str[src->start_pos], \
 						*line_size, i - src->start_pos);
 	*line_size += i - src->start_pos;
 	free(t);
@@ -60,7 +47,7 @@ static int		fd_list_cmp(t_rnl_buffer *rnl_buffer, int *fd)
 	return (-1);
 }
 
-static int		ft_rnl_error(char **free_str,
+static int	ft_rnl_error(char **free_str, \
 					int fd, t_list **begin_list)
 {
 	if (free_str)
@@ -72,37 +59,53 @@ static int		ft_rnl_error(char **free_str,
 	return (-1);
 }
 
-int				ft_read_next_line(int fd, char **line)
+static t_list	*__find_buffer(int fd, t_list **buffer_list, t_list **fd_node)
+{
+	*fd_node = NULL;
+	if (*buffer_list)
+		*fd_node = ft_list_find(*buffer_list, &fd, &fd_list_cmp);
+	if (!*fd_node)
+	{
+		*fd_node = ft_create_list_i(sizeof(t_rnl_buffer));
+		if (!ft_list_push_front(buffer_list, *fd_node))
+			return (NULL);
+		((t_rnl_buffer*)(*fd_node)->data)->fd = fd;
+	}
+	return (*fd_node);
+}
+
+static int	__read(int fd, char *buffer, int *buffer_size)
+{
+	*buffer_size = read(fd, buffer, RNL_BUFFER_SIZE);
+	return (*buffer_size);
+}
+
+int	ft_read_next_line(int fd, char **line)
 {
 	static t_list	*buffer_list;
+	t_list			*fd_node;
 	size_t			line_size;
-	t_list			*fd_node = NULL;
 	t_rnl_buffer	*buffer;
 
-	if (buffer_list)
-		fd_node = ft_list_find(buffer_list, &fd, &fd_list_cmp);
-	if (!fd_node)
-	{
-		if (!ft_list_push_front(&buffer_list,
-				fd_node = ft_create_list_i(sizeof(t_rnl_buffer))))
-			return (-1);
-		((t_rnl_buffer*)fd_node->data)->fd = fd;
-	}
+	if (!__find_buffer(fd, &buffer_list, &fd_node))
+		return (-1);
+	buffer = fd_node->data;
 	*line = NULL;
-	buffer = fd_node->data; 
 	line_size = 0;
 	while (buffer->start_pos ||
-		(buffer->size = read(fd, &buffer->str[0], RNL_BUFFER_SIZE)) > 0)
+		__read(fd, &buffer->str[0], &buffer->size) > 0)
 	{
 		if (ft_rnl_append_to(buffer, line, &line_size))
-			return (line_size+1);
+			return (line_size + 1);
 		if (!*line)
 			return (ft_rnl_error(line, fd, &buffer_list));
 	}
 	if (buffer->size == 0)
 	{
 		ft_list_remove_if(&buffer_list, &fd, &fd_list_cmp, NULL);
-		return (*line ? line_size + 1 : 0);
+		if (*line)
+			return (line_size + 1);
+		return (0);
 	}
 	return (ft_rnl_error(line, fd, &buffer_list));
 }
