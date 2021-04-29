@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "ft_vector.h"
 
-void		ft_vec_destructor(t_vector *vec)
+void	ft_vec_destructor(t_vector *vec)
 {
 	if (vec->array)
 		free(vec->array);

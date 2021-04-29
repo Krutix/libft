@@ -18,7 +18,7 @@
 
 t_dlist	*ft_create_dlist(void* data)
 {
-	t_dlist *new_node;
+	t_dlist	*new_node;
 
 	new_node = malloc(sizeof(t_dlist));
 	if (!new_node)
@@ -31,7 +31,7 @@ t_dlist	*ft_create_dlist(void* data)
 
 t_dlist	*ft_create_dlist_i(size_t data_size)
 {
-	t_dlist *new_node;
+	t_dlist	*new_node;
 
 	new_node = malloc(sizeof(t_dlist) + data_size);
 	if (!new_node)

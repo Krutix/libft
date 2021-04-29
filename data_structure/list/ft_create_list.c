@@ -18,7 +18,7 @@
 
 t_list	*ft_create_list(void* data)
 {
-	t_list *new_node;
+	t_list	*new_node;
 
 	new_node = malloc(sizeof(t_list));
 	if (!new_node)
@@ -30,7 +30,7 @@ t_list	*ft_create_list(void* data)
 
 t_list	*ft_create_list_i(size_t data_size)
 {
-	t_list *new_node;
+	t_list	*new_node;
 
 	new_node = malloc(sizeof(t_list) + data_size);
 	if (!new_node)

@@ -14,7 +14,7 @@
 #include "ft_string.h"
 #include "ft_vector.h"
 
-t_bool		ft_vec_realloc(t_vector *vec, size_t new_reserv)
+t_bool	ft_vec_realloc(t_vector *vec, size_t new_reserv)
 {
 	void	*new_arr;
 
