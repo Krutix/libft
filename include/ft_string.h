@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 17:34:23 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 19:51:49 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/30 08:47:48 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 extern t_llint	ft_atoi_base(char *str, char *base);
 extern t_llint	ft_atoi(const char *str);
 
-extern size_t   ft_utob(char *buffer, t_ullint num);
-extern size_t   ft_utob_16(char *buffer, t_ullint num, char *base);
-extern size_t   ft_utob_2(char *buffer, t_ullint num);
-extern size_t   ft_utob_n(char *buffer, t_ullint num, char *base);
-extern char     *ft_utob_bt(char *buffer_end, t_ullint num);
-extern char     *ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
-extern char     *ft_utob_bt_16(char *buffer_end, t_ullint num, char *base);
-extern char     *ft_utob_bt_2(char *buffer_end, t_ullint num);
+extern size_t	ft_utob(char *buffer, t_ullint num);
+extern size_t	ft_utob_16(char *buffer, t_ullint num, char *base);
+extern size_t	ft_utob_2(char *buffer, t_ullint num);
+extern size_t	ft_utob_n(char *buffer, t_ullint num, char *base);
+extern char		*ft_utob_bt(char *buffer_end, t_ullint num);
+extern char		*ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
+extern char		*ft_utob_bt_16(char *buffer_end, t_ullint num, char *base);
+extern char		*ft_utob_bt_2(char *buffer_end, t_ullint num);
 
 extern char		*ft_itoa(t_llint num);
 
@@ -49,8 +49,8 @@ extern int		ft_memcmp(const void *s1, const void *s2, size_t n);
 extern char		*ft_memjoin(void const *s1, void const *s2, \
 							size_t len1, size_t len2);
 
-extern int      ft_wstrtostr(wchar_t *str, char *buffer);
-extern int      ft_wchtoch(wchar_t ch, char *buffer);
+extern int		ft_wstrtostr(wchar_t *str, char *buffer);
+extern int		ft_wchtoch(wchar_t ch, char *buffer);
 
 /*
 ****************************************************

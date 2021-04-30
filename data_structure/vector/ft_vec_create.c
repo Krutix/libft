@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec_create_reserv.c                             :+:      :+:    :+:   */
+/*   ft_vec_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 18:12:10 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/23 05:51:31 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/30 08:30:33 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 t_vector	*ft_vec_create(t_uint cell_size)
 {
-	t_vector *vec;
+	t_vector	*vec;
 
 	vec = malloc(sizeof(t_vector));
 	if (!vec)

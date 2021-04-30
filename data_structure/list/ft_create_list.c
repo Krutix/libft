@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_create_list.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:44:50 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/19 23:01:21 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/30 08:32:20 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ft_string.h"
 #include "ft_list.h"
 
-t_list	*ft_create_list(void* data)
+t_list	*ft_create_list(void *data)
 {
 	t_list	*new_node;
 
@@ -36,7 +36,7 @@ t_list	*ft_create_list_i(size_t data_size)
 	if (!new_node)
 		return (NULL);
 	new_node->next = NULL;
-	new_node->data = ((void*)new_node) + sizeof(t_list);
+	new_node->data = ((void *)new_node) + sizeof(t_list);
 	ft_bzero(new_node->data, data_size);
 	return (new_node);
 }

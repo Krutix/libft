@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 20:40:51 by krutix            #+#    #+#             */
-/*   Updated: 2021/01/28 17:37:32 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/30 08:45:44 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 ************************************************
 */
 
-typedef enum	e_bool
+typedef enum e_bool
 {
 	t_false = 0,
 	t_true = 1
@@ -50,20 +50,5 @@ typedef short int				t_sint;
 typedef unsigned short int		t_usint;
 typedef unsigned char			t_uchar;
 typedef long double				t_ldouble;
-
-/*
-************************************************
-**
-**	general data type for data structures
-**
-************************************************
-*/
-typedef union	u_data {
-	void		*p;
-	char		*s;
-	intptr_t	i;
-	uintptr_t	u;
-	double		d;
-}				t_data;
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_push_strs.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 17:45:32 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 23:21:23 by krutix           ###   ########.fr       */
+/*   Updated: 2021/04/30 08:30:59 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list	*ft_list_push_strs(size_t size, char **strs)
 	i = 0;
 	while (i < size)
 	{
-		if (!ft_list_push_front(&b_list, ft_create_list((void*)strs[i]))) /* TODO protect malloc */
+		if (!ft_list_push_front(&b_list, ft_create_list((void *)strs[i])))
 		{
 			ft_list_clear(b_list, NULL);
 			return (NULL);

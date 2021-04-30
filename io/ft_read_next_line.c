@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 17:36:27 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 11:31:40 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/30 08:26:31 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,6 @@ static t_bool	ft_rnl_append_to(t_rnl_buffer *src, \
 	return (reach_ch);
 }
 
-static int		fd_list_cmp(t_rnl_buffer *rnl_buffer, int *fd)
-{
-	if (rnl_buffer->fd == *fd)
-		return (0);
-	return (-1);
-}
-
-static int	ft_rnl_error(char **free_str, \
-					int fd, t_list **begin_list)
-{
-	if (free_str)
-	{
-		free(*free_str);
-		*free_str = NULL;
-	}
-	ft_list_remove_if(begin_list, &fd, &fd_list_cmp, NULL);
-	return (-1);
-}
-
 static t_list	*__find_buffer(int fd, t_list **buffer_list, t_list **fd_node)
 {
 	*fd_node = NULL;
@@ -69,7 +50,7 @@ static t_list	*__find_buffer(int fd, t_list **buffer_list, t_list **fd_node)
 		*fd_node = ft_create_list_i(sizeof(t_rnl_buffer));
 		if (!ft_list_push_front(buffer_list, *fd_node))
 			return (NULL);
-		((t_rnl_buffer*)(*fd_node)->data)->fd = fd;
+		((t_rnl_buffer *)(*fd_node)->data)->fd = fd;
 	}
 	return (*fd_node);
 }
@@ -92,8 +73,7 @@ int	ft_read_next_line(int fd, char **line)
 	buffer = fd_node->data;
 	*line = NULL;
 	line_size = 0;
-	while (buffer->start_pos ||
-		__read(fd, &buffer->str[0], &buffer->size) > 0)
+	while (buffer->start_pos || __read(fd, &buffer->str[0], &buffer->size) > 0)
 	{
 		if (ft_rnl_append_to(buffer, line, &line_size))
 			return (line_size + 1);

@@ -6,19 +6,23 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 18:16:16 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/28 17:37:14 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/30 08:34:53 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dlist.h"
 #include <stddef.h>
 
-static void	__ft_dlist_insert(t_dlist **sorted, t_dlist **sorted_end, t_dlist *node, int(*cmp)())
+static void	__ft_dlist_insert(t_dlist **sorted, t_dlist **sorted_end, \
+										t_dlist *node, int(*cmp)())
 {
 	t_dlist	*current;
 
 	if (!*sorted)
-		*sorted = *sorted_end = node;
+	{
+		*sorted = node;
+		*sorted_end = node;
+	}
 	else
 	{
 		current = *sorted_end;
@@ -39,7 +43,8 @@ static void	__ft_dlist_insert(t_dlist **sorted, t_dlist **sorted_end, t_dlist *n
 	}
 }
 
-void	ft_dlist_sort(t_dlist **begin_list, void(*upd)(void*, void*), void *addition_data, int(*cmp)())
+void	ft_dlist_sort(t_dlist **begin_list, void(*upd)(void*, void*), \
+									void *addition_data, int(*cmp)())
 {
 	t_dlist	*sorted;
 	t_dlist	*sorted_end;
@@ -53,7 +58,8 @@ void	ft_dlist_sort(t_dlist **begin_list, void(*upd)(void*, void*), void *additio
 		next = current->next;
 		if (upd)
 			upd(current->data, addition_data);
-		current->next = current->prev = NULL;
+		current->next = NULL;
+		current->prev = NULL;
 		__ft_dlist_insert(&sorted, &sorted_end, current, cmp);
 		current = next;
 	}

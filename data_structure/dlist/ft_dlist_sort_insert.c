@@ -11,7 +11,7 @@ void	ft_dlist_sort_insert(t_dlist **begin_list, t_dlist *node, int (*cmp)())
 		if (node->next)
 			node->next->prev = node;
 		*begin_list = node;
-		return;
+		return ;
 	}
 	current = (*begin_list);
 	while (current->next && cmp(current->next->data, node->data) < 0)
