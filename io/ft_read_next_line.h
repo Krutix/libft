@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 21:26:01 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/30 09:21:27 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/04/30 09:52:32 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include "ftdef.h"
+# include "ft_list.h"
 
 # ifndef RNL_BUFFER_SIZE
 #  define RNL_BUFFER_SIZE 1024
