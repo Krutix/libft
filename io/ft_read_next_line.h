@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include "ftdef.h"
+# include "ft_list.h"
 
 # ifndef RNL_BUFFER_SIZE
 #  define RNL_BUFFER_SIZE 1024
