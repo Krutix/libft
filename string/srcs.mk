@@ -34,6 +34,7 @@ STR_SRCS	=	ft_atoi_base.c \
 				ft_substr.c \
 				ft_tolower.c \
 				ft_toupper.c \
+				ft_strtol.c \
 				ft_ulen.c \
 				ft_utob_bt.c \
 				ft_utob.c \
