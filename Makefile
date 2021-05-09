@@ -82,7 +82,7 @@ ${BUILD_LIB}:	${BUILD_OBJS}
 
 .PHONY:	build
 build:
-			@${MAKE} -j 16 ${BUILD_LIB} -s
+			@${MAKE} ${BUILD_LIB} -s
 
 .PHONY:	b_clean
 b_clean:
