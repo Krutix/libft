@@ -139,4 +139,7 @@ extern t_uint	ft_ulen_n(t_ullint num, t_uint base);
 extern t_uint	ft_ulen_2(t_ullint num);
 extern t_uint	ft_ulen_16(t_ullint num);
 
+extern void		ft_strarr_clear(char **s);
+extern size_t	ft_strarr_size(char **s);
+
 #endif
