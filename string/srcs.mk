@@ -6,6 +6,7 @@ STR_SRCS	=	ft_atoi_base.c \
 				ft_isalpha.c \
 				ft_isascii.c \
 				ft_isprint.c \
+				ft_isdigit.c \
 				ft_isspace.c \
 				ft_itoa.c \
 				ft_memccpy.c \
@@ -39,6 +40,7 @@ STR_SRCS	=	ft_atoi_base.c \
 				ft_utob_bt.c \
 				ft_utob.c \
 				ft_wchar.c \
+				ft_str_arr.c \
 				ft_memjoin.c
 
 STR_FTST	=	ft_strlen.ftst.c \
