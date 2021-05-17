@@ -52,6 +52,7 @@ void	ft_dlist_sort(t_dlist **begin_list, void(*upd)(void*, void*), \
 	t_dlist	*next;
 
 	sorted = NULL;
+	sorted_end = *begin_list;
 	current = *begin_list;
 	while (current)
 	{

@@ -1,7 +1,7 @@
 #include "ft_string.h"
 #include <stdlib.h>
 
-t_bool	ft_strtol_m(const char *str, long max_abs, long *r)
+t_bool	ft_strtol_m(const char *str, t_ullint max_abs, long *r)
 {
 	size_t		i;
 	t_ullint	nb;
@@ -26,7 +26,7 @@ t_bool	ft_strtol_m(const char *str, long max_abs, long *r)
 	return (t_true);
 }
 
-t_bool	ft_strtoi_m(const char *str, long max_abs, int *r)
+t_bool	ft_strtoi_m(const char *str, t_ullint max_abs, int *r)
 {
 	long	nb;
 	t_bool	b;
