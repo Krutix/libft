@@ -23,7 +23,7 @@ t_bool	ft_strtol_m(const char *str, t_ullint max_abs, long *r)
 			return (t_false);
 	}
 	*r = nb * sign;
-	return (t_true);
+	return (!str[i]);
 }
 
 t_bool	ft_strtoi_m(const char *str, t_ullint max_abs, int *r)
