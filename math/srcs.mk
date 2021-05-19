@@ -5,11 +5,9 @@ SRCS_MATH	=	ft_abs.c \
 				ft_max_minf.c \
 				ft_pow.c \
 				ft_sqrt.c \
-				ft_swap.c \
 				ft_v2f.c
 
-FTST_MATH	=	ft_swap.ftst.c \
-				ft_abs.ftst.c \
+FTST_MATH	=	ft_abs.ftst.c \
 				ft_max_min.ftst.c \
 				ft_v2f.ftst.c
 
