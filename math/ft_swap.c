@@ -27,28 +27,36 @@ void	ft_swap_n(void *v1, void *v2, size_t n)
 
 void	ft_swap_8(int64_t *v1, int64_t *v2)
 {
-	*v1 ^= *v2;
-	*v2 ^= *v1;
-	*v1 ^= *v2;
+	int64_t	t;
+
+	t = *v1;
+	*v1 = *v2;
+	*v2 = t;
 }
 
 void	ft_swap_4(int32_t *v1, int32_t *v2)
 {
-	*v1 ^= *v2;
-	*v2 ^= *v1;
-	*v1 ^= *v2;
+	int32_t	t;
+
+	t = *v1;
+	*v1 = *v2;
+	*v2 = t;
 }
 
 void	ft_swap_2(int16_t *v1, int16_t *v2)
 {
-	*v1 ^= *v2;
-	*v2 ^= *v1;
-	*v1 ^= *v2;
+	int16_t	t;
+
+	t = *v1;
+	*v1 = *v2;
+	*v2 = t;
 }
 
 void	ft_swap_1(int8_t *v1, int8_t *v2)
 {
-	*v1 ^= *v2;
-	*v2 ^= *v1;
-	*v1 ^= *v2;
+	int8_t	t;
+
+	t = *v1;
+	*v1 = *v2;
+	*v2 = t;
 }

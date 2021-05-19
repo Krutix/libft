@@ -32,6 +32,7 @@ FTST_TARGET	= ${BUILD_LIB}
 FTST_SRCS	=
 SRCS		=
 include string/srcs.mk
+include algorithm/srcs.mk
 include math/srcs.mk
 include io/srcs.mk
 include data_structure/vector/srcs.mk
