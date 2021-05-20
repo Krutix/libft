@@ -1,4 +1,4 @@
-#include "ft_math.h"
+#include "ft_algorithm.h"
 
 #define FTST_SUB_TEST
 #include "ftst.h"
@@ -18,6 +18,8 @@ TEST(ft_swap_basic)
 	EQ(b, 'a', c);
 	EQ(a, 'a', i);
 	EQ(b, 'a', i);
+	ft_swap_1((int8_t*)&a, (int8_t*)&a);
+	EQ(a, 'a', c);
 }
 
 TEST(ft_swap_big_swap)

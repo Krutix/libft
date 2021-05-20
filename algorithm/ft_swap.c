@@ -6,11 +6,11 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/31 22:26:28 by fdiego            #+#    #+#             */
-/*   Updated: 2020/12/31 22:36:13 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/05/20 13:14:07 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
+#include "ft_algorithm.h"
 
 void	ft_swap_n(void *v1, void *v2, size_t n)
 {
