@@ -18,4 +18,12 @@ TEST(ft_qsort)
 	EQ(arr[3], 5);
 	EQ(arr[4], 7);
 	EQ(arr[5], 7);
+	EQ(arr[6], 0);
+}
+
+TEST(ft_qsort_empty)
+{
+	int arr[] = { 0 };
+	ft_qsort((void*)arr, (void*)(arr + 1), sizeof(int), &cmp);
+	EQ(arr[0], 0);
 }
