@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_string.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 17:34:23 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/30 08:47:48 by fdiego           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FT_STRING_H
 # define FT_STRING_H
 
@@ -54,41 +42,8 @@ extern char		*ft_memjoin(void const *s1, void const *s2, \
 extern int		ft_wstrtostr(wchar_t *str, char *buffer);
 extern int		ft_wchtoch(wchar_t ch, char *buffer);
 
-/*
-****************************************************
-**
-**		PROCESSES ONLY WITH VALID STRING
-**
-** 	strlen		|	return length of string
-**  strnlen		|	return length <= n
-**
-****************************************************
-*/
-
 extern size_t	ft_strlen(const char *s);
 extern size_t	ft_strnlen(const char *str, size_t n);
-
-/*
-****************************************************
-**
-**	strcpy		|	copy string to null terminant
-**	strncpy		|	copy string to null terminant
-**				-		max 'n' characters
-**				-	not guarantees null terminated string
-**	strlcpy		|	copy string in 'dest'
-**				-		with 'size' the 'dest' size
-**
-****************************************************
-**
-**	strcat		|	cat 'src' to 'dest'
-**	strncat		|	cat 'src' to 'dest'
-**				-		max 'n' characters
-**				-	not guarantees null terminated string
-**	strlcat		|	cat 'src' to 'dest'
-**				-		with 'size' the 'dest' size
-**
-****************************************************
-*/
 
 extern char		*ft_strcpy(char *dest, char *src);
 extern char		*ft_strncpy(char *dest, char *src, unsigned int n);
@@ -103,29 +58,6 @@ extern char		*ft_strstr(char *str, char *to_find);
 extern char		*ft_strnstr(char *str, char *to_find, size_t size);
 extern char		*ft_strrchr(const char *s, int c);
 extern char		*ft_strchr(const char *s, int c);
-
-/*
-****************************************************
-**
-**		PROCESSES ONLY WITH VALID STRING
-**
-** 	strdup		|	dublicate src string
-** 	substr		|	create substr from src
-**				--		from start with 'len' size
-**				--	when start >= strlen(src)
-**				--		begavior is undefined
-**	strtrim		|	trimed characters from start
-**				--		and end of string
-**	split		|	covert string to string tab
-**				--		divided by any character
-**				--		from charset
-**	strmapi		|	copy string coverting all
-**				--		characters by f
-**
-**	all			|	return NULL when alloc fails
-**
-****************************************************
-*/
 
 extern char		*ft_strdup(char const *src);
 extern char		*ft_substr(char const *src, unsigned int start, size_t len);

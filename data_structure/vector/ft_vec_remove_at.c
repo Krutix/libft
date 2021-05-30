@@ -9,3 +9,8 @@ void	ft_vec_remove_at(t_vector *vec, size_t pos, void (*del)(void *))
 			(vec->size - 1 - pos) * vec->cell_size);
 	vec->size--;
 }
+
+void	ft_vec_pop_front(t_vector *vec, void (*del)(void *))
+{
+	ft_vec_remove_at(vec, 0, del);
+}

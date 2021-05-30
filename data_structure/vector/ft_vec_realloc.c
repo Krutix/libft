@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_vec_realloc.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 19:04:04 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/19 22:56:31 by krutix           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdlib.h>
 #include "ft_string.h"
 #include "ft_vector.h"
@@ -29,4 +17,9 @@ t_bool	ft_vec_realloc(t_vector *vec, size_t new_reserv)
 	vec->reserv = new_reserv;
 	vec->array = new_arr;
 	return (t_true);
+}
+
+t_bool	ft_vec_resize(t_vector *vec, size_t new_reserv)
+{
+	return (ft_vec_realloc(vec, new_reserv));
 }

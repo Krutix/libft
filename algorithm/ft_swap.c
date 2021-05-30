@@ -12,19 +12,6 @@
 
 #include "ft_algorithm.h"
 
-void	ft_swap_n(void *v1, void *v2, size_t n)
-{
-	while (n >= 8)
-	{
-		ft_swap_8(v1, v2);
-		n -= 8;
-		v1 += 8;
-		v2 += 8;
-	}
-	while (n-- != 0)
-		ft_swap_1(v1++, v2++);
-}
-
 void	ft_swap_8(int64_t *v1, int64_t *v2)
 {
 	int64_t	t;
@@ -59,4 +46,17 @@ void	ft_swap_1(int8_t *v1, int8_t *v2)
 	t = *v1;
 	*v1 = *v2;
 	*v2 = t;
+}
+
+void	ft_swap_n(void *v1, void *v2, size_t n)
+{
+	while (n >= 8)
+	{
+		ft_swap_8(v1, v2);
+		n -= 8;
+		v1 += 8;
+		v2 += 8;
+	}
+	while (n-- != 0)
+		ft_swap_1(v1++, v2++);
 }

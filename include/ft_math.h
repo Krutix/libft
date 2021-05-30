@@ -25,36 +25,24 @@ typedef struct s_v2f {
 	float	y;
 }			t_v2f;
 
-float		ft_v2f_mag(t_v2f vec);
-float		ft_v2f_sqmag(t_v2f vec);
-t_v2f		ft_v2f_norm(t_v2f vec);
-t_v2f		ft_v2f_fnorm(t_v2f vec);
+extern float		ft_v2f_mag(t_v2f vec);
+extern float		ft_v2f_sqmag(t_v2f vec);
+extern t_v2f		ft_v2f_norm(t_v2f vec);
+extern t_v2f		ft_v2f_fnorm(t_v2f vec);
 
-t_ullint	ft_abs(t_llint num);
-float		ft_absf(float num);
-t_bool		ft_is_prime(t_ullint num);
-t_llint		ft_pow(t_llint num, size_t pow);
-t_ullint	ft_sqrt(t_ullint nb);
+extern t_ullint		ft_abs(t_llint num);
+extern float		ft_absf(float num);
+extern t_bool		ft_is_prime(t_ullint num);
+extern t_llint		ft_pow(t_llint num, size_t pow);
+extern t_ullint		ft_sqrt(t_ullint nb);
 
-t_llint		ft_maxi(t_llint a1, t_llint a2);
-t_llint		ft_mini(t_llint a1, t_llint a2);
-t_ullint	ft_maxu(t_ullint a1, t_ullint a2);
-t_ullint	ft_minu(t_ullint a1, t_ullint a2);
-double		ft_maxd(double a1, double a2);
-double		ft_mind(double a1, double a2);
-float		ft_maxf(float a1, float a2);
-float		ft_minf(float a1, float a2);
-
-union u_double_unpack
-{
-	double		f;
-	uint64_t	i;
-};
-
-union u_float_unpack
-{
-	float		f;
-	uint32_t	i;
-};
+extern t_llint		ft_maxi(t_llint a1, t_llint a2);
+extern t_llint		ft_mini(t_llint a1, t_llint a2);
+extern t_ullint		ft_maxu(t_ullint a1, t_ullint a2);
+extern t_ullint		ft_minu(t_ullint a1, t_ullint a2);
+extern double		ft_maxd(double a1, double a2);
+extern double		ft_mind(double a1, double a2);
+extern float		ft_maxf(float a1, float a2);
+extern float		ft_minf(float a1, float a2);
 
 #endif

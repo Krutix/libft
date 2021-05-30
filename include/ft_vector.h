@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_vector.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 16:42:01 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/30 08:46:23 by fdiego           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FT_VECTOR_H
 # define FT_VECTOR_H
 
@@ -23,12 +11,14 @@ typedef struct s_vector {
 }					t_vector;
 
 extern t_bool		ft_vec_realloc(t_vector *vec, size_t new_reserv);
+extern t_bool		ft_vec_resize(t_vector *vec, size_t new_reserv);
 
 extern t_vector		*ft_vec_create(t_uint cell_size);
 extern void			ft_vec_construct(t_vector *vec, t_uint cell_size);
 extern void			ft_vec_destructor(t_vector *vec, void (*fr)(void *));
 
-extern void			ft_vec_pop_back(t_vector *vec);
+extern void			ft_vec_pop_back(t_vector *vec, void (*del)(void *));
+extern void			ft_vec_pop_front(t_vector *vec, void (*del)(void *));
 
 extern t_bool		ft_vec_push_reserv(t_vector *vec);
 extern t_bool		ft_vec_push_back(t_vector *vec, void *data);
