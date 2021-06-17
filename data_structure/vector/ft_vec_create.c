@@ -1,21 +1,10 @@
 #include <stdlib.h>
 #include "ft_vector.h"
 
-t_vector	*ft_vec_create(t_uint cell_size)
-{
-	t_vector	*vec;
-
-	vec = malloc(sizeof(t_vector));
-	if (!vec)
-		return (NULL);
-	ft_vec_construct(vec, cell_size);
-	return (vec);
-}
-
 void	ft_vec_construct(t_vector *vec, t_uint cell_size)
 {
 	vec->cell_size = cell_size;
 	vec->size = 0;
-	vec->reserv = 0;
+	vec->capacity = 0;
 	vec->array = NULL;
 }

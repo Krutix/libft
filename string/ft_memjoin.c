@@ -1,7 +1,7 @@
 #include "ft_string.h"
 #include "stdlib.h"
 
-char	*ft_memjoin(void const *s1, void const *s2,
+void	*ft_memjoin(void const *s1, void const *s2,
 							size_t len1, size_t len2)
 {
 	char	*join_str;

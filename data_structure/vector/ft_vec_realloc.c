@@ -14,7 +14,7 @@ t_bool	ft_vec_realloc(t_vector *vec, size_t new_reserv)
 	ft_memcpy(new_arr, vec->array, vec->size * vec->cell_size);
 	if (vec->array)
 		free(vec->array);
-	vec->reserv = new_reserv;
+	vec->capacity = new_reserv;
 	vec->array = new_arr;
 	return (t_true);
 }
