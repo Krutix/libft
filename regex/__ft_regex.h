@@ -3,7 +3,7 @@
 
 # include "ft_regex.h"
 
-typedef uint32_t state_id;
+typedef uint16_t state_id;
 
 enum e_rep_type
 {
@@ -19,7 +19,7 @@ enum e_rep_type
 
 enum e_rep_op_code
 {
-    e_rep_op_code_concat    =   '.' | REPOST_OPERAND,
+    e_rep_op_code_concat    =   '^' | REPOST_OPERAND,
     e_rep_op_code_split     =   '|' | REPOST_OPERAND,
     e_rep_op_code_one_more  =   '+' | REPOST_OPERAND,
     e_rep_op_code_more      =   '*' | REPOST_OPERAND,
@@ -51,10 +51,10 @@ typedef struct s_rep_cell_stack
 
 typedef struct s_regex_state
 {
-    uint32_t    c;
+    uint16_t    c;
     state_id    out1;
     state_id    out2;
-    uint32_t    lastlist;
+    uint16_t    lastlist;
 }       t_regex_state;
 
 t_re_post       *ft_re2post(char const *re);
