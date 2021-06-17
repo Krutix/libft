@@ -1,4 +1,5 @@
 # Compiler output
+output/
 release/
 debug/
 *.out

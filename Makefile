@@ -2,6 +2,7 @@
 # External programms
 PYTHON		= python3
 NORMINETTE	= norminette
+DOXYGEN		= doxygen
 RM			= rm -f
 AR			= ar rcs
 MKDIR		= mkdir -p
@@ -169,6 +170,10 @@ norm:
 			@${NORMINETTE} ${SRCS} ${INC_DIR} >> /dev/null && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "norminette" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "norminette" ; exit 1;	}
+
+include docs/doxygen.mk
+.PHONY: docs
+docs:	doxygen
 
 .PHONY:	clean
 clean:		cleanrl		cleandb
