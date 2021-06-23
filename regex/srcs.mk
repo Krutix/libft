@@ -1,7 +1,11 @@
 SRCS_RE		=	re2post.c \
-				re2reir.c
+				re2reir.c \
+				post2nfa.c \
+				regex_match.c \
+				ft_regex.c
 
-RE_FTST		=	re2post.ftst.c
+RE_FTST		=	re2post.ftst.c \
+				ft_regex.ftst.c
 
 RE_DIR	= regex/
 

@@ -9,7 +9,8 @@ typedef struct s_regex
     t_vector    __states;
 }       t_regex;
 
-t_regex     ft_regex_compile(char const *regex);
+void        ft_regex_compile(t_regex *re, char const *regex);
+t_bool      ft_regex_match(t_regex *compiled_regex, char const *str);
 void        ft_regex_destroy(t_regex *compiled_regex);
 
 #endif

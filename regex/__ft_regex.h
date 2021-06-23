@@ -3,8 +3,6 @@
 
 # include "ft_regex.h"
 
-typedef uint16_t state_id;
-
 enum e_rep_type
 {
     e_rep_type_invalid = 0,
@@ -19,6 +17,8 @@ enum e_rep_type
 
 enum e_rep_op_code
 {
+    e_rep_op_code_start     =   1   | REPOST_OPERAND,
+    e_rep_op_code_end       =   2   | REPOST_OPERAND,
     e_rep_op_code_concat    =   '^' | REPOST_OPERAND,
     e_rep_op_code_split     =   '|' | REPOST_OPERAND,
     e_rep_op_code_one_more  =   '+' | REPOST_OPERAND,
@@ -49,15 +49,18 @@ typedef struct s_rep_cell_stack
     t_rep_cell          *ptr;
 }   t_rep_cell_stack;
 
+typedef uint16_t state_id;
+# define REGEX_NONE_STATE UINT16_MAX
+
 typedef struct s_regex_state
 {
-    uint16_t    c;
+    int32_t     c;
     state_id    out1;
     state_id    out2;
-    uint16_t    lastlist;
 }       t_regex_state;
 
 t_re_post       *ft_re2post(char const *re);
 t_rep_cell      *ft_re2reir(char const *re);
+t_bool	        ft_post2nfa(t_regex *re, t_re_post *post_re);
 
 #endif
