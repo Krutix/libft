@@ -7,3 +7,8 @@ void	ft_regex_compile(t_regex *re, char const *re_str)
 	re_post = ft_re2post(re_str);
 	ft_post2nfa(re, re_post);
 }
+
+void	ft_regex_destroy(t_regex *re)
+{
+	ft_vec_destructor(&re->__states, NULL);
+}

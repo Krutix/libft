@@ -11,25 +11,30 @@ static uint8_t  operand_prior(char op)
     return (0);
 }
 
-t_rep_cell     read_cell(char const *re)
+t_rep_cell     read_cell(char const **re)
 {
-    if (ft_strchr("+*?", *re) != NULL)
-        return ((t_rep_cell){
-            *re | REPOST_OPERAND, e_rep_type_post_operand,
-            operand_prior(*re)});
-    if (ft_strchr("|", *re) != NULL)
-        return ((t_rep_cell){
-            *re | REPOST_OPERAND, e_rep_type_operand,
-            operand_prior(*re)});
-    if (ft_strchr("(", *re) != NULL)
-        return ((t_rep_cell){
-            *re, e_rep_type_bracket_open,
-            operand_prior(*re)});
-    if (ft_strchr(")", *re) != NULL)
-        return ((t_rep_cell){
-            '(', e_rep_type_bracket_close, operand_prior(*re)});
-    return ((t_rep_cell){
-        *re, e_rep_type_symbol, 0});
+    char    ch;
+
+    ch = *((*re)++);
+    if (ft_strchr("+*?", ch) != NULL)
+        return ((t_rep_cell){ch | REPOST_OPERAND,
+            e_rep_type_post_operand, operand_prior(ch)});
+    if (ft_strchr("|", ch) != NULL)
+        return ((t_rep_cell){ ch | REPOST_OPERAND,
+            e_rep_type_operand, operand_prior(ch)});
+    if (ft_strchr("(", ch) != NULL)
+        return ((t_rep_cell){ ch,
+            e_rep_type_bracket_open, operand_prior(ch)});
+    if (ft_strchr(")", ch) != NULL)
+        return ((t_rep_cell){ '(',
+            e_rep_type_bracket_close, operand_prior(ch)});
+    if (ch == '\\')
+    {
+        ch = *((*re)++);
+        if (ft_strchr("+*?|().", ch) != NULL)
+            return ((t_rep_cell){ch, e_rep_type_symbol, 0});
+    }
+    return ((t_rep_cell){ch, e_rep_type_symbol, 0});
 }
 
 t_rep_cell  *ft_re2reir(char const *re)
@@ -42,7 +47,7 @@ t_rep_cell  *ft_re2reir(char const *re)
     set_concat = 0;
     while (*re)
     {
-        c = read_cell(re);
+        c = read_cell(&re);
         if (c.type == e_rep_type_symbol)
         {
             if (set_concat == t_true)
@@ -60,7 +65,6 @@ t_rep_cell  *ft_re2reir(char const *re)
         else if (c.type == e_rep_type_operand)
             set_concat = t_false;
         *(reir.ptr++) = c;
-        re++;
     }
     *reir.ptr = (t_rep_cell){ 0, e_rep_type_invalid, 0 };
     return reir.stack;

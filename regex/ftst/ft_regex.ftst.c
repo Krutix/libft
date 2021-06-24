@@ -9,6 +9,7 @@ TEST(re_simple_linear)
 	IS_FALSE(ft_regex_match(&re, "aaa"));
 	IS_FALSE(ft_regex_match(&re, "abcc"));
 	IS_FALSE(ft_regex_match(&re, "ab"));
+	ft_regex_destroy(&re);
 }
  
 TEST(re_simple_split)
@@ -22,6 +23,7 @@ TEST(re_simple_split)
 	IS_FALSE(ft_regex_match(&re, "ab"));
 	IS_FALSE(ft_regex_match(&re, "abc"));
 	IS_FALSE(ft_regex_match(&re, "bca"));
+	ft_regex_destroy(&re);
 }
  
 TEST(re_simple_split_2)
@@ -38,6 +40,7 @@ TEST(re_simple_split_2)
 	IS_FALSE(ft_regex_match(&re, "ab"));
 	IS_FALSE(ft_regex_match(&re, "abc"));
 	IS_FALSE(ft_regex_match(&re, "bca"));
+	ft_regex_destroy(&re);
 }
  
 TEST(re_simple_multy)
@@ -50,6 +53,7 @@ TEST(re_simple_multy)
 	IS_TRUE(ft_regex_match(&re, "aaaaa"));
 	IS_FALSE(ft_regex_match(&re, "aaab"));
 	IS_FALSE(ft_regex_match(&re, "b"));
+	ft_regex_destroy(&re);
 }
  
 TEST(re_simple_multy_with_concat)
@@ -62,6 +66,7 @@ TEST(re_simple_multy_with_concat)
 	IS_TRUE(ft_regex_match(&re, "baaaa"));
 	IS_FALSE(ft_regex_match(&re, "aaab"));
 	IS_FALSE(ft_regex_match(&re, "baaab"));
+	ft_regex_destroy(&re);
 }
  
 TEST(re_simple_multy_with_concat_2)
@@ -74,6 +79,7 @@ TEST(re_simple_multy_with_concat_2)
 	IS_TRUE(ft_regex_match(&re, "bababa"));
 	IS_FALSE(ft_regex_match(&re, "bab"));
 	IS_FALSE(ft_regex_match(&re, "babaa"));
+	ft_regex_destroy(&re);
 }
 
 TEST(re_simple_one_multy)
@@ -86,6 +92,7 @@ TEST(re_simple_one_multy)
 	IS_TRUE(ft_regex_match(&re, "baaaa"));
 	IS_FALSE(ft_regex_match(&re, "aaab"));
 	IS_FALSE(ft_regex_match(&re, "baaab"));
+	ft_regex_destroy(&re);
 }
 
 TEST(re_simple_one_zero)
@@ -96,5 +103,13 @@ TEST(re_simple_one_zero)
 	IS_TRUE(ft_regex_match(&re, "ba"));
 	IS_FALSE(ft_regex_match(&re, "baa"));
 	IS_FALSE(ft_regex_match(&re, "aa"));
+	ft_regex_destroy(&re);
 }
- 
+
+TEST(re_slesh)
+{
+	t_regex re;
+	ft_regex_compile(&re, "\\+\\*\\?\\|");
+	IS_TRUE(ft_regex_match(&re, "+*?|"));
+	ft_regex_destroy(&re);
+}

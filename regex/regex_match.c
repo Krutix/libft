@@ -11,7 +11,7 @@ static void	branch_travel(t_regex *re, uint16_t ch, uint16_t start_idx, t_vector
 	state = ft_vec_at(&re->__states, start_idx);
 	if (state->c == ch)
 		ft_vec_push_back(out_states, &start_idx);
-	else if (state->c == e_rep_op_code_split)
+	else if (state->c == e_re_code_split)
 	{
 		branch_travel(re, ch, state->out1, out_states);
 		branch_travel(re, ch, state->out2, out_states);
@@ -47,7 +47,7 @@ t_bool	ft_regex_match(t_regex *re, char const *str)
 		ft_swap_n(&prev_states, &curr_states, sizeof(t_vector));
 		str++;
 	}
-	step(re, e_rep_op_code_end, &prev_states, &curr_states);
+	step(re, e_re_code_end, &prev_states, &curr_states);
 	v = !!curr_states.size;
 	ft_vec_destructor(&prev_states, NULL);
 	ft_vec_destructor(&curr_states, NULL);

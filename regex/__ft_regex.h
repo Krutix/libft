@@ -13,20 +13,23 @@ enum e_rep_type
     e_rep_type_post_operand
 };
 
-# define REPOST_OPERAND     (512)
+# define REPOST_OPERAND     (1 << 8)
+# define REPOST_CHARSET     (1 << 9)
 
 enum e_rep_op_code
 {
-    e_rep_op_code_start     =   1   | REPOST_OPERAND,
-    e_rep_op_code_end       =   2   | REPOST_OPERAND,
-    e_rep_op_code_concat    =   '^' | REPOST_OPERAND,
-    e_rep_op_code_split     =   '|' | REPOST_OPERAND,
-    e_rep_op_code_one_multy =   '+' | REPOST_OPERAND,
-    e_rep_op_code_multy     =   '*' | REPOST_OPERAND,
-    e_rep_op_code_one_zero  =   '?' | REPOST_OPERAND
+    e_re_code_start     =   1   | REPOST_OPERAND,
+    e_re_code_end       =   2   | REPOST_OPERAND,
+    e_re_code_concat    =   '^' | REPOST_OPERAND,
+    e_re_code_split     =   '|' | REPOST_OPERAND,
+    e_re_code_one_multy =   '+' | REPOST_OPERAND,
+    e_re_code_multy     =   '*' | REPOST_OPERAND,
+    e_re_code_one_zero  =   '?' | REPOST_OPERAND,
+    e_re_code_any       =   '.' | REPOST_CHARSET,
+    e_re_code_space     =   's' | REPOST_CHARSET
 };
 
-#define     REP_CONCAT_CELL (t_rep_cell){ e_rep_op_code_concat, e_rep_type_operand, 1 }
+#define     REP_CONCAT_CELL (t_rep_cell){ e_re_code_concat, e_rep_type_operand, 1 }
 
 typedef struct
 {
