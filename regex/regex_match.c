@@ -2,7 +2,7 @@
 #include "ft_algorithm.h"
 #include "stdio.h"
 
-void	branch_travel(t_regex *re, uint16_t ch, uint16_t start_idx, t_vector *out_states)
+static void	branch_travel(t_regex *re, uint16_t ch, uint16_t start_idx, t_vector *out_states)
 {
 	t_regex_state *state;
 
@@ -18,7 +18,7 @@ void	branch_travel(t_regex *re, uint16_t ch, uint16_t start_idx, t_vector *out_s
 	}
 }
 
-void	step(t_regex *re, uint16_t ch, t_vector *prev_states, t_vector *out_states)
+static void	step(t_regex *re, uint16_t ch, t_vector *prev_states, t_vector *out_states)
 {
 	t_regex_state *state;
 
@@ -48,5 +48,8 @@ t_bool	ft_regex_match(t_regex *re, char const *str)
 		str++;
 	}
 	step(re, e_rep_op_code_end, &prev_states, &curr_states);
-	return !!curr_states.size;
+	v = !!curr_states.size;
+	ft_vec_destructor(&prev_states, NULL);
+	ft_vec_destructor(&curr_states, NULL);
+	return v;
 }

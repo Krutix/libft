@@ -14,13 +14,14 @@ static void	set_next(t_regex *re, t_list *l_ptr, uint16_t next_value)
 	}
 }
 
-static void push_state(t_regex *re, t_vector *frag_stack, t_regex_state state)
+static t_list *push_state(t_regex *re, t_vector *frag_stack, t_regex_state state)
 {
 	t_list	*l_ptr;
 
 	ft_vec_push_back(&re->__states, &state);
 	l_ptr = ft_create_list((void*)re->__states.size - 1);
 	ft_vec_push_back(frag_stack, &l_ptr);
+	return (l_ptr);
 }
 
 static void	concat_last(t_regex *re, t_vector *frag_stack)
@@ -37,26 +38,70 @@ static void	concat_last(t_regex *re, t_vector *frag_stack)
 
 static void split_last(t_regex *re, t_vector *frag_stack)
 {
-	t_regex_state	state;
 	t_list			*l_ptr;
 	t_list			*r_ptr;
+	t_list			*spl;
 
 	l_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 2);
 	r_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 1);
-	state = (t_regex_state) \
-		{ e_rep_op_code_split, (t_ullint)l_ptr->data, (t_ullint)r_ptr->data };
-	ft_vec_push_back(&re->__states, &state);
+	spl = push_state(re, frag_stack, (t_regex_state) \
+		{ e_rep_op_code_split, (t_ullint)l_ptr->data, (t_ullint)r_ptr->data });
 	ft_list_merge(&l_ptr, r_ptr);
+	ft_list_merge(&spl, l_ptr);
 	ft_vec_pop_back(frag_stack, NULL);
-	r_ptr = ft_create_list((void *)re->__states.size - 1);
-	ft_list_merge(&r_ptr, l_ptr);
 	ft_vec_pop_back(frag_stack, NULL);
-	ft_vec_push_back(frag_stack, &r_ptr);
+	ft_vec_pop_back(frag_stack, NULL);
+	ft_vec_push_back(frag_stack, &spl);
+}
+
+static void multy_last(t_regex *re, t_vector *frag_stack)
+{
+	t_list	*r_ptr;
+	t_list	*spl;
+
+	r_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 1);
+	spl = push_state(re, frag_stack, (t_regex_state) \
+		{ e_rep_op_code_split, REGEX_NONE_STATE, (t_ullint)r_ptr->data });
+	set_next(re, r_ptr, (t_ullint)spl->data);
+	ft_list_merge(&spl, r_ptr);
+	ft_vec_pop_back(frag_stack, NULL);
+	ft_vec_pop_back(frag_stack, NULL);
+	ft_vec_push_back(frag_stack, &spl);
+}
+
+static void one_multy_last(t_regex *re, t_vector *frag_stack)
+{
+	t_list	*r_ptr;
+	t_list	*spl;
+
+	r_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 1);
+	spl = push_state(re, frag_stack, (t_regex_state) \
+		{ e_rep_op_code_split, REGEX_NONE_STATE, (t_ullint)r_ptr->data });
+	set_next(re, r_ptr, (t_ullint)spl->data);
+	ft_list_merge(&r_ptr, spl);
+	ft_vec_pop_back(frag_stack, NULL);
+}
+
+static void one_zero_last(t_regex *re, t_vector *frag_stack)
+{
+	t_list	*r_ptr;
+	t_list	*spl;
+
+	r_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 1);
+	spl = push_state(re, frag_stack, (t_regex_state) \
+		{ e_rep_op_code_split, REGEX_NONE_STATE, (t_ullint)r_ptr->data });
+	ft_list_merge(&spl, r_ptr);
+	ft_vec_remove_at(frag_stack, frag_stack->size - 2, NULL);
+}
+
+void	clear_lists(t_list **l)
+{
+	ft_list_clear(*l, NULL);
 }
 
 t_bool	ft_post2nfa(t_regex *re, t_re_post *post_re)
 {
-	t_vector		frag_stack; // dont destroyed
+	t_vector		frag_stack;
 
 	ft_vec_construct(&frag_stack, sizeof(t_list *));
 	ft_vec_construct(&re->__states, sizeof(t_regex_state));
@@ -64,25 +109,25 @@ t_bool	ft_post2nfa(t_regex *re, t_re_post *post_re)
 		{ e_rep_op_code_start, REGEX_NONE_STATE, REGEX_NONE_STATE });
 	while (*post_re)
 	{
-		switch (*post_re)
-		{
-			case e_rep_op_code_split:
-				split_last(re, &frag_stack);
-				break;
-			case e_rep_op_code_concat:
-				concat_last(re, &frag_stack);
-				break;
-			default:
-				push_state(re, &frag_stack, (t_regex_state) \
-					{ *post_re, REGEX_NONE_STATE, REGEX_NONE_STATE });
-				break;
-		}
+		if (*post_re == e_rep_op_code_split)
+			split_last(re, &frag_stack);
+		else if (*post_re == e_rep_op_code_concat)
+			concat_last(re, &frag_stack);
+		else if (*post_re == e_rep_op_code_multy)
+			multy_last(re, &frag_stack);
+		else if (*post_re == e_rep_op_code_one_multy)
+			one_multy_last(re, &frag_stack);
+		else if (*post_re == e_rep_op_code_one_zero)
+			one_zero_last(re, &frag_stack);
+		else
+			push_state(re, &frag_stack, (t_regex_state) \
+				{ *post_re, REGEX_NONE_STATE, REGEX_NONE_STATE });
 		post_re++;
 	}
 	concat_last(re, &frag_stack);
 	push_state(re, &frag_stack, (t_regex_state) \
 		{ e_rep_op_code_end, REGEX_NONE_STATE, REGEX_NONE_STATE });
 	concat_last(re, &frag_stack);
-	ft_list_clear(ft_vec_front(&frag_stack), NULL);
-	return t_true;
+	ft_vec_destructor(&frag_stack, (void(*)(void*))&clear_lists);
+	return (t_true);
 }

@@ -21,8 +21,8 @@ enum e_rep_op_code
     e_rep_op_code_end       =   2   | REPOST_OPERAND,
     e_rep_op_code_concat    =   '^' | REPOST_OPERAND,
     e_rep_op_code_split     =   '|' | REPOST_OPERAND,
-    e_rep_op_code_one_more  =   '+' | REPOST_OPERAND,
-    e_rep_op_code_more      =   '*' | REPOST_OPERAND,
+    e_rep_op_code_one_multy =   '+' | REPOST_OPERAND,
+    e_rep_op_code_multy     =   '*' | REPOST_OPERAND,
     e_rep_op_code_one_zero  =   '?' | REPOST_OPERAND
 };
 
