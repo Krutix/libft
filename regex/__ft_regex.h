@@ -15,6 +15,7 @@ enum e_rep_type
 
 # define REPOST_OPERAND     (1 << 8)
 # define REPOST_CHARSET     (1 << 9)
+# define REPOST_INVCHARSET  (1 << 10)
 
 enum e_rep_op_code
 {
@@ -25,8 +26,15 @@ enum e_rep_op_code
     e_re_code_one_multy =   '+' | REPOST_OPERAND,
     e_re_code_multy     =   '*' | REPOST_OPERAND,
     e_re_code_one_zero  =   '?' | REPOST_OPERAND,
-    e_re_code_any       =   '.' | REPOST_CHARSET,
-    e_re_code_space     =   's' | REPOST_CHARSET
+    e_re_code_any       =   0   | REPOST_INVCHARSET,
+    e_re_code_space     =   1   | REPOST_CHARSET,
+    e_re_code_nspace    =   1   | REPOST_INVCHARSET,
+    e_re_code_digit     =   2   | REPOST_CHARSET,
+    e_re_code_ndigit    =   2   | REPOST_INVCHARSET,
+    e_re_code_octal     =   3   | REPOST_CHARSET,
+    e_re_code_noctal    =   3   | REPOST_INVCHARSET,
+    e_re_code_hex       =   4   | REPOST_CHARSET,
+    e_re_code_nhex      =   4   | REPOST_INVCHARSET,
 };
 
 #define     REP_CONCAT_CELL (t_rep_cell){ e_re_code_concat, e_rep_type_operand, 1 }

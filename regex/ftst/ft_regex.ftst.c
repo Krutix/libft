@@ -103,6 +103,7 @@ TEST(re_simple_one_zero)
 	IS_TRUE(ft_regex_match(&re, "ba"));
 	IS_FALSE(ft_regex_match(&re, "baa"));
 	IS_FALSE(ft_regex_match(&re, "aa"));
+	IS_FALSE(ft_regex_match(&re, ""));
 	ft_regex_destroy(&re);
 }
 
@@ -111,5 +112,45 @@ TEST(re_slesh)
 	t_regex re;
 	ft_regex_compile(&re, "\\+\\*\\?\\|");
 	IS_TRUE(ft_regex_match(&re, "+*?|"));
+	ft_regex_destroy(&re);
+}
+
+TEST(re_simple_any)
+{
+	t_regex re;
+	ft_regex_compile(&re, "...");
+	IS_TRUE(ft_regex_match(&re, "abc"));
+	IS_TRUE(ft_regex_match(&re, "baa"));
+	IS_FALSE(ft_regex_match(&re, "baaa"));
+	IS_FALSE(ft_regex_match(&re, "ba"));
+	IS_FALSE(ft_regex_match(&re, "a"));
+	IS_FALSE(ft_regex_match(&re, ""));
+	ft_regex_destroy(&re);
+	ft_regex_compile(&re, ".a.");
+	IS_TRUE(ft_regex_match(&re, "aac"));
+	IS_TRUE(ft_regex_match(&re, "bad"));
+	IS_TRUE(ft_regex_match(&re, "aaa"));
+	IS_FALSE(ft_regex_match(&re, "bca"));
+	IS_FALSE(ft_regex_match(&re, "baaa"));
+	IS_FALSE(ft_regex_match(&re, "ba"));
+	IS_FALSE(ft_regex_match(&re, "a"));
+	IS_FALSE(ft_regex_match(&re, ""));
+	ft_regex_destroy(&re);
+}
+
+TEST(re_simple_space)
+{
+	t_regex re;
+	ft_regex_compile(&re, "\\s\\S");
+	IS_TRUE(ft_regex_match(&re, " s"));
+	IS_TRUE(ft_regex_match(&re, "\ta"));
+	IS_TRUE(ft_regex_match(&re, "\ra"));
+	IS_TRUE(ft_regex_match(&re, "\va"));
+	IS_TRUE(ft_regex_match(&re, "\fa"));
+	IS_TRUE(ft_regex_match(&re, "\na"));
+	IS_FALSE(ft_regex_match(&re, "baaa"));
+	IS_FALSE(ft_regex_match(&re, "ba"));
+	IS_FALSE(ft_regex_match(&re, "a"));
+	IS_FALSE(ft_regex_match(&re, ""));
 	ft_regex_destroy(&re);
 }

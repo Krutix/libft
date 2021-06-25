@@ -104,7 +104,6 @@ t_bool	ft_post2nfa(t_regex *re, t_re_post *post_re)
 	t_vector		frag_stack;
 
 	ft_vec_construct(&frag_stack, sizeof(t_list *));
-	ft_vec_construct(&re->__states, sizeof(t_regex_state));
 	push_state(re, &frag_stack, (t_regex_state) \
 		{ e_re_code_start, REGEX_NONE_STATE, REGEX_NONE_STATE });
 	while (*post_re)

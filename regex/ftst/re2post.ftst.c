@@ -20,4 +20,5 @@ TEST(ft_re2post)
     STR_EQ(post2str(ft_re2post("abv?|c+d")), "ab^v?^c+d^|");
     STR_EQ(post2str(ft_re2post("a(bv)?|c+d")), "abv^?^c+d^|");
     STR_EQ(post2str(ft_re2post("a(sd(b|v))?")), "asd^bv|^?^");
+    STR_EQ(post2str(ft_re2post("..")), "\x0\x0^");
 }

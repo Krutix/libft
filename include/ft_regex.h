@@ -6,6 +6,7 @@
 
 typedef struct s_regex
 {
+    t_vector    __charsets;
     t_vector    __states;
 }       t_regex;
 

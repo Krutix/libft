@@ -16,6 +16,12 @@ static void	branch_travel(t_regex *re, uint16_t ch, uint16_t start_idx, t_vector
 		branch_travel(re, ch, state->out1, out_states);
 		branch_travel(re, ch, state->out2, out_states);
 	}
+	else if (!(ch & ~255)
+		&& (((state->c & REPOST_CHARSET) && ft_strchr(*(char**)ft_vec_at(
+			&re->__charsets, state->c & 255), ch) != NULL)
+		|| ((state->c & REPOST_INVCHARSET) && ft_strchr(*(char**)ft_vec_at(
+			&re->__charsets, state->c & 255), ch) == NULL)))
+		ft_vec_push_back(out_states, &start_idx);
 }
 
 static void	step(t_regex *re, uint16_t ch, t_vector *prev_states, t_vector *out_states)

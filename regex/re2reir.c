@@ -11,6 +11,32 @@ static uint8_t  operand_prior(char op)
     return (0);
 }
 
+t_rep_cell     read_slesh_cell(char const **re)
+{
+    char    ch;
+
+    ch = *((*re)++);
+    if (ft_strchr("+*?|().", ch) != NULL)
+        return ((t_rep_cell){ch, e_rep_type_symbol, 0});
+    if (ch == 's')
+        return ((t_rep_cell){e_re_code_space, e_rep_type_symbol, 0});
+    if (ch == 'S')
+        return ((t_rep_cell){e_re_code_nspace, e_rep_type_symbol, 0});
+    if (ch == 'd')
+        return ((t_rep_cell){e_re_code_digit, e_rep_type_symbol, 0});
+    if (ch == 'D')
+        return ((t_rep_cell){e_re_code_ndigit, e_rep_type_symbol, 0});
+    if (ch == 'o')
+        return ((t_rep_cell){e_re_code_octal, e_rep_type_symbol, 0});
+    if (ch == 'O')
+        return ((t_rep_cell){e_re_code_noctal, e_rep_type_symbol, 0});
+    if (ch == 'x')
+        return ((t_rep_cell){e_re_code_hex, e_rep_type_symbol, 0});
+    if (ch == 'X')
+        return ((t_rep_cell){e_re_code_nhex, e_rep_type_symbol, 0});
+    return ((t_rep_cell){ch, e_rep_type_symbol, 0});
+}
+
 t_rep_cell     read_cell(char const **re)
 {
     char    ch;
@@ -25,15 +51,13 @@ t_rep_cell     read_cell(char const **re)
     if (ft_strchr("(", ch) != NULL)
         return ((t_rep_cell){ ch,
             e_rep_type_bracket_open, operand_prior(ch)});
+    if (ch == '.')
+        return ((t_rep_cell){e_re_code_any, e_rep_type_symbol, 0});
     if (ft_strchr(")", ch) != NULL)
         return ((t_rep_cell){ '(',
             e_rep_type_bracket_close, operand_prior(ch)});
     if (ch == '\\')
-    {
-        ch = *((*re)++);
-        if (ft_strchr("+*?|().", ch) != NULL)
-            return ((t_rep_cell){ch, e_rep_type_symbol, 0});
-    }
+        return (read_slesh_cell(re));
     return ((t_rep_cell){ch, e_rep_type_symbol, 0});
 }
 
