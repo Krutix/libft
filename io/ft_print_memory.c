@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 17:16:35 by fdiego            #+#    #+#             */
-/*   Updated: 2021/07/15 18:28:14 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/07/15 18:45:30 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	put_hexnbr(unsigned long long nb)
 	ft_putchar_fd("0123456789abcdef"[nb % 16], 1);
 }
 
-static void	print_address(void *addr, size_t size)
+static void	print_address(void const *addr, size_t size)
 {
 	size_t				size_adds;
 	unsigned long long	buff;
@@ -62,7 +62,7 @@ static void	print_address(void *addr, size_t size)
 	}
 }
 
-static void	print_data(void *addr, int size)
+static void	print_data(void const *addr, int size)
 {
 	int	i;
 
