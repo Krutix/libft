@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 17:16:35 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 11:20:09 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/07/15 18:28:14 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void	print_data(void *addr, int size)
 	}
 }
 
-void	ft_print_memory(void *addr, size_t size)
+void	ft_print_memory(void const *addr, size_t size)
 {
 	while (size > 16)
 	{
