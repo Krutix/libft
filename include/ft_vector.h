@@ -101,4 +101,13 @@ extern void			*ft_vec_back(t_vector *vec);
  */
 extern void			*ft_vec_fetch_array(t_vector *vec, size_t *out_size);
 
+/*!
+ * \fn t_bool ft_vec_copy(t_vector *copy, t_vector *sample);
+ * \brief construct copy vector from sample
+ * \param copy pointer to non valid vector
+ * \param sample pointer to valid copied vector
+ * \return return false if allocation failes. In other cases return true
+ */
+extern t_bool		ft_vec_copy_construct(t_vector *copy, t_vector *sample);
+
 #endif
