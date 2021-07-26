@@ -26,7 +26,7 @@ t_bool	ft_strtol_m(const char *str, t_ullint max_abs, int64_t *r)
 	return (!str[i]);
 }
 
-t_bool	ft_strtoi_m(const char *str, t_ullint max_abs, int64_t *r)
+t_bool	ft_strtoi_m(const char *str, t_ullint max_abs, int32_t *r)
 {
 	int64_t	nb;
 	t_bool	b;

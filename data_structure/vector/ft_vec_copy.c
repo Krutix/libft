@@ -1,5 +1,6 @@
 #include "ft_vector.h"
 #include "ft_string.h"
+#include "stdlib.h"
 
 t_bool	ft_vec_copy_construct(t_vector *copy, t_vector *sample)
 {
