@@ -5,8 +5,8 @@
 
 extern t_llint	ft_atoi_base(char *str, char *base);
 extern t_llint	ft_atoi(const char *str);
-extern t_bool	ft_strtol_m(const char *str, t_ullint max_abs, long *r);
-extern t_bool	ft_strtoi_m(const char *str, t_ullint max_abs, int *r);
+extern t_bool	ft_strtol_m(const char *str, t_ullint max_abs, int64_t *r);
+extern t_bool	ft_strtoi_m(const char *str, t_ullint max_abs, int32_t *r);
 
 /*!
  * \fn char *ft_utob(char *buffer, t_ullint num);
