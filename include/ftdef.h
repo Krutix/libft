@@ -5,6 +5,8 @@
 # include <limits.h>
 # include <stdint.h>
 
+# define PASS ((void)NULL)
+
 typedef enum e_bool
 {
 	t_false = 0,
