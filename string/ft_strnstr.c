@@ -6,13 +6,13 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:03:26 by fdiego            #+#    #+#             */
-/*   Updated: 2021/01/08 21:14:22 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/07/27 15:59:15 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-char	*ft_strnstr(char *str, char *to_find, size_t size)
+char const	*ft_strnstr(char const *str, char const *to_find, size_t size)
 {
 	size_t			istr;
 	const size_t	find_size = ft_strlen(to_find);

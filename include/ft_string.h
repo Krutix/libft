@@ -3,10 +3,10 @@
 
 # include "ftdef.h"
 
-extern t_llint	ft_atoi_base(char *str, char *base);
-extern t_llint	ft_atoi(const char *str);
-extern t_bool	ft_strtol_m(const char *str, t_ullint max_abs, int64_t *r);
-extern t_bool	ft_strtoi_m(const char *str, t_ullint max_abs, int32_t *r);
+extern t_llint		ft_atoi_base(char *str, char *base);
+extern t_llint		ft_atoi(const char *str);
+extern t_bool		ft_strtol_m(const char *str, t_ullint max_abs, int64_t *r);
+extern t_bool		ft_strtoi_m(const char *str, t_ullint max_abs, int32_t *r);
 
 /*!
  * \fn char *ft_utob(char *buffer, t_ullint num);
@@ -16,7 +16,7 @@ extern t_bool	ft_strtoi_m(const char *str, t_ullint max_abs, int32_t *r);
  * \param num number to convert
  * \return size of a string
  */
-extern size_t	ft_utob(char *buffer, t_ullint num);
+extern size_t		ft_utob(char *buffer, t_ullint num);
 /*!
  * \fn size_t ft_utob_16(char *buffer, t_ullint num, char *base);
  * \brief convert num to string
@@ -27,7 +27,7 @@ extern size_t	ft_utob(char *buffer, t_ullint num);
  * \warning behavior is underfined if len of base is less then 16
  * \return size of a string
  */
-extern size_t	ft_utob_16(char *buffer, t_ullint num, char *base);
+extern size_t		ft_utob_16(char *buffer, t_ullint num, char *base);
 /*!
  * \fn size_t ft_utob_n(char *buffer, t_ullint num, char *base);
  * \brief convert num to string in bin base
@@ -36,7 +36,7 @@ extern size_t	ft_utob_16(char *buffer, t_ullint num, char *base);
  * \param num number to convert
  * \return size of a string
  */
-extern size_t	ft_utob_2(char *buffer, t_ullint num);
+extern size_t		ft_utob_2(char *buffer, t_ullint num);
 /*!
  * \fn size_t ft_utob_n(char *buffer, t_ullint num, char *base);
  * \brief convert num to string in castom base
@@ -46,7 +46,7 @@ extern size_t	ft_utob_2(char *buffer, t_ullint num);
  * \param base base to convert
  * \return size of a string
  */
-extern size_t	ft_utob_n(char *buffer, t_ullint num, char *base);
+extern size_t		ft_utob_n(char *buffer, t_ullint num, char *base);
 /*!
  * \fn char *ft_utob_bt(char *buffer_end, t_ullint num);
  * \brief convert num to string, buffer backward filling
@@ -56,7 +56,7 @@ extern size_t	ft_utob_n(char *buffer, t_ullint num, char *base);
  * \param num number to convert
  * \return a pointer to the start of number string
  */
-extern char		*ft_utob_bt(char *buffer_end, t_ullint num);
+extern char			*ft_utob_bt(char *buffer_end, t_ullint num);
 /*!
  * \fn char *ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
  * \brief convert num to string, buffer backward filling in castom base
@@ -67,7 +67,7 @@ extern char		*ft_utob_bt(char *buffer_end, t_ullint num);
  * \param base base to convert
  * \return a pointer to the start of number string
  */
-extern char		*ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
+extern char			*ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
 /*!
  * \fn char *ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
  * \brief convert num to string, buffer backward filling in hex base
@@ -79,7 +79,7 @@ extern char		*ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
  * \warning behavior is underfined if len of base is less then 16
  * \return a pointer to the start of number string
  */
-extern char		*ft_utob_bt_16(char *buffer_end, t_ullint num, char *base);
+extern char			*ft_utob_bt_16(char *buffer_end, t_ullint num, char *base);
 /*!
  * \fn char *ft_utob_bt_2(char *buffer_end, t_ullint num);
  * \brief convert num to string, buffer backward filling in bin base
@@ -89,18 +89,18 @@ extern char		*ft_utob_bt_16(char *buffer_end, t_ullint num, char *base);
  * \param num number to convert
  * \return a pointer to the start of number string
  */
-extern char		*ft_utob_bt_2(char *buffer_end, t_ullint num);
+extern char			*ft_utob_bt_2(char *buffer_end, t_ullint num);
 
-extern char		*ft_itoa(t_llint num);
+extern char			*ft_itoa(t_llint num);
 
-extern t_bool	ft_isdigit(int c);
-extern t_bool	ft_isalpha(int c);
-extern t_bool	ft_isalnum(int c);
-extern t_bool	ft_isascii(int c);
-extern t_bool	ft_isprint(int c);
-extern t_bool	ft_isspace(int c);
-extern int		ft_tolower(int c);
-extern int		ft_toupper(int c);
+extern t_bool		ft_isdigit(int c);
+extern t_bool		ft_isalpha(int c);
+extern t_bool		ft_isalnum(int c);
+extern t_bool		ft_isascii(int c);
+extern t_bool		ft_isprint(int c);
+extern t_bool		ft_isspace(int c);
+extern int			ft_tolower(int c);
+extern int			ft_toupper(int c);
 
 /*!
  * \fn void *ft_memset(void *mem, int value, size_t size)
@@ -110,7 +110,7 @@ extern int		ft_toupper(int c);
  * \param size the number of bytes to fill
  * \return a pointer to the memory area mem
  */
-extern void		*ft_memset(void *mem, int value, size_t size);
+extern void			*ft_memset(void *mem, int value, size_t size);
 
 /*!
  * \fn void ft_bzero(void *mem, size_t size);
@@ -118,7 +118,7 @@ extern void		*ft_memset(void *mem, int value, size_t size);
  * \param mem memery address start
  * \param size the number of bytes to fill
  */
-extern void		ft_bzero(void *mem, size_t size);
+extern void			ft_bzero(void *mem, size_t size);
 
 /*!
  * \fn void *ft_calloc(size_t count, size_t size)
@@ -128,7 +128,7 @@ extern void		ft_bzero(void *mem, size_t size);
  * \return a pointer to the allocated memory area
  * \warning return NULL if allocation failes
  */
-extern void		*ft_calloc(size_t count, size_t size);
+extern void			*ft_calloc(size_t count, size_t size);
 
 /*!
  * \fn void *ft_memcpy(void *dest, const void *src, size_t n)
@@ -140,7 +140,7 @@ extern void		*ft_calloc(size_t count, size_t size);
  * \return a pointer to the memory area dest
  * \warning the memory areas must not overlap. use ft_memmove() if memory areas do overlap
  */
-extern void		*ft_memcpy(void *dest, const void *src, size_t n);
+extern void			*ft_memcpy(void *dest, const void *src, size_t n);
 
 /*!
  * \fn void *ft_memccpy(void *dest, const void *src, int c, size_t n)
@@ -153,7 +153,7 @@ extern void		*ft_memcpy(void *dest, const void *src, size_t n);
  * \return a pointer to the memory area dest
  * \warning the memory areas must not overlap
  */
-extern void		*ft_memccpy(void *dest, const void *src, int c, size_t n);
+extern void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
 
 /*!
  * \fn void *ft_memmove(void *dest, const void *src, size_t n)
@@ -164,7 +164,7 @@ extern void		*ft_memccpy(void *dest, const void *src, int c, size_t n);
  * \param n number of bytes to copy
  * \return a pointer to the memory area dest
  */
-extern void		*ft_memmove(void *dest, const void *src, size_t n);
+extern void			*ft_memmove(void *dest, const void *src, size_t n);
 
 /*!
  * \fn void *ft_memchr(const void *s, int c, size_t n)
@@ -175,7 +175,7 @@ extern void		*ft_memmove(void *dest, const void *src, size_t n);
  * \param n number of bytes to scan
  * \return a pointer to the matching byte or NULL if the character does not occur in the given memory area
  */
-extern void		*ft_memchr(const void *s, int c, size_t n);
+extern void			*ft_memchr(const void *s, int c, size_t n);
 
 /*!
  * \fn int ft_memcmp(const void *s1, const void *s2, size_t n)
@@ -184,7 +184,7 @@ extern void		*ft_memchr(const void *s, int c, size_t n);
  * \param n number of bytes to scan
  * \return <0 if s1 is less then s2, >0 if s2 is less then s1 and 0 if memory areas is equal
  */
-extern int		ft_memcmp(const void *s1, const void *s2, size_t n);
+extern int			ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /*!
  * \fn void *ft_memjoin(void const *s1, void const *s2, size_t len1, size_t len2)
@@ -193,7 +193,7 @@ extern int		ft_memcmp(const void *s1, const void *s2, size_t n);
  * \return result of cancateneted string
  * \warning return NULL if allocation failes
  */
-extern void		*ft_memjoin(void const *s1, void const *s2, \
+extern void			*ft_memjoin(void const *s1, void const *s2, \
 							size_t len1, size_t len2);
 
 /*!
@@ -205,7 +205,7 @@ extern void		*ft_memjoin(void const *s1, void const *s2, \
  * \return number of 8bites characters converted from 32bite wchar
  * \throw return -1 if wchar is invalid
  */
-extern int		ft_wstrtostr(wchar_t *str, char *buffer);
+extern int			ft_wstrtostr(wchar_t *str, char *buffer);
 
 /*!
  * \fn int ft_wchtoch(wchar_t ch, char *buffer);
@@ -216,7 +216,7 @@ extern int		ft_wstrtostr(wchar_t *str, char *buffer);
  * \return number of 8bites characters converted from 32bite wchar
  * \throw return -1 if wchar is invalid
  */
-extern int		ft_wchtoch(wchar_t ch, char *buffer);
+extern int			ft_wchtoch(wchar_t ch, char *buffer);
 
 /*!
  * \fn size_t	ft_strlen(const char *s);
@@ -224,42 +224,42 @@ extern int		ft_wchtoch(wchar_t ch, char *buffer);
  * \brief calculates the length of the string
  * \return length of the string
  */
-extern size_t	ft_strlen(const char *s);
+extern size_t		ft_strlen(const char *s);
 /*!
  * \fn size_t	ft_strnlen(const char *str, size_t n);
  * \see ft_strnlen()
  * \brief calculates the length of the string with first n symbols
  * \return length of the string or n if len of string is greater then length of str
  */
-extern size_t	ft_strnlen(const char *str, size_t n);
+extern size_t		ft_strnlen(const char *str, size_t n);
 
-extern char		*ft_strcpy(char *dest, char *src);
-extern char		*ft_strncpy(char *dest, char *src, unsigned int n);
-extern char		*ft_strcat(char *dest, char *src);
-extern char		*ft_strncat(char *dest, char *src, unsigned int n);
-extern size_t	ft_strlcpy(char *dest, const char *src, size_t size);
-extern size_t	ft_strlcat(char *dest, const char *src, size_t size);
+extern char			*ft_strcpy(char *dest, char const *src);
+extern char			*ft_strncpy(char *dest, char const *src, unsigned int n);
+extern char			*ft_strcat(char *dest, char const *src);
+extern char			*ft_strncat(char *dest, char const *src, unsigned int n);
+extern size_t		ft_strlcpy(char *dest, char const *src, size_t size);
+extern size_t		ft_strlcat(char *dest, char const *src, size_t size);
 
-extern int		ft_strcmp(char const *s1, char const *s2);
-extern int		ft_strncmp(const char *s1, const char *s2, size_t n);
-extern char		*ft_strstr(char *str, char *to_find);
-extern char		*ft_strnstr(char *str, char *to_find, size_t size);
-extern char		*ft_strrchr(const char *s, int c);
-extern char		*ft_strchr(const char *s, int c);
+extern int			ft_strcmp(char const *s1, char const *s2);
+extern int			ft_strncmp(const char *s1, const char *s2, size_t n);
+extern char const	*ft_strstr(char const *str, char const *to_find);
+extern char const	*ft_strnstr(char const *str, char const *to_find, size_t size);
+extern char			*ft_strrchr(const char *s, int c);
+extern char			*ft_strchr(const char *s, int c);
 
-extern char		*ft_strdup(char const *src);
-extern char		*ft_substr(char const *src, unsigned int start, size_t len);
-extern char		*ft_strtrim(char const *str, char const *set);
-extern char		**ft_split(char const *str, char *charset);
-extern char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-extern void		ft_sort_str_tab(char **tab, int (*cmp)(char *, char *));
+extern char			*ft_strdup(char const *src);
+extern char			*ft_substr(char const *src, unsigned int start, size_t len);
+extern char			*ft_strtrim(char const *str, char const *set);
+extern char			**ft_split(char const *str, char *charset);
+extern char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+extern void			ft_sort_str_tab(char **tab, int (*cmp)(char *, char *));
 
-extern t_uint	ft_ulen(t_ullint num);
-extern t_uint	ft_ulen_n(t_ullint num, t_uint base);
-extern t_uint	ft_ulen_2(t_ullint num);
-extern t_uint	ft_ulen_16(t_ullint num);
+extern t_uint		ft_ulen(t_ullint num);
+extern t_uint		ft_ulen_n(t_ullint num, t_uint base);
+extern t_uint		ft_ulen_2(t_ullint num);
+extern t_uint		ft_ulen_16(t_ullint num);
 
-extern void		ft_strarr_clear(char **s);
-extern size_t	ft_strarr_size(char **s);
+extern void			ft_strarr_clear(char **s);
+extern size_t		ft_strarr_size(char **s);
 
 #endif
