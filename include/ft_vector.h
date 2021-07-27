@@ -110,4 +110,6 @@ extern void			*ft_vec_fetch_array(t_vector *vec, size_t *out_size);
  */
 extern t_bool		ft_vec_copy_construct(t_vector *copy, t_vector *sample);
 
+extern void			ft_vec_foreach(t_vector *vec, void (*f)(void *));
+
 #endif

@@ -7,7 +7,7 @@ void ft_vec_foreach(t_vector *vec, void (*f)(void *))
     i = 0;
     while (i < vec->size)
     {
-        f(vec);
+        f(ft_vec_at(vec, i));
         i++;
     }
 }
