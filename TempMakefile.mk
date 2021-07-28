@@ -58,7 +58,7 @@ BUILD_TEST_FLAGS	?=
 
 BUILD_I_DIRS		= ${addprefix -I, ${BUILD_INC_DIRS}}
 BUILD_L_DIRS		= ${addprefix -L, ${BUILD_LIBS_DIRS}}
-BUILD_INCLUDE_FLAGS	= ${BUILD_I_DIRS} ${BUILD_L_DIRS}
+BUILD_INCLUDE_FLAGS	= 
 
 BUILD_NAME			?= -
 PRETTY_BUILD_NAME	= [${COLOR_CYAN}${BUILD_NAME}${COLOR_RESET}]
@@ -73,7 +73,7 @@ ${BUILD_DIR}%/.:
 
 .SECONDEXPANSION:
 ${BUILD_DIR}%.o:	%.c | $${@D}/.
-			@${CC} ${CFLAGS} ${BUILD_FLAGS} ${BUILD_INCLUDE_FLAGS} -c $< -o $@ -MD || \
+			@${CC} ${CFLAGS} ${BUILD_FLAGS} ${BUILD_I_DIRS} -c $< -o $@ -MD || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_TARGET_NAME}" "${PRETTY_BUILD_NAME}" "$<" "compile" ; exit 1;	}
 
 ${BUILD_TARGET}: ${BUILD_TASKS}
@@ -83,7 +83,7 @@ build:		${BUILD_TARGET}
 
 .PHONY:	b_exe
 b_exe:		${BUILD_OBJS}
-			@${CC} ${CFLAGS} ${BUILD_OBJS} ${BUILD_FLAGS} ${BUILD_INCLUDE_FLAGS} ${BUILD_LIBS} -o ${BUILD_TARGET} && \
+			@${CC} ${CFLAGS} ${BUILD_OBJS} ${BUILD_FLAGS} ${BUILD_I_DIRS} ${BUILD_L_DIRS} ${BUILD_LIBS} -o ${BUILD_TARGET} && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "compile" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "compile" ; exit 1;	}
 
