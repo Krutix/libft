@@ -24,6 +24,7 @@ void	ft_ht_remove(t_hashtable *ht, void *key, \
 		return ;
 	ht_statuses[pos] = e_ht_cs_used;
 	kv = __ft_ht_at(ht, pos);
+	ht->size--;
 	if (key_destr)
 		key_destr(kv.key);
 	if (value_destr)

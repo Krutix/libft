@@ -16,14 +16,14 @@ t_bool	ft_ht_rehash(t_hashtable *ht, size_t new_capacity)
 	size_t			idx;
 
 	old_ht = *ht;
+	ht->size = 0;
 	ht->capacity = new_capacity;
 	ht->raw_table = ft_calloc(1, ht->capacity + \
 		ht->capacity * (ht->key_size + ht->value_size));
 	if (!ht->raw_table)
 		return (rehash_error(ht, &old_ht));
-	ht->size = 0;
-	ht_statuses = old_ht.raw_table;
 	idx = 0;
+	ht_statuses = old_ht.raw_table;
 	while (idx < old_ht.capacity)
 	{
 		if (ht_statuses[idx] == e_ht_cs_engaged)
@@ -31,6 +31,7 @@ t_bool	ft_ht_rehash(t_hashtable *ht, size_t new_capacity)
 			kv = __ft_ht_at(&old_ht, idx);
 			ft_ht_insert(ht, kv.key, kv.value);
 		}
+		idx++;
 	}
 	free(old_ht.raw_table);
 	return (t_true);

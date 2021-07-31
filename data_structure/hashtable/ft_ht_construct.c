@@ -38,7 +38,7 @@ void	ft_ht_destruct(t_hashtable *ht, t_destrfunc key_destr, t_destrfunc value_de
 			if (key_destr)
 				key_destr(kv.key);
 			if (value_destr)
-				value_destr(kv.key);
+				value_destr(kv.value);
 		}
 		idx++;
 	}
