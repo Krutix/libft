@@ -7,6 +7,10 @@
 
 # define PASS ((void)NULL)
 
+typedef size_t (*t_hashfunc)(void *);
+typedef int (*t_cmpfunc)(void *, void *);
+typedef void (*t_destrfunc)(void *);
+
 typedef enum e_bool
 {
 	t_false = 0,

@@ -13,8 +13,8 @@
 typedef struct s_vector {
 	size_t	size;
 	size_t	capacity;
-	t_uint	cell_size;
 	void	*array;
+	t_uint	cell_size;
 }					t_vector;
 
 /*!
