@@ -37,7 +37,8 @@ void	*ft_ht_insert(t_hashtable *ht, void *key, void *value)
 	ht_statuses[pos] = e_ht_cs_engaged;
 	kv = __ft_ht_at(ht, pos);
 	ft_memcpy(kv.key, key, ht->key_size);
-	ft_memcpy(kv.value, value, ht->value_size);
+	if (value)
+		ft_memcpy(kv.value, value, ht->value_size);
 	ht->size++;
 	return (kv.value);
 }

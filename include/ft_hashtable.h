@@ -41,4 +41,7 @@ void	*ft_ht_insert(t_hashtable *ht, void *key, void *data);
 void	ft_ht_remove(t_hashtable *ht, void *key, \
 	t_destrfunc key_destr, t_destrfunc value_destr);
 
+size_t	ft_hash_int(int *i);
+size_t	ft_hash_str(char *str);
+
 #endif
