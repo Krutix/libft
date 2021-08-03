@@ -2,6 +2,7 @@ HT_SRCS	=	ft_ht_construct.c \
 			ft_ht_find.c \
 			ft_ht_insert.c \
 			ft_ht_rehash.c \
+			ft_hash.c \
 			ft_ht_remove.c
 
 HT_FTST	=	ft_hashtable.ftst.c
