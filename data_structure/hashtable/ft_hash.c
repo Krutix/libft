@@ -17,4 +17,5 @@ size_t	ft_hash_str(char *str)
 		hash += str[idx] * (idx + 1);
 		idx++;
 	}
+	return (hash);
 }
