@@ -1,5 +1,5 @@
 #include "__ft_hashtable.h"
-#include "stdio.h"
+
 void	*ft_ht_find(t_hashtable *ht, void *key)
 {
 	char			*ht_statuses;

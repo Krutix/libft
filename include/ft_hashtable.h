@@ -37,7 +37,10 @@ void	ft_ht_destruct(t_hashtable *ht, \
 
 t_bool	ft_ht_rehash(t_hashtable *ht, size_t new_capacity);
 void	*ft_ht_find(t_hashtable *ht, void *key);
+void	*ft_ht_insert_or_assign(t_hashtable *ht, void *key, void *data);
 void	*ft_ht_insert(t_hashtable *ht, void *key, void *data);
+void	*ft_ht_insert_c(t_hashtable *ht, void *key,
+			t_construct construct, void *constr_data);
 void	ft_ht_remove(t_hashtable *ht, void *key, \
 	t_destrfunc key_destr, t_destrfunc value_destr);
 
