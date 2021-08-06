@@ -116,8 +116,14 @@ b_fclean:	b_clean
 .PHONY:	b_re
 b_re:		b_fclean build
 
-.PHONY:	norm
-norm:
+.PHONY:	b_norms
+b_norms:
 			@${NORMINETTE} ${BUILD_SRCS} ${INC_DIR} >> /dev/null && \
+				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" || \
+			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" ; exit 1;	}
+
+.PHONY:	b_norm
+b_norm:
+			@${NORMINETTE} ${BUILD_SRCS} ${INC_DIR} && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" ; exit 1;	}
