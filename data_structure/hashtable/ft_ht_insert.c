@@ -1,4 +1,5 @@
 #include "__ft_hashtable.h"
+#include "ft_string.h"
 
 void	*ft_ht_insert(t_hashtable *ht, void *key, void *value)
 {

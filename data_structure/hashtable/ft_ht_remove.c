@@ -19,8 +19,8 @@ void	ft_ht_remove(t_hashtable *ht, void *key, \
 		pos = (pos + 1) % ht->capacity;
 		cells_processed++;
 	}
-	if (ht_statuses[pos] == e_ht_cs_free || \
-			cells_processed == ht->size)
+	if (ht_statuses[pos] != e_ht_cs_engaged || \
+			cells_processed == ht->capacity)
 		return ;
 	ht_statuses[pos] = e_ht_cs_used;
 	kv = __ft_ht_at(ht, pos);
