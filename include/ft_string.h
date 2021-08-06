@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_string.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:16:47 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:16:48 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_STRING_H
 # define FT_STRING_H
 
@@ -138,13 +150,15 @@ extern void			*ft_calloc(size_t count, size_t size);
  * \param src memory area from which to copy
  * \param n number of bytes to copy
  * \return a pointer to the memory area dest
- * \warning the memory areas must not overlap. use ft_memmove() if memory areas do overlap
+ * \warning the memory areas must not overlap.
+ * 		use ft_memmove() if memory areas do overlap
  */
 extern void			*ft_memcpy(void *dest, const void *src, size_t n);
 
 /*!
  * \fn void *ft_memccpy(void *dest, const void *src, int c, size_t n)
- * \brief copies n bytes from memory area src to dest or stoped after find in srcs c character
+ * \brief copies n bytes from memory area src
+ * 		to dest or stoped after find in srcs c character
  * \see ft_memmove() ft_memcpy()
  * \param dest memory area to copy to
  * \param src memory area from which to copy
@@ -169,11 +183,13 @@ extern void			*ft_memmove(void *dest, const void *src, size_t n);
 /*!
  * \fn void *ft_memchr(const void *s, int c, size_t n)
  * \see ft_strchr() ft_strrchr()
- * \brief scans the initial n bytes of the memory area pointed to by s for the first instance of c
+ * \brief scans the initial n bytes of the memory area pointed
+ * 				to by s for the first instance of c
  * \param s memory area to scan
  * \param c character to find. interpreted as unsigned char
  * \param n number of bytes to scan
- * \return a pointer to the matching byte or NULL if the character does not occur in the given memory area
+ * \return a pointer to the matching byte or
+ * 		NULL if the character does not occur in the given memory area
  */
 extern void			*ft_memchr(const void *s, int c, size_t n);
 
@@ -182,7 +198,8 @@ extern void			*ft_memchr(const void *s, int c, size_t n);
  * \see ft_strcmp() ft_strncmp()
  * \brief compares the first n bytes of the memory areas s1 and s2
  * \param n number of bytes to scan
- * \return <0 if s1 is less then s2, >0 if s2 is less then s1 and 0 if memory areas is equal
+ * \return <0 if s1 is less then s2,
+ * 		>0 if s2 is less then s1 and 0 if memory areas is equal
  */
 extern int			ft_memcmp(const void *s1, const void *s2, size_t n);
 
@@ -229,7 +246,8 @@ extern size_t		ft_strlen(const char *s);
  * \fn size_t	ft_strnlen(const char *str, size_t n);
  * \see ft_strnlen()
  * \brief calculates the length of the string with first n symbols
- * \return length of the string or n if len of string is greater then length of str
+ * \return length of the string or
+ * 		n if len of string is greater then length of str
  */
 extern size_t		ft_strnlen(const char *str, size_t n);
 
@@ -243,7 +261,8 @@ extern size_t		ft_strlcat(char *dest, char const *src, size_t size);
 extern int			ft_strcmp(char const *s1, char const *s2);
 extern int			ft_strncmp(const char *s1, const char *s2, size_t n);
 extern char const	*ft_strstr(char const *str, char const *to_find);
-extern char const	*ft_strnstr(char const *str, char const *to_find, size_t size);
+extern char const	*ft_strnstr(char const *str, \
+							char const *to_find, size_t size);
 extern char			*ft_strrchr(const char *s, int c);
 extern char			*ft_strchr(const char *s, int c);
 

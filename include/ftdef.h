@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftdef.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:11:36 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:11:37 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FTDEF_H
 # define FTDEF_H
 
@@ -7,10 +19,10 @@
 
 # define PASS ((void)NULL)
 
-typedef size_t (*t_hashfunc)(void *);
-typedef int (*t_cmpfunc)(void *, void *);
-typedef void (*t_destrfunc)(void *);
-typedef void (*t_construct)(void *, void *);
+typedef size_t (				*t_hashfunc)(void *);
+typedef int (					*t_cmpfunc)(void *, void *);
+typedef void (					*t_destrfunc)(void *);
+typedef void (					*t_construct)(void *, void *);
 
 typedef enum e_bool
 {

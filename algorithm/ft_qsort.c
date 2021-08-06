@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_qsort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:27:57 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:31:11 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
 #include "ftdef.h"
 #include "ft_algorithm.h"
-#include "stdio.h"
 
 static void	*partition(void *begin, void *end, \
 				size_t size_of_cell, t_bool (*lower)())
@@ -25,13 +37,17 @@ static void	*partition(void *begin, void *end, \
 	return (i);
 }
 
+// stack = [(end - begin) / size_of_cell + 1]
+//! \todo alloc protect
+
 void	ft_qsort(void *begin, void *end, size_t size_of_cell, t_bool (*lower)())
 {
-	void	*stack[(end - begin) / size_of_cell + 1];
+	void	**stack;
 	void	*p;
 	size_t	top;
 
 	top = 0;
+	stack = malloc(sizeof(void *) * ((end - begin) / size_of_cell + 1));
 	stack[top++] = begin;
 	stack[top++] = end - size_of_cell;
 	while (top > 0)
@@ -50,4 +66,5 @@ void	ft_qsort(void *begin, void *end, size_t size_of_cell, t_bool (*lower)())
 			stack[top++] = end;
 		}
 	}
+	free(stack);
 }

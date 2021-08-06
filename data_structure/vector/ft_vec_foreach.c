@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_vec_foreach.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:25:27 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:27:24 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_vector.h"
 
-void ft_vec_foreach(t_vector *vec, void (*f)(void *))
+void	ft_vec_foreach(t_vector *vec, void (*f)(void *))
 {
-    size_t  i;
+	size_t	i;
 
-    i = 0;
-    while (i < vec->size)
-    {
-        f(ft_vec_at(vec, i));
-        i++;
-    }
+	i = 0;
+	while (i < vec->size)
+	{
+		f(ft_vec_at(vec, i));
+		i++;
+	}
 }

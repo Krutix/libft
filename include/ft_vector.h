@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_vector.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:12:44 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:13:35 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_VECTOR_H
 # define FT_VECTOR_H
 
@@ -20,7 +32,8 @@ typedef struct s_vector {
 /*!
  * \fn t_bool ft_vec_realloc(t_vector *vec, size_t new_capacity)
  * \brief reallocate array to new reserv size
- * \details if allocated failes, vector remains in state of preceding reallocation
+ * \details if allocated failes, vector remains
+ * 			in state of preceding reallocation
  * \param new_capacity new reserv size of array
  * \return return false if allocation failes. In other cases return true
  */
@@ -31,7 +44,6 @@ extern t_bool		ft_vec_realloc(t_vector *vec, size_t new_capacity);
  * \see ft_vec_realloc()
  */
 extern t_bool		ft_vec_resize(t_vector *vec, size_t new_capacity);
-
 
 /*!
  * \fn void ft_vec_construct(t_vector *vec, t_uint cell_size)

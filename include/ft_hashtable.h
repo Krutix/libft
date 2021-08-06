@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_hashtable.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:17:14 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:18:21 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_HASHTABLE_H
 # define FT_HASHTABLE_H
 
 # include "ftdef.h"
 
-typedef struct	s_ht_key_value
+typedef struct s_ht_key_value
 {
 	void	*key;
 	void	*value;
 }				t_ht_key_value;
 
-typedef struct	s_hashtable
+typedef struct s_hashtable
 {
 	void		*raw_table;
 	t_hashfunc	hash;

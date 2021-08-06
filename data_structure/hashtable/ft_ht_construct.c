@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ht_construct.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:22:32 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:24:04 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "__ft_hashtable.h"
 #include <stdlib.h>
 
@@ -22,7 +34,8 @@ t_ht_key_value	__ft_ht_at(t_hashtable *ht, size_t pos)
 	return (key_value);
 }
 
-void	ft_ht_destruct(t_hashtable *ht, t_destrfunc key_destr, t_destrfunc value_destr)
+void	ft_ht_destruct(t_hashtable *ht, \
+	t_destrfunc key_destr, t_destrfunc value_destr)
 {
 	char			*ht_statuses;
 	size_t			idx;
@@ -30,17 +43,20 @@ void	ft_ht_destruct(t_hashtable *ht, t_destrfunc key_destr, t_destrfunc value_de
 
 	ht_statuses = ht->raw_table;
 	idx = 0;
-	while (idx < ht->capacity)
+	if (key_destr || value_destr)
 	{
-		if (ht_statuses[idx] == e_ht_cs_engaged)
+		while (idx < ht->capacity)
 		{
-			kv = __ft_ht_at(ht, idx);
-			if (key_destr)
-				key_destr(kv.key);
-			if (value_destr)
-				value_destr(kv.value);
+			if (ht_statuses[idx] == e_ht_cs_engaged)
+			{
+				kv = __ft_ht_at(ht, idx);
+				if (key_destr)
+					key_destr(kv.key);
+				if (value_destr)
+					value_destr(kv.value);
+			}
+			idx++;
 		}
-		idx++;
 	}
 	free(ht->raw_table);
 }

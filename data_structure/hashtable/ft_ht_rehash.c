@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ht_rehash.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:22:46 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:23:09 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "__ft_hashtable.h"
 #include "ft_string.h"
 #include "stdlib.h"
 
-static t_bool rehash_error(t_hashtable *ht, t_hashtable *old_ht)
+static t_bool	rehash_error(t_hashtable *ht, t_hashtable *old_ht)
 {
 	*ht = *old_ht;
 	return (t_false);

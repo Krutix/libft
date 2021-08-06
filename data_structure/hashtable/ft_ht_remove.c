@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ht_remove.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:20:21 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:21:05 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "__ft_hashtable.h"
 
 void	ft_ht_remove(t_hashtable *ht, void *key, \
@@ -11,9 +23,8 @@ void	ft_ht_remove(t_hashtable *ht, void *key, \
 	ht_statuses = ht->raw_table;
 	pos = ht->hash(key) % ht->capacity;
 	cells_processed = 0;
-	while (cells_processed < ht->capacity && \
-			(ht_statuses[pos] == e_ht_cs_used || \
-			(ht_statuses[pos] == e_ht_cs_engaged && \
+	while (cells_processed < ht->capacity && (ht_statuses[pos] == e_ht_cs_used
+			|| (ht_statuses[pos] == e_ht_cs_engaged && \
 			ht->cmp(__ft_ht_at(ht, pos).key, key) != 0)))
 	{
 		pos = (pos + 1) % ht->capacity;

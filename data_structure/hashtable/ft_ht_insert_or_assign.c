@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ht_insert_or_assign.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:20:14 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:20:14 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "__ft_hashtable.h"
 #include "ft_string.h"
 
@@ -19,7 +31,6 @@ t_bool	__ft_ht_reserv(t_hashtable *ht)
 	return (t_true);
 }
 
-
 size_t	__ft_ht_find_free_by_key(t_hashtable *ht, void *key)
 {
 	char	*ht_statuses;
@@ -34,7 +45,6 @@ size_t	__ft_ht_find_free_by_key(t_hashtable *ht, void *key)
 	}
 	return (pos);
 }
-
 
 void	*ft_ht_insert_or_assign(t_hashtable *ht, void *key, void *value)
 {

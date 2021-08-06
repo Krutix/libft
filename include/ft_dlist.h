@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_dlist.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:18:36 by fdiego            #+#    #+#             */
+/*   Updated: 2021/08/06 17:18:50 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_DLIST_H
 # define FT_DLIST_H
 
@@ -22,7 +34,7 @@ extern void			ft_dlist_remove_if(t_dlist **begin_list, void *data_ref, \
 							int (*cmp)(), void (*free_fct)(void*));
 extern void			ft_dlist_sort_insert(t_dlist **begin_list, \
 							t_dlist *node, int (*cmp)());
-extern void			ft_dlist_sort(t_dlist **begin_list, void(*upd)(void*, void*), \
-							void *addition_data, int(*cmp)());
+extern void			ft_dlist_sort(t_dlist **begin_list, \
+				void(*upd)(void*, void*), void *addition_data, int(*cmp)());
 
 #endif
