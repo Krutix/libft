@@ -87,6 +87,7 @@ b_exe:		${BUILD_OBJS}
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "compile" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "compile" ; exit 1;	}
 
+.PHONY:	b_lib
 b_lib:		${BUILD_OBJS}
 			@${AR} ${BUILD_TARGET} $? && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "arrangement" || \
@@ -118,12 +119,13 @@ b_re:		b_fclean build
 
 .PHONY:	b_norms
 b_norms:
-			@${NORMINETTE} ${BUILD_SRCS} ${INC_DIR} >> /dev/null && \
+			@${NORMINETTE} ${BUILD_SRCS} ${INC_DIR}*.h >> /dev/null && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" ; exit 1;	}
 
+# | grep -v 'OK'
 .PHONY:	b_norm
 b_norm:
-			@${NORMINETTE} ${BUILD_SRCS} ${INC_DIR} && \
+			@${NORMINETTE} ${BUILD_SRCS} ${INC_DIR}*.h && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" ; exit 1;	}
