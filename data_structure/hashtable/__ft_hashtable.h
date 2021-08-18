@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:22:35 by fdiego            #+#    #+#             */
-/*   Updated: 2021/08/06 17:22:36 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/08/18 16:08:16 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ft_hashtable.h"
 
-enum ht_cell_status
+enum e_ht_cell_status
 {
 	e_ht_cs_free,
 	e_ht_cs_engaged,
