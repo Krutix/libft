@@ -117,15 +117,14 @@ b_fclean:	b_clean
 .PHONY:	b_re
 b_re:		b_fclean build
 
-.PHONY:	b_norms
-b_norms:
-			@${NORMINETTE} ${BUILD_SRCS} ${INC_DIR}*.h >> /dev/null && \
+.PHONY:	b_norm
+b_norm:
+			@${NORMINETTE} ${BUILD_SRCS} ${addsuffix *.h, ${BUILD_INC_DIRS}} >> /dev/null && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" ; exit 1;	}
 
-# | grep -v 'OK'
-.PHONY:	b_norm
-b_norm:
-			@${NORMINETTE} ${BUILD_SRCS} ${INC_DIR}*.h && \
+.PHONY:	b_norml
+b_norml:
+			@${NORMINETTE} ${BUILD_SRCS} ${addsuffix *.h, ${BUILD_INC_DIRS}} && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" || \
 			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "norminette" ; exit 1;	}
