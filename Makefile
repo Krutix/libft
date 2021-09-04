@@ -1,33 +1,5 @@
-.DEFAULT_GOAL := all
-# External programms
-PYTHON		= python3
-NORMINETTE	= norminette
-DOXYGEN		= doxygen
-RM			= rm -f
-AR			= ar rcs
-MKDIR		= mkdir -p
-
-
-# Pretty print
-COLOR_RED		= \x1b[31m
-COLOR_GREEN		= \x1b[32m
-COLOR_YELLOW	= \x1b[33m
-COLOR_BLUE		= \x1b[34m
-COLOR_MAGENTA	= \x1b[35m
-COLOR_CYAN		= \x1b[36m
-COLOR_RESET		= \x1b[0m
-RESET_LINE		= \033[A\033[2K
-
-PRETTY_DONE		= [${COLOR_GREEN}✓${COLOR_RESET}]
-PRETTY_FAIL		= [${COLOR_RED}✕${COLOR_RESET}]
-
-PRETTY_STATUS	= "%b%b ${COLOR_YELLOW}%b${COLOR_RESET} %b\n"
-
-include ftst/ftst.mk
-FTST_DIR	= ftst/
-FTST_INC	+= ${INC_DIR}
-FTST_FLAGS	+= -lm
-FTST_TARGET	= ${BUILD_LIB}
+TM_FILE         = ./tm.mk
+.DEFAULT_GOAL  := all
 
 # include source files from sub dirs
 FTST_SRCS	=
@@ -42,149 +14,55 @@ include data_structure/dlist/srcs.mk
 include data_structure/hashtable/srcs.mk
 
 INC_DIR =	include/
-NAME	=	libft.a
+NAME	=	libft
 
-
-# Compiler setup
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
-H_INC	= ${addprefix -I , ${INC_DIR}}
-
-#######################################################
-#
-# Real build
-#
-BUILD_DIR		?= objs
-BUILD_LIB		= ${BUILD_DIR}${NAME}
-BUILD_OBJS		= ${SRCS:%.c=${BUILD_DIR}%.o}
-BUILD_D_FILES	= ${SRCS:%.c=${BUILD_DIR}%.d}
-include ${wildcard ${BUILD_D_FILES}}
-
-BUILD_FLAGS			?=
-BUILD_TEST_FLAGS	?=
-
-BUILD_NAME		?= 
-PRETTY_BUILD_NAME = [${COLOR_CYAN}${BUILD_NAME}${COLOR_RESET}]
-
-${BUILD_DIR}%.o:	%.c
-			@${MKDIR} ${dir $@}
-			@${CC} ${CFLAGS} ${BUILD_FLAGS} ${H_INC} -c $< -o $@ -MD || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "$<" "compile" ; exit 1;	}
-
-.PHONY:	build_test
-build_test:	${FTST_EXE} ${BUILD_LIB}
-			./${FTST_EXE} && \
-				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "test" || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "test" ; exit 1;	}
-
-${BUILD_LIB}:	${BUILD_OBJS}
-			@${AR} ${BUILD_LIB} $? && \
-				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "build" || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "archive" ; exit 1;	}
-			${MAKE} build_test -s
-
-.PHONY:	build
-build:
-			@${MAKE} ${BUILD_LIB} -s
-
-.PHONY:	b_clean
-b_clean:
-			${RM}	${BUILD_OBJS} ${BUILD_D_FILES}
-
-.PHONY:	b_fclean
-b_fclean:	b_clean
-			${RM}	-rd ${BUILD_LIB} ${BUILD_DIR}
-
-.PHONY:	b_re
-b_re:		b_fclean build
-
-#######################################################
-#
-# Debug build
-#
-DEBUG_DIR		= debug/
-
-DEBUG_FLAGS	= -O0 -g3
-DEBUG_TEST_FLAGS = 
-
-DEBUG_SETUP	= BUILD_DIR=${DEBUG_DIR} ${addprefix BUILD_FLAGS+=, ${DEBUG_FLAGS}} BUILD_NAME=debug
-
-.PHONY: db
-db:
-		@${MAKE} build ${DEBUG_SETUP} -s
-
-.PHONY: tdb
-tdb:
-		@${MAKE} build_test ${DEBUG_SETUP} -s
-
-.PHONY: cleandb
-cleandb:
-		@${MAKE} b_clean ${DEBUG_SETUP} -s
-
-.PHONY: fcleandb
-fcleandb:
-		@${MAKE} b_fclean ${DEBUG_SETUP} -s
-
-.PHONY: redb
-redb:
-		@${MAKE} b_re ${DEBUG_SETUP} -s
+DEPEND_FILES = ${realpath ./Makefile}
+SETUP         = ${addprefix BUILD_SRCS+=, ${SRCS}} \
+				${addprefix FTST_SRCS+=, ${FTST_SRCS}} \
+				${addprefix INC_DIR+=, ${INC_DIR}} \
+				${addprefix DEPEND_FILES+=, ${DEPEND_FILES}}
 
 #######################################################
 #
 # Release build
 #
-RELEASE_DIR		= release/
+RELEASE_MAKE = release.mk
 
-RELEASE_FLAGS	= -O2 -fomit-frame-pointer
+rl/%:
+		${MAKE} -f ${RELEASE_MAKE} ${@:rl/%=%} ${SETUP}
 
-RELEASE_SETUP	= BUILD_DIR=${RELEASE_DIR} ${addprefix BUILD_FLAGS+=, ${RELEASE_FLAGS}} BUILD_NAME=release
+#######################################################
+#
+# Debug build
+#
+DEBUG_MAKE = debug.mk
 
-.PHONY: rl
-rl:
-		@${MAKE} build ${RELEASE_SETUP} -s
+db/%:
+		${MAKE} -f ${DEBUG_MAKE} ${@:db/%=%} ${SETUP}
 
-.PHONY: trl
-trl:
-		@${MAKE} build_test ${RELEASE_SETUP} -s
-
-.PHONY: cleanrl
-cleanrl:
-		@${MAKE} b_clean ${RELEASE_SETUP} -s
-
-.PHONY: fcleanrl
-fcleanrl:
-		@${MAKE} b_fclean ${RELEASE_SETUP} -s
-
-.PHONY: rerl
-rerl:
-		@${MAKE} b_re ${RELEASE_SETUP} -s
 
 #######################################################
 
 .PHONY:	all
-all:		rl
+all:		rl/build
 
-${NAME}:	rl
-
-#  >> /dev/null
-.PHONY:	norm
-norm:
-			@${NORMINETTE} ${SRCS} ${INC_DIR} && \
-				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${NAME}" "norminette" || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${NAME}" "norminette" ; exit 1;	}
+${NAME}:	rl/build
 
 include docs/doxygen.mk
 .PHONY: docs
 docs:	doxygen
 
 .PHONY:	clean
-clean:		cleanrl		cleandb
+clean:		rl/clean db/clean
 
 .PHONY:	fclean
-fclean:		fcleanrl	fcleandb
+fclean:		rl/fclean db/fclean
+
+.PHONY: norm
+norm:		rl/norm
 
 .PHONY:	re
-re:			rerl
+re:			rl/re db/re
 
 #so:
 #			@${CC} ${CFLAGS} -fPIC -c ${SRCS}
