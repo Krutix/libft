@@ -21,6 +21,7 @@
 
 typedef size_t (				*t_hashfunc)(void *);
 typedef int (					*t_cmpfunc)(void *, void *);
+typedef void (					*t_updfunc)(void *, void *);
 typedef void (					*t_destrfunc)(void *);
 typedef void (					*t_construct)(void *, void *);
 

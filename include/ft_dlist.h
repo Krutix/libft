@@ -35,6 +35,8 @@ extern void			ft_dlist_remove_if(t_dlist **begin_list, void *data_ref, \
 extern void			ft_dlist_sort_insert(t_dlist **begin_list, \
 							t_dlist *node, int (*cmp)());
 extern void			ft_dlist_sort(t_dlist **begin_list, \
-				void(*upd)(void*, void*), void *addition_data, int(*cmp)());
+							t_updfunc upd, \
+							void *addition_data, \
+							t_cmpfunc cmp);
 
 #endif
