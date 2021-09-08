@@ -115,7 +115,7 @@ fclean:	clean
 re:		fclean build
 
 
-INCLUDE_FILES = ${sort ${foreach src, ${BUILD_SRCS}, ${dir ${src}}} ${BUILD_INC_DIRS}}
+INCLUDE_FILES = ${addsuffix *.h, ${sort ${foreach src, ${BUILD_SRCS}, ${dir ${src}}} ${BUILD_INC_DIRS}}}
 # TODO remove unused paths
 
 .PHONY:	norm
