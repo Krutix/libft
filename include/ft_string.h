@@ -15,6 +15,12 @@
 
 # include "ftdef.h"
 
+typedef struct s_stringview
+{
+	char		*str;
+	size_t		size;
+}				t_stringview;
+
 extern t_llint		ft_atoi_base(char *str, char *base);
 extern t_llint		ft_atoi(const char *str);
 extern t_bool		ft_strtol_m(const char *str, t_ullint max_abs, int64_t *r);

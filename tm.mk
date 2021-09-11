@@ -28,7 +28,6 @@ PRETTY_STATUS   = "%b%b%b ${COLOR_YELLOW}%b${COLOR_RESET} %b\n"
 NAME           ?= -
 
 # Compiler setup
-CC             ?= gcc
 CFLAGS          = -Wall -Wextra -Werror
 
 #######################################################
