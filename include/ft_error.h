@@ -8,7 +8,7 @@ enum e_error
 	error_no_error = 0,
 	error_allocation_fail,
 	error_parse_error,
-	error_user_define_error = (1 << 31)
+	error_user_define_error = (1 << 15)
 };
 
 #endif
