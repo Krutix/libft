@@ -13,4 +13,4 @@ lft/%:
 	make -C ${LIBFT_DIR} rl/${@:lft/%=%}
 
 lftdb/%:
-	make -C ${LIBFT_DIR} db/${@:lft/%=%}
+	make -C ${LIBFT_DIR} db/${@:lftdb/%=%}

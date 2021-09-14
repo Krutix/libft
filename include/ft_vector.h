@@ -101,6 +101,13 @@ extern t_bool		ft_vec_push_reserv(t_vector *vec);
  */
 extern t_bool		ft_vec_push_back(t_vector *vec, void *data);
 
+/*!
+ * \fn t_bool ft_vec_reserv(t_vector *vec, size_t reserv);
+ * \brief after reserv capacity of array be no less then reserv
+ * \return return false if allocation failes. In other cases return true
+ */
+extern t_bool	ft_vec_reserv(t_vector *vec, size_t reserv);
+
 extern void			*ft_vec_at(t_vector *vec, size_t pos);
 extern void			*ft_vec_front(t_vector *vec);
 extern void			*ft_vec_back(t_vector *vec);

@@ -31,6 +31,13 @@ t_bool	ft_vec_realloc(t_vector *vec, size_t new_reserv)
 	return (t_true);
 }
 
+t_bool	ft_vec_reserv(t_vector *vec, size_t reserv)
+{
+	if (vec->capacity < reserv)
+		return (ft_vec_realloc(vec, reserv));
+	return (t_true);
+}
+
 t_bool	ft_vec_resize(t_vector *vec, size_t new_reserv)
 {
 	return (ft_vec_realloc(vec, new_reserv));
