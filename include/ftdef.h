@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <limits.h>
 # include <stdint.h>
+# include <ft_error.h>
 
 # define PASS ((void)NULL)
 

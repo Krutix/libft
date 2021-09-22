@@ -87,10 +87,7 @@ ${BUILD_DIR}%.o:	%.c ${BUILD_DEPEND_FILES} ${realpath ./tm.mk} | $${@D}/.
 .PHONY:	build
 build:		${BUILD_TARGET}
 
-debug:
-		echo ${BUILD_DIR}
-
-${BUILD_TARGET}: debug ${BUILD_OBJS} ${FTST_SRCS} ${BUILD_DEPEND_FILES} ${realpath ./tm.mk}
+${BUILD_TARGET}: ${BUILD_OBJS} ${FTST_SRCS} ${BUILD_DEPEND_FILES} ${realpath ./tm.mk}
 ifeq (${BUILD_TARGET_TYPE}, exe)
 			${CC} ${CFLAGS} ${BUILD_OBJS} ${BUILD_FLAGS} ${BUILD_I_DIRS} ${BUILD_L_DIRS} ${BUILD_LIBS} -o ${BUILD_TARGET} && \
 				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "compile" || \
