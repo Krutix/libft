@@ -1,7 +1,10 @@
-STR_SRCS	=	ft_atoi_base.c \
+STR_SRCS	=	ft_strappend.c \
+				ft_atoi_base.c \
 				ft_atoi.c \
 				ft_bzero.c \
 				ft_calloc.c \
+				ft_free.c \
+				ft_freemultistr.c \
 				ft_isalnum.c \
 				ft_isalpha.c \
 				ft_isascii.c \
@@ -9,12 +12,14 @@ STR_SRCS	=	ft_atoi_base.c \
 				ft_isdigit.c \
 				ft_isspace.c \
 				ft_itoa.c \
+				ft_strjoin.c \
 				ft_memccpy.c \
 				ft_memcpy.c \
 				ft_memmove.c \
 				ft_memchr.c \
 				ft_memcmp.c \
 				ft_memset.c \
+				ft_reassign.c \
 				ft_sort_str_tab.c \
 				ft_split.c \
 				ft_strcat.c \

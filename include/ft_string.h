@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:16:47 by fdiego            #+#    #+#             */
-/*   Updated: 2021/08/06 17:16:48 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/09/23 18:12:35 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ extern char			*ft_utob_bt(char *buffer_end, t_ullint num);
 /*!
  * \fn char *ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
  * \brief convert num to string, buffer backward filling in castom base
- * \see ft_utob_bt() 
+ * \see ft_utob_bt()
  * \deprecated
  * \param buffer_end a pointer to memery area end
  * \param num number to convert
@@ -89,7 +89,7 @@ extern char			*ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
 /*!
  * \fn char *ft_utob_bt_n(char *buffer_end, t_ullint num, char *base);
  * \brief convert num to string, buffer backward filling in hex base
- * \see ft_utob_bt() 
+ * \see ft_utob_bt()
  * \deprecated
  * \param buffer_end a pointer to memery area end
  * \param num number to convert
@@ -101,7 +101,7 @@ extern char			*ft_utob_bt_16(char *buffer_end, t_ullint num, char *base);
 /*!
  * \fn char *ft_utob_bt_2(char *buffer_end, t_ullint num);
  * \brief convert num to string, buffer backward filling in bin base
- * \see ft_utob_bt() 
+ * \see ft_utob_bt()
  * \deprecated
  * \param buffer_end a pointer to memery area end
  * \param num number to convert
@@ -151,7 +151,7 @@ extern void			*ft_calloc(size_t count, size_t size);
 /*!
  * \fn void *ft_memcpy(void *dest, const void *src, size_t n)
  * \see ft_memmove() ft_memccpy()
- * \brief copies n bytes from memory area src to dest 
+ * \brief copies n bytes from memory area src to dest
  * \param dest memory area to copy to
  * \param src memory area from which to copy
  * \param n number of bytes to copy
@@ -178,7 +178,7 @@ extern void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
 /*!
  * \fn void *ft_memmove(void *dest, const void *src, size_t n)
  * \see ft_memcpy()
- * \brief copies n bytes from memory area src to dest 
+ * \brief copies n bytes from memory area src to dest
  * \param dest memory area to copy to
  * \param src memory area from which to copy
  * \param n number of bytes to copy
@@ -273,9 +273,14 @@ extern char			*ft_strrchr(const char *s, int c);
 extern char			*ft_strchr(const char *s, int c);
 
 extern char			*ft_strdup(char const *src);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strappend(char **ps, const char *s2);
 extern char			*ft_substr(char const *src, unsigned int start, size_t len);
 extern char			*ft_strtrim(char const *str, char const *set);
 extern char			**ft_split(char const *str, char *charset);
+void				*ft_free(void *p);
+char				**ft_freemultistr(char **ps);
+void				ft_reassign(void **p, void *new_address);
 extern char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 extern void			ft_sort_str_tab(char **tab, int (*cmp)(char *, char *));
 
