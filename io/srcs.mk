@@ -5,7 +5,9 @@ SRCS_IO		=	ft_print_memory.c \
 				ft_putmultistr.c \
 				ft_putnbr_base_fd.c \
 				ft_putnbr_fd.c \
+				ft_putstr.c \
 				ft_putstr_fd.c \
+				ft_get_next_line.c \
 				ft_read_next_line.c \
 				ft_read_next_line_utils.c
 
