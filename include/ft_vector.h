@@ -100,6 +100,7 @@ extern t_bool		ft_vec_push_reserv(t_vector *vec);
  * \return return false if allocation failes. In other cases return true
  */
 extern t_bool		ft_vec_push_back(t_vector *vec, void *data);
+extern t_bool		ft_vec_push_back_n(t_vector *vec, void *data, size_t size);
 
 /*!
  * \fn t_bool ft_vec_reserv(t_vector *vec, size_t reserv);

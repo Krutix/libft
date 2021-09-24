@@ -22,3 +22,12 @@ t_bool	ft_vec_push_back(t_vector *vec, void *data)
 	vec->size++;
 	return (t_true);
 }
+
+t_bool	ft_vec_push_back_n(t_vector *vec, void *data, size_t size)
+{
+	if (!ft_vec_reserv(vec, vec->size + size))
+		return (t_false);
+	ft_memcpy(ft_vec_at(vec, vec->size), data, size * vec->cell_size);
+	vec->size += size;
+	return (t_true);
+}
