@@ -14,10 +14,10 @@
 #include "ft_string.h"
 #include "stdlib.h"
 
-static t_bool	rehash_error(t_hashtable *ht, t_hashtable *old_ht)
+static t_ftE	rehash_error(t_hashtable *ht, t_hashtable *old_ht)
 {
 	*ht = *old_ht;
-	return (ftE_ok);
+	return (ftE_bad_alloc);
 }
 
 t_ftE	ft_ht_rehash(t_hashtable *ht, size_t new_capacity)

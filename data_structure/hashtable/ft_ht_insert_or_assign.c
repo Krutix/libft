@@ -13,22 +13,22 @@
 #include "__ft_hashtable.h"
 #include "ft_string.h"
 
-t_bool	__ft_ht_reserv(t_hashtable *ht)
+t_ftE	__ft_ht_reserv(t_hashtable *ht)
 {
 	if (ht->size == ht->capacity)
 	{
 		if (ht->capacity == 0)
 		{
 			if (ft_ht_rehash(ht, FT_HT_START_SIZE) != ftE_ok)
-				return (t_false);
+				return (ftE_bad_alloc);
 		}
 		else
 		{
 			if (ft_ht_rehash(ht, ht->capacity * FT_HT_SCALE_MULTI) != ftE_ok)
-				return (t_false);
+				return (ftE_bad_alloc);
 		}
 	}
-	return (t_true);
+	return (ftE_ok);
 }
 
 size_t	__ft_ht_find_free_by_key(t_hashtable *ht, void *key)

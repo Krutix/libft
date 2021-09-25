@@ -12,12 +12,12 @@
 
 #include "ft_list.h"
 
-t_bool	ft_list_push_back(t_list **begin_list, t_list *node)
+t_ftE	ft_list_push_back(t_list **begin_list, t_list *node)
 {
 	t_list	*buff;
 
 	if (!node)
-		return (t_false);
+		return (ftE_bad_alloc);
 	if (*begin_list)
 	{
 		buff = *begin_list;
@@ -27,5 +27,5 @@ t_bool	ft_list_push_back(t_list **begin_list, t_list *node)
 	}
 	else
 		*begin_list = node;
-	return (t_true);
+	return (ftE_ok);
 }

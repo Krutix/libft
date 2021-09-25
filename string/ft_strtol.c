@@ -80,7 +80,7 @@ t_ftE	ft_strtou_m(const char *str, t_ullint max_abs, t_uint *r)
 	t_ullint	nb;
 	t_ftE	b;
 
-	b = ft_strtol_m(str, max_abs, &nb);
+	b = ft_strtoul_m(str, max_abs, &nb);
 	*r = nb;
 	return (b);
 }
