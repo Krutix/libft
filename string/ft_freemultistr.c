@@ -11,16 +11,12 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <ft_string.h>
 
 char	**ft_freemultistr(char **ps)
 {
-	char	**pp;
-
 	if (!ps)
 		return (NULL);
-	pp = ps;
-	while (*ps)
-		free(*ps++);
-	free(pp);
+	ft_strarr_clear(ps);
 	return (NULL);
 }

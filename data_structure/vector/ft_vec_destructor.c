@@ -13,15 +13,15 @@
 #include <stdlib.h>
 #include "ft_vector.h"
 
-void	ft_vec_destructor(t_vector *vec, void (*fr)(void *))
+void	ft_vec_destructor(t_vector *vec, t_destrfunc del)
 {
 	size_t	i;
 
-	if (fr)
+	if (del)
 	{
 		i = 0;
 		while (i < vec->size)
-			fr(ft_vec_at(vec, i++));
+			del(ft_vec_at(vec, i++));
 	}
 	free(vec->array);
 }

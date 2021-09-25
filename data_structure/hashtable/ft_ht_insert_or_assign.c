@@ -19,12 +19,12 @@ t_bool	__ft_ht_reserv(t_hashtable *ht)
 	{
 		if (ht->capacity == 0)
 		{
-			if (!ft_ht_rehash(ht, FT_HT_START_SIZE))
+			if (ft_ht_rehash(ht, FT_HT_START_SIZE) != ftE_ok)
 				return (t_false);
 		}
 		else
 		{
-			if (!ft_ht_rehash(ht, ht->capacity * FT_HT_SCALE_MULTI))
+			if (ft_ht_rehash(ht, ht->capacity * FT_HT_SCALE_MULTI) != ftE_ok)
 				return (t_false);
 		}
 	}
@@ -52,7 +52,7 @@ void	*ft_ht_insert_or_assign(t_hashtable *ht, void *key, void *value)
 	char			*ht_statuses;
 	size_t			pos;
 
-	if (!__ft_ht_reserv(ht))
+	if (__ft_ht_reserv(ht) != ftE_ok)
 		return (NULL);
 	ht_statuses = ht->raw_table;
 	pos = __ft_ht_find_free_by_key(ht, key);

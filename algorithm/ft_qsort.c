@@ -37,17 +37,15 @@ static void	*partition(void *begin, void *end, \
 	return (i);
 }
 
-// stack = [(end - begin) / size_of_cell + 1]
-//! \todo alloc protect
-
-void	ft_qsort(void *begin, void *end, size_t size_of_cell, t_bool (*lower)())
+t_ftE	ft_qsort(void *begin, void *end, size_t size_of_cell, t_bool (*lower)())
 {
-	void	**stack;
-	void	*p;
-	size_t	top;
+	void const	**stack = malloc(sizeof(void *) * ((end - begin) / size_of_cell + 1));
+	void		*p;
+	size_t		top;
 
 	top = 0;
-	stack = malloc(sizeof(void *) * ((end - begin) / size_of_cell + 1));
+	if (!stack)
+		return (ftE_bad_alloc);
 	stack[top++] = begin;
 	stack[top++] = end - size_of_cell;
 	while (top > 0)
@@ -67,4 +65,5 @@ void	ft_qsort(void *begin, void *end, size_t size_of_cell, t_bool (*lower)())
 		}
 	}
 	free(stack);
+	return (ftE_ok);
 }

@@ -23,8 +23,10 @@ typedef struct s_stringview
 
 extern t_llint		ft_atoi_base(char *str, char *base);
 extern t_llint		ft_atoi(const char *str);
-extern t_bool		ft_strtol_m(const char *str, t_ullint max_abs, int64_t *r);
-extern t_bool		ft_strtoi_m(const char *str, t_ullint max_abs, int32_t *r);
+extern t_ftE		ft_strtol_m(const char *str, t_ullint max_abs, t_llint *r);
+extern t_ftE		ft_strtoi_m(const char *str, t_ullint max_abs, int *r);
+extern t_ftE		ft_strtoul_m(const char *str, t_ullint max_abs, t_ullint *r);
+extern t_ftE		ft_strtou_m(const char *str, t_ullint max_abs, t_uint *r);
 
 /*!
  * \fn char *ft_utob(char *buffer, t_ullint num);

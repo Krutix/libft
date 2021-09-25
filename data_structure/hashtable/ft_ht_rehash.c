@@ -17,10 +17,10 @@
 static t_bool	rehash_error(t_hashtable *ht, t_hashtable *old_ht)
 {
 	*ht = *old_ht;
-	return (t_false);
+	return (ftE_ok);
 }
 
-t_bool	ft_ht_rehash(t_hashtable *ht, size_t new_capacity)
+t_ftE	ft_ht_rehash(t_hashtable *ht, size_t new_capacity)
 {
 	t_hashtable		old_ht;
 	char			*ht_statuses;
@@ -46,5 +46,5 @@ t_bool	ft_ht_rehash(t_hashtable *ht, size_t new_capacity)
 		idx++;
 	}
 	free(old_ht.raw_table);
-	return (t_true);
+	return (ftE_ok);
 }

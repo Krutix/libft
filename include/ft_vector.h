@@ -30,20 +30,20 @@ typedef struct s_vector {
 }					t_vector;
 
 /*!
- * \fn t_bool ft_vec_realloc(t_vector *vec, size_t new_capacity)
+ * \fn t_ftE ft_vec_realloc(t_vector *vec, size_t new_capacity)
  * \brief reallocate array to new reserv size
  * \details if allocated failes, vector remains
  * 			in state of preceding reallocation
  * \param new_capacity new reserv size of array
  * \return return false if allocation failes. In other cases return true
  */
-extern t_bool		ft_vec_realloc(t_vector *vec, size_t new_capacity);
+extern t_ftE		ft_vec_realloc(t_vector *vec, size_t new_capacity);
 /*!
- * \fn t_bool ft_vec_realloc(t_vector *vec, size_t new_capacity)
+ * \fn t_ftE ft_vec_realloc(t_vector *vec, size_t new_capacity)
  * \brief dublicate behavior of ft_vec_realloc()
  * \see ft_vec_realloc()
  */
-extern t_bool		ft_vec_resize(t_vector *vec, size_t new_capacity);
+extern t_ftE		ft_vec_resize(t_vector *vec, size_t new_capacity);
 
 /*!
  * \fn void ft_vec_construct(t_vector *vec, t_uint cell_size)
@@ -76,7 +76,7 @@ extern void			ft_vec_pop_back(t_vector *vec, void (*del)(void *));
 extern void			ft_vec_pop_front(t_vector *vec, void (*del)(void *));
 
 /*!
- * \fn t_bool ft_vec_push_back(t_vector *vec, void *data);
+ * \fn t_ftE ft_vec_push_back(t_vector *vec, void *data);
  * \see ft_vec_pop_back() ft_vec_pop_front()
  * \brief destruct pos element and remove it
  * \param pos position to destruct and delete
@@ -86,28 +86,28 @@ extern void			ft_vec_remove_at(t_vector *vec, \
 						size_t pos, void (*del)(void*));
 
 /*!
- * \fn t_bool ft_vec_push_reserv(t_vector *vec);
+ * \fn t_ftE ft_vec_push_reserv(t_vector *vec);
  * \brief reserv capacity for next element push
  * \details reallocate array if capacity is not enough for next push element.
  * capacity doubles
  * \return return false if allocation failes. In other cases return true
  */
-extern t_bool		ft_vec_push_reserv(t_vector *vec);
+extern t_ftE		ft_vec_push_reserv(t_vector *vec);
 
 /*!
- * \fn t_bool ft_vec_push_back(t_vector *vec, void *data);
+ * \fn t_ftE ft_vec_push_back(t_vector *vec, void *data);
  * \brief push element to array end by copying it in 'cell_size' byte
  * \return return false if allocation failes. In other cases return true
  */
-extern t_bool		ft_vec_push_back(t_vector *vec, void *data);
-extern t_bool		ft_vec_push_back_n(t_vector *vec, void *data, size_t size);
+extern t_ftE		ft_vec_push_back(t_vector *vec, void *data);
+extern t_ftE		ft_vec_push_back_n(t_vector *vec, void *data, size_t size);
 
 /*!
- * \fn t_bool ft_vec_reserv(t_vector *vec, size_t reserv);
+ * \fn t_ftE ft_vec_reserv(t_vector *vec, size_t reserv);
  * \brief after reserv capacity of array be no less then reserv
  * \return return false if allocation failes. In other cases return true
  */
-extern t_bool	ft_vec_reserv(t_vector *vec, size_t reserv);
+extern t_ftE	ft_vec_reserv(t_vector *vec, size_t reserv);
 
 extern void			*ft_vec_at(t_vector *vec, size_t pos);
 extern void			*ft_vec_front(t_vector *vec);
@@ -122,13 +122,13 @@ extern void			*ft_vec_back(t_vector *vec);
 extern void			*ft_vec_fetch_array(t_vector *vec, size_t *out_size);
 
 /*!
- * \fn t_bool ft_vec_copy(t_vector *copy, t_vector *sample);
+ * \fn t_ftE ft_vec_copy(t_vector *copy, t_vector *sample);
  * \brief construct copy vector from sample
  * \param copy pointer to non valid vector
  * \param sample pointer to valid copied vector
  * \return return false if allocation failes. In other cases return true
  */
-extern t_bool		ft_vec_copy_construct(t_vector *copy, t_vector *sample);
+extern t_ftE		ft_vec_copy_construct(t_vector *copy, t_vector *sample);
 
 extern void			ft_vec_clean(t_vector *vec, void (*fr)(void *));
 extern void			ft_vec_foreach(t_vector *vec, void (*f)(void *));
