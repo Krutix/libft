@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vector.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:12:44 by fdiego            #+#    #+#             */
-/*   Updated: 2021/08/06 17:13:35 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/09/27 17:25:49 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,11 @@ extern t_ftE		ft_vec_push_back_n(t_vector *vec, void *data, size_t size);
  * \brief after reserv capacity of array be no less then reserv
  * \return return false if allocation failes. In other cases return true
  */
-extern t_ftE	ft_vec_reserv(t_vector *vec, size_t reserv);
+extern t_ftE		ft_vec_reserv(t_vector *vec, size_t reserv);
 
-extern void			*ft_vec_at(t_vector *vec, size_t pos);
-extern void			*ft_vec_front(t_vector *vec);
-extern void			*ft_vec_back(t_vector *vec);
+extern void			*ft_vec_at(const t_vector *vec, size_t pos);
+extern void			*ft_vec_front(const t_vector *vec);
+extern void			*ft_vec_back(const t_vector *vec);
 
 /*!
  * \fn void *ft_vec_fetch_array(t_vector *vec, size_t *out_size);
