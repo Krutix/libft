@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:17:14 by fdiego            #+#    #+#             */
-/*   Updated: 2021/08/06 17:18:21 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/05 18:12:10 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void	ft_ht_remove(t_hashtable *ht, void *key, \
 	t_destrfunc key_destr, t_destrfunc value_destr);
 
 size_t	ft_hash_int(int *i);
-size_t	ft_hash_str(char *str);
+size_t	ft_hash_str(char **str);
 
 #endif

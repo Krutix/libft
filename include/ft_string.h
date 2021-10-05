@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:16:47 by fdiego            #+#    #+#             */
-/*   Updated: 2021/09/23 18:12:35 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/10/05 20:48:52 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ extern t_bool		ft_isprint(int c);
 extern t_bool		ft_isspace(int c);
 extern int			ft_tolower(int c);
 extern int			ft_toupper(int c);
+
+extern void			ft_freederef(void **p);
 
 /*!
  * \fn void *ft_memset(void *mem, int value, size_t size)
