@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:17:10 by fdiego            #+#    #+#             */
-/*   Updated: 2021/09/23 23:24:07 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/10/06 22:44:07 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ extern int		ft_putnbr_fd(t_llint nb, int fd);
 extern int		ft_putstr_fd(char const *s, int fd);
 ssize_t			ft_putstr(const char *s);
 ssize_t			ft_putmultistr(char *const mutlistring[]);
+ssize_t			ft_putmultistr_delim(char *const mutlistring[],
+					const char *delimiter, const char *ending);
 extern void		ft_print_memory(void const *addr, size_t size);
 int				ft_get_next_line(int fd, char **ln);
 extern int		ft_read_next_line(int fd, char **line);
