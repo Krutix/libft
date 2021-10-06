@@ -6,21 +6,20 @@
 /*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 21:09:06 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/09/15 21:13:32 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/10/07 16:58:41 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_string.h"
+#include "ft_io.h"
 
 ssize_t	ft_putendl(const char *s)
 {
 	ssize_t	r;
 
-	r = write(STDOUT_FILENO, s, ft_strlen(s) * sizeof(*s));
+	r = ft_putstr(s);
 	if (r < 0)
 		return (-1);
-	if (write(STDOUT_FILENO, "\n", sizeof(char)) < 0)
+	if (ft_putstr("\n") < 0)
 		return (-1);
 	return (r + sizeof(char));
 }

@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 21:07:56 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/09/15 23:18:02 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/10/06 16:03:36 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ ssize_t	ft_putmultistr(char *const mutlistring[])
 
 	r = 0;
 	ret = 0;
+	if (!mutlistring || !*mutlistring)
+		return (0);
 	while (*mutlistring && r >= 0)
 	{
 		r = ft_putendl(*mutlistring++);
