@@ -81,22 +81,25 @@ ${BUILD_DIR}%/.:
 
 .SECONDEXPANSION:
 ${BUILD_DIR}%.o:	%.c ${BUILD_DEPEND_FILES} ${realpath ./tm.mk} | $${@D}/.
-			${CC} ${CFLAGS} ${BUILD_FLAGS} ${BUILD_I_DIRS} -c $< -o $@ -MD || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_TARGET_NAME}" "${PRETTY_BUILD_NAME}" "$<" "compile" ; exit 1;	}
+			${CC} ${CFLAGS} ${BUILD_FLAGS} ${BUILD_I_DIRS} -c $< -o $@ -MD
+#			 || \
+#			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_TARGET_NAME}" "${PRETTY_BUILD_NAME}" "$<" "compile" ; exit 1;	}
 
 .PHONY:	build
 build:		${BUILD_TARGET}
 
 ${BUILD_TARGET}: ${BUILD_OBJS} ${FTST_SRCS} ${BUILD_DEPEND_FILES} ${realpath ./tm.mk}
 ifeq (${BUILD_TARGET_TYPE}, exe)
-			${CC} ${CFLAGS} ${BUILD_OBJS} ${BUILD_FLAGS} ${BUILD_I_DIRS} ${BUILD_L_DIRS} ${BUILD_LIBS} -o ${BUILD_TARGET} && \
-				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "compile" || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "compile" ; exit 1;	}
+			${CC} ${CFLAGS} ${BUILD_OBJS} ${BUILD_FLAGS} ${BUILD_I_DIRS} ${BUILD_L_DIRS} ${BUILD_LIBS} -o ${BUILD_TARGET}
+#			 && \
+#				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "compile" || \
+#			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "compile" ; exit 1;	}
 endif
 ifeq (${BUILD_TARGET_TYPE}, lib)
-			${AR} ${BUILD_TARGET} ${BUILD_OBJS} && \
-				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "arrangement" || \
-			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "arrangement" ; exit 1;	}
+			${AR} ${BUILD_TARGET} ${BUILD_OBJS}
+#			 && \
+#				printf ${PRETTY_STATUS}		"${PRETTY_DONE}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "arrangement" || \
+#			{	printf ${PRETTY_STATUS}		"${PRETTY_FAIL}" "${PRETTY_BUILD_NAME}" "${PRETTY_TARGET_NAME}" "${NAME}" "arrangement" ; exit 1;	}
 endif
 
 .PHONY:	clean
