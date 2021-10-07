@@ -12,4 +12,6 @@ typedef enum e_ftE
 	ftE_user_define_error_namespace = (1 << 15)
 }			t_ftE;
 
+t_ftE	ftE_perror(char const *msg, t_ftE err);
+
 #endif
