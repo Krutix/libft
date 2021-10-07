@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vector.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:12:44 by fdiego            #+#    #+#             */
-/*   Updated: 2021/09/27 17:25:49 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/10/08 00:58:00 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,6 @@ extern t_ftE		ft_vec_copy_construct(t_vector *copy, t_vector *sample);
 
 extern void			ft_vec_clean(t_vector *vec, void (*fr)(void *));
 extern void			ft_vec_foreach(t_vector *vec, void (*f)(void *));
+extern t_vector		ft_vec_move(t_vector *vec);
 
 #endif
