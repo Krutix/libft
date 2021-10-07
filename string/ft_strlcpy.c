@@ -6,12 +6,19 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:49:33 by fdiego            #+#    #+#             */
-/*   Updated: 2021/08/06 17:32:52 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 22:34:49 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "ft_string.h"
+
+size_t	ft_strlcpy_s(char *dest, const char *src, size_t size)
+{
+	if (dest == NULL || src == NULL)
+		return (ft_strlen_s(src));
+	return (ft_strlcpy(dest, src, size));
+}
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

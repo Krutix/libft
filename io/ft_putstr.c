@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 21:07:56 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/10/06 15:27:29 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/10/07 22:51:48 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 
 ssize_t	ft_putstr(const char *s)
 {
-	if (!s || !*s)
-		return (0);
 	return (write(STDOUT_FILENO, s, ft_strlen(s) * sizeof(*s)));
+}
+
+ssize_t	ft_putstr_s(const char *s)
+{
+	if (!s)
+		return (0);
+	return (ft_putstr(s));
 }

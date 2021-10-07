@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:58:07 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 09:25:07 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 22:12:21 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ inline static const char	*ft_strchr_longword(
 	if (*start == c)
 		return (start);
 	return (NULL);
+}
+
+char	*ft_strchr_s(const char *s, int c)
+{
+	if (s == NULL)
+		return (NULL);
+	return (ft_strchr(s, c));
 }
 
 char	*ft_strchr(const char *s, int c)

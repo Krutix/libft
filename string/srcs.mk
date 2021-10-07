@@ -4,7 +4,7 @@ STR_SRCS	=	ft_strappend.c \
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_free.c \
-				ft_freep.c \
+				ft_freederef.c \
 				ft_freemultistr.c \
 				ft_isalnum.c \
 				ft_isalpha.c \

@@ -6,12 +6,19 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:23:22 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 10:33:58 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 21:56:09 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 #include <stdint.h>
+
+void	*ft_memccpy_s(void *dest, const void *src, int c, size_t n)
+{
+	if (dest == NULL || src == NULL)
+		return (NULL);
+	return (ft_memccpy(dest, src, c, n));
+}
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {

@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:00:34 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 10:21:46 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 22:42:24 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ inline static int	ft_memcmp_cmp( \
 	if (s1[7] != s2[7])
 		return (s1[7] - s2[7]);
 	return (0);
+}
+
+int	ft_memcmp_s(const void *s1, const void *s2, size_t n)
+{
+	if (s1 == NULL || s2 == NULL)
+		return ((!s1 * -1) + (!s2 * 1));
+	return (ft_memcmp(s1, s2, n));
 }
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)

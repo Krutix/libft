@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:16:47 by fdiego            #+#    #+#             */
-/*   Updated: 2021/10/05 20:48:52 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 23:07:13 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ extern t_llint		ft_atoi_base(char *str, char *base);
 extern t_llint		ft_atoi(const char *str);
 extern t_ftE		ft_strtol_m(const char *str, t_ullint max_abs, t_llint *r);
 extern t_ftE		ft_strtoi_m(const char *str, t_ullint max_abs, int *r);
-extern t_ftE		ft_strtoul_m(const char *str, t_ullint max_abs, t_ullint *r);
+extern t_ftE		ft_strtoul_m(const char *str, \
+							t_ullint max_abs, t_ullint *r);
 extern t_ftE		ft_strtou_m(const char *str, t_ullint max_abs, t_uint *r);
 
 /*!
@@ -133,6 +134,7 @@ extern void			ft_freederef(void **p);
  * \return a pointer to the memory area mem
  */
 extern void			*ft_memset(void *mem, int value, size_t size);
+extern void			*ft_memset_s(void *mem, int value, size_t size);
 
 /*!
  * \fn void ft_bzero(void *mem, size_t size);
@@ -141,6 +143,7 @@ extern void			*ft_memset(void *mem, int value, size_t size);
  * \param size the number of bytes to fill
  */
 extern void			ft_bzero(void *mem, size_t size);
+extern void			ft_bzero_s(void *mem, size_t size);
 
 /*!
  * \fn void *ft_calloc(size_t count, size_t size)
@@ -164,6 +167,7 @@ extern void			*ft_calloc(size_t count, size_t size);
  * 		use ft_memmove() if memory areas do overlap
  */
 extern void			*ft_memcpy(void *dest, const void *src, size_t n);
+extern void			*ft_memcpy_s(void *dest, const void *src, size_t n);
 
 /*!
  * \fn void *ft_memccpy(void *dest, const void *src, int c, size_t n)
@@ -178,6 +182,7 @@ extern void			*ft_memcpy(void *dest, const void *src, size_t n);
  * \warning the memory areas must not overlap
  */
 extern void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
+extern void			*ft_memccpy_s(void *dest, const void *src, int c, size_t n);
 
 /*!
  * \fn void *ft_memmove(void *dest, const void *src, size_t n)
@@ -189,6 +194,7 @@ extern void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
  * \return a pointer to the memory area dest
  */
 extern void			*ft_memmove(void *dest, const void *src, size_t n);
+extern void			*ft_memmove_s(void *dest, const void *src, size_t n);
 
 /*!
  * \fn void *ft_memchr(const void *s, int c, size_t n)
@@ -202,6 +208,7 @@ extern void			*ft_memmove(void *dest, const void *src, size_t n);
  * 		NULL if the character does not occur in the given memory area
  */
 extern void			*ft_memchr(const void *s, int c, size_t n);
+extern void			*ft_memchr_s(const void *s, int c, size_t n);
 
 /*!
  * \fn int ft_memcmp(const void *s1, const void *s2, size_t n)
@@ -212,15 +219,19 @@ extern void			*ft_memchr(const void *s, int c, size_t n);
  * 		>0 if s2 is less then s1 and 0 if memory areas is equal
  */
 extern int			ft_memcmp(const void *s1, const void *s2, size_t n);
+extern int			ft_memcmp_s(const void *s1, const void *s2, size_t n);
 
 /*!
- * \fn void *ft_memjoin(void const *s1, void const *s2, size_t len1, size_t len2)
+ * \fn void *ft_memjoin(void const *s1, void const *s2,
+ *							size_t len1, size_t len2)
  * \see ft_strjoin()
  * \brief concatenates s1 with len1 and s2 with len2 to allocated memory area
  * \return result of cancateneted string
  * \warning return NULL if allocation failes
  */
 extern void			*ft_memjoin(void const *s1, void const *s2, \
+							size_t len1, size_t len2);
+extern void			*ft_memjoin_s(void const *s1, void const *s2, \
 							size_t len1, size_t len2);
 
 /*!
@@ -252,6 +263,8 @@ extern int			ft_wchtoch(wchar_t ch, char *buffer);
  * \return length of the string
  */
 extern size_t		ft_strlen(const char *s);
+extern size_t		ft_strlen_s(const char *s);
+
 /*!
  * \fn size_t	ft_strnlen(const char *str, size_t n);
  * \see ft_strnlen()
@@ -260,31 +273,44 @@ extern size_t		ft_strlen(const char *s);
  * 		n if len of string is greater then length of str
  */
 extern size_t		ft_strnlen(const char *str, size_t n);
+extern size_t		ft_strnlen_s(const char *str, size_t n);
 
 extern char			*ft_strcpy(char *dest, char const *src);
+extern char			*ft_strcpy_s(char *dest, char const *src);
 extern char			*ft_strncpy(char *dest, char const *src, unsigned int n);
+extern char			*ft_strncpy_s(char *dest, char const *src, unsigned int n);
 extern char			*ft_strcat(char *dest, char const *src);
+extern char			*ft_strcat_s(char *dest, char const *src);
 extern char			*ft_strncat(char *dest, char const *src, unsigned int n);
+extern char			*ft_strncat_s(char *dest, char const *src, unsigned int n);
 extern size_t		ft_strlcpy(char *dest, char const *src, size_t size);
+extern size_t		ft_strlcpy_s(char *dest, char const *src, size_t size);
 extern size_t		ft_strlcat(char *dest, char const *src, size_t size);
+extern size_t		ft_strlcat_s(char *dest, char const *src, size_t size);
 
 extern int			ft_strcmp(char const *s1, char const *s2);
+extern int			ft_strcmp_s(char const *s1, char const *s2);
 extern int			ft_strncmp(const char *s1, const char *s2, size_t n);
+extern int			ft_strncmp_s(const char *s1, const char *s2, size_t n);
 extern char const	*ft_strstr(char const *str, char const *to_find);
 extern char const	*ft_strnstr(char const *str, \
 							char const *to_find, size_t size);
 extern char			*ft_strrchr(const char *s, int c);
+extern char			*ft_strrchr_s(const char *s, int c);
 extern char			*ft_strchr(const char *s, int c);
+extern char			*ft_strchr_s(const char *s, int c);
 
 extern char			*ft_strdup(char const *src);
-char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strappend(char **ps, const char *s2);
+extern char			*ft_strdup_s(char const *src);
+extern char			*ft_strjoin(char const *s1, char const *s2);
+extern char			*ft_strjoin_s(char const *s1, char const *s2);
+extern char			*ft_strappend(char **ps, const char *s2);
 extern char			*ft_substr(char const *src, unsigned int start, size_t len);
 extern char			*ft_strtrim(char const *str, char const *set);
 extern char			**ft_split(char const *str, char *charset);
-void				*ft_free(void *p);
-char				**ft_freemultistr(char **ps);
-void				ft_reassign(void **p, void *new_address);
+extern void			*ft_free(void *p);
+extern char			**ft_freemultistr(char **ps);
+extern void			ft_reassign(void **p, void *new_address);
 extern char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 extern void			ft_sort_str_tab(char **tab, int (*cmp)(char *, char *));
 

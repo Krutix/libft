@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:16:25 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 10:31:55 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 21:53:53 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@
 **		big_word--;
 **	}
 */
+
+void	ft_bzero_s(void *mem, size_t size)
+{
+	if (mem == NULL)
+		return ;
+	ft_bzero(mem, size);
+}
 
 void	ft_bzero(void *mem, size_t size)
 {
