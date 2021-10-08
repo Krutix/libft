@@ -13,6 +13,7 @@ include data_structure/list/srcs.mk
 include data_structure/dlist/srcs.mk
 include data_structure/hashtable/srcs.mk
 include error/srcs.mk
+include exit/srcs.mk
 
 INC_DIR =	include/
 NAME	=	libft
