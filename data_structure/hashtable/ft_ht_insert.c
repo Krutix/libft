@@ -19,7 +19,7 @@ void	*ft_ht_insert(t_hashtable *ht, void *key, void *value)
 	char			*ht_statuses;
 	size_t			pos;
 
-	if (__ft_ht_reserv(ht) != ftE_ok)
+	if (__ft_ht_reserv(ht) != ft_err_ok)
 		return (NULL);
 	ht_statuses = ht->raw_table;
 	pos = __ft_ht_find_free_by_key(ht, key);
@@ -44,7 +44,7 @@ void	*ft_ht_insert_c(t_hashtable *ht, void *key, \
 	char			*ht_statuses;
 	size_t			pos;
 
-	if (__ft_ht_reserv(ht) != ftE_ok)
+	if (__ft_ht_reserv(ht) != ft_err_ok)
 		return (NULL);
 	ht_statuses = ht->raw_table;
 	pos = __ft_ht_find_free_by_key(ht, key);

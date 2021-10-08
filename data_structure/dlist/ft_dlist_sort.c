@@ -14,7 +14,7 @@
 #include <stddef.h>
 
 static void	__ft_dlist_insert(t_dlist **sorted, t_dlist **sorted_end, \
-										t_dlist *node, t_cmpfunc cmp)
+										t_dlist *node, t_cmp_func cmp)
 {
 	t_dlist	*current;
 
@@ -43,8 +43,8 @@ static void	__ft_dlist_insert(t_dlist **sorted, t_dlist **sorted_end, \
 	}
 }
 
-void	ft_dlist_sort(t_dlist **begin_list, t_updfunc upd, \
-									void *addition_data, t_cmpfunc cmp)
+void	ft_dlist_sort(t_dlist **begin_list, t_upd_func upd, \
+									void *addition_data, t_cmp_func cmp)
 {
 	t_dlist	*sorted;
 	t_dlist	*sorted_end;

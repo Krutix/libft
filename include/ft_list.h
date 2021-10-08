@@ -23,8 +23,8 @@ typedef struct s_list
 
 t_list				*ft_create_list(void *data);
 t_list				*ft_create_list_i(size_t data_size);
-t_ftE				ft_list_push_back(t_list **begin_list, t_list *node);
-t_ftE				ft_list_push_front(t_list **begin_list, t_list *node);
+t_ft_err				ft_list_push_back(t_list **begin_list, t_list *node);
+t_ft_err				ft_list_push_front(t_list **begin_list, t_list *node);
 t_list				*ft_list_push_strs(int size, char **strs);
 
 size_t				ft_list_size(t_list *begin_list);

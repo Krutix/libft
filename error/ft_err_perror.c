@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftE_perror.c                                       :+:      :+:    :+:   */
+/*   ft_err_perror.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <ft_error.h>
 
-t_ftE   ftE_perror(char const *msg, t_ftE err)
+t_ft_err   ft_err_perror(char const *msg, t_ft_err err)
 {
     perror(msg);
     return (err);

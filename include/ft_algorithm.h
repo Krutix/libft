@@ -15,7 +15,7 @@
 
 # include "ftdef.h"
 
-extern t_ftE	ft_qsort(void *begin, void *end, \
+extern t_ft_err	ft_qsort(void *begin, void *end, \
 				size_t size_of_cell, t_bool (*lower)());
 
 extern void	ft_swap_n(void *v1, void *v2, size_t size);

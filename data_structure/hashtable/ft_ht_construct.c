@@ -35,7 +35,7 @@ t_ht_key_value	__ft_ht_at(t_hashtable *ht, size_t pos)
 }
 
 void	ft_ht_destruct(t_hashtable *ht, \
-	t_destrfunc key_destr, t_destrfunc value_destr)
+	t_destr_func key_destr, t_destr_func value_destr)
 {
 	char			*ht_statuses;
 	size_t			idx;

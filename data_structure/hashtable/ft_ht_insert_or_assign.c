@@ -13,22 +13,22 @@
 #include "__ft_hashtable.h"
 #include "ft_string.h"
 
-t_ftE	__ft_ht_reserv(t_hashtable *ht)
+t_ft_err	__ft_ht_reserv(t_hashtable *ht)
 {
 	if (ht->size == ht->capacity)
 	{
 		if (ht->capacity == 0)
 		{
-			if (ft_ht_rehash(ht, FT_HT_START_SIZE) != ftE_ok)
-				return (ftE_bad_alloc);
+			if (ft_ht_rehash(ht, FT_HT_START_SIZE) != ft_err_ok)
+				return (ft_err_bad_alloc);
 		}
 		else
 		{
-			if (ft_ht_rehash(ht, ht->capacity * FT_HT_SCALE_MULTI) != ftE_ok)
-				return (ftE_bad_alloc);
+			if (ft_ht_rehash(ht, ht->capacity * FT_HT_SCALE_MULTI) != ft_err_ok)
+				return (ft_err_bad_alloc);
 		}
 	}
-	return (ftE_ok);
+	return (ft_err_ok);
 }
 
 size_t	__ft_ht_find_free_by_key(t_hashtable *ht, void *key)
@@ -52,7 +52,7 @@ void	*ft_ht_insert_or_assign(t_hashtable *ht, void *key, void *value)
 	char			*ht_statuses;
 	size_t			pos;
 
-	if (__ft_ht_reserv(ht) != ftE_ok)
+	if (__ft_ht_reserv(ht) != ft_err_ok)
 		return (NULL);
 	ht_statuses = ht->raw_table;
 	pos = __ft_ht_find_free_by_key(ht, key);

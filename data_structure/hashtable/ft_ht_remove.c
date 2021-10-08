@@ -13,7 +13,7 @@
 #include "__ft_hashtable.h"
 
 void	ft_ht_remove(t_hashtable *ht, void *key, \
-	t_destrfunc key_destr, t_destrfunc value_destr)
+	t_destr_func key_destr, t_destr_func value_destr)
 {
 	char			*ht_statuses;
 	size_t			pos;

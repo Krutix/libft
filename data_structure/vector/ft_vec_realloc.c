@@ -14,30 +14,30 @@
 #include "ft_string.h"
 #include "ft_vector.h"
 
-t_ftE	ft_vec_realloc(t_vector *vec, size_t new_reserv)
+t_ft_err	ft_vec_realloc(t_vector *vec, size_t new_reserv)
 {
 	void	*new_arr;
 
 	new_arr = malloc(new_reserv * vec->cell_size);
 	if (!new_arr)
-		return (ftE_bad_alloc);
+		return (ft_err_bad_alloc);
 	if (vec->size > new_reserv)
 		vec->size = new_reserv;
 	ft_memcpy(new_arr, vec->array, vec->size * vec->cell_size);
 	free(vec->array);
 	vec->capacity = new_reserv;
 	vec->array = new_arr;
-	return (ftE_ok);
+	return (ft_err_ok);
 }
 
-t_ftE	ft_vec_reserv(t_vector *vec, size_t reserv)
+t_ft_err	ft_vec_reserv(t_vector *vec, size_t reserv)
 {
 	if (vec->capacity < reserv)
 		return (ft_vec_realloc(vec, reserv));
-	return (ftE_ok);
+	return (ft_err_ok);
 }
 
-t_ftE	ft_vec_resize(t_vector *vec, size_t new_reserv)
+t_ft_err	ft_vec_resize(t_vector *vec, size_t new_reserv)
 {
 	return (ft_vec_realloc(vec, new_reserv));
 }

@@ -13,12 +13,12 @@
 #include "ft_dlist.h"
 #include "stdio.h"
 
-t_ftE	ft_dlist_push_back(t_dlist **begin_list, t_dlist *node)
+t_ft_err	ft_dlist_push_back(t_dlist **begin_list, t_dlist *node)
 {
 	t_dlist	*buff;
 
 	if (!node)
-		return (ftE_bad_alloc);
+		return (ft_err_bad_alloc);
 	if (*begin_list)
 	{
 		buff = *begin_list;
@@ -29,5 +29,5 @@ t_ftE	ft_dlist_push_back(t_dlist **begin_list, t_dlist *node)
 	}
 	else
 		*begin_list = node;
-	return (ftE_ok);
+	return (ft_err_ok);
 }

@@ -17,7 +17,7 @@ TEST(ft_ht_construct)
 	t_hashtable ht;
 	ft_ht_construct(&ht, (t_ht_construct_args){ \
 		sizeof(int), sizeof(char), \
-		(t_hashfunc)fake_hash_num, (t_cmpfunc)cmp_ints});
+		(t_hash_func)fake_hash_num, (t_cmp_func)cmp_ints});
 	EQ(ht.key_size, sizeof(int), u);
 	EQ(ht.value_size, sizeof(char), u);
 	EQ(ht.cmp, cmp_ints, p);
@@ -56,15 +56,15 @@ t_bool dbl_ch_free;
 void nbr_del(int *nbr)
 {
 	if (g_nbr[*nbr])
-		dbl_nbr_free = t_true;
-	g_nbr[*nbr] = t_true;
+		dbl_nbr_free = ft_true;
+	g_nbr[*nbr] = ft_true;
 }
 
 void ch_del(char *ch)
 {
 	if (g_ch[*ch - ' '])
-		dbl_ch_free = t_true;
-	g_ch[*ch - ' '] = t_true;
+		dbl_ch_free = ft_true;
+	g_ch[*ch - ' '] = ft_true;
 }
 
 TEST(ft_ht_rehash_test)
@@ -72,7 +72,7 @@ TEST(ft_ht_rehash_test)
 	t_hashtable ht;
 	ft_ht_construct(&ht, (t_ht_construct_args){ \
 		sizeof(int), sizeof(char), \
-		(t_hashfunc)fake_hash_num, (t_cmpfunc)cmp_ints});
+		(t_hash_func)fake_hash_num, (t_cmp_func)cmp_ints});
 
 	size_t	nbr = 0;
 	char	ch = ' ';
@@ -92,12 +92,12 @@ TEST(ft_ht_rehash_test)
 		ch++;
 	}
 	ft_ht_destruct(&ht, \
-		(t_destrfunc)nbr_del, (t_destrfunc)ch_del);
-	EQ(dbl_ch_free, t_false, c);
-	EQ(dbl_nbr_free, t_false, c);
+		(t_destr_func)nbr_del, (t_destr_func)ch_del);
+	EQ(dbl_ch_free, ft_false, c);
+	EQ(dbl_nbr_free, ft_false, c);
 	for (size_t i = 0; i < 40; i++)
 	{
-		EQ(g_nbr[i], t_true, c);
-		EQ(g_ch[i], t_true, c);
+		EQ(g_nbr[i], ft_true, c);
+		EQ(g_ch[i], ft_true, c);
 	}
 }

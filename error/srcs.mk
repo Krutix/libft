@@ -1,4 +1,4 @@
-SRCS_ERR	=	ftE_perror.c
+SRCS_ERR	=	ft_err_perror.c
 
 ERR_FTST	=	
 

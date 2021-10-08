@@ -12,11 +12,11 @@
 
 #include "ft_list.h"
 
-t_ftE	ft_list_push_front(t_list **begin_list, t_list *node)
+t_ft_err	ft_list_push_front(t_list **begin_list, t_list *node)
 {
 	if (!node)
-		return (ftE_bad_alloc);
+		return (ft_err_bad_alloc);
 	node->next = *begin_list;
 	*begin_list = node;
-	return (ftE_ok);
+	return (ft_err_ok);
 }

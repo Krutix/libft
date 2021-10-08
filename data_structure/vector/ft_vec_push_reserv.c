@@ -12,7 +12,7 @@
 
 #include "ft_vector.h"
 
-t_ftE	ft_vec_push_reserv(t_vector *vec)
+t_ft_err	ft_vec_push_reserv(t_vector *vec)
 {
 	size_t	alloc_size;
 
@@ -21,8 +21,8 @@ t_ftE	ft_vec_push_reserv(t_vector *vec)
 		alloc_size = vec->capacity * 2;
 		if (alloc_size == 0)
 			alloc_size = 4;
-		if (ft_vec_realloc(vec, alloc_size) != ftE_ok)
-			return (ftE_bad_alloc);
+		if (ft_vec_realloc(vec, alloc_size) != ft_err_ok)
+			return (ft_err_bad_alloc);
 	}
-	return (ftE_ok);
+	return (ft_err_ok);
 }

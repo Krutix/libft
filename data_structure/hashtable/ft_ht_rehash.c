@@ -14,13 +14,13 @@
 #include "ft_string.h"
 #include "stdlib.h"
 
-static t_ftE	rehash_error(t_hashtable *ht, t_hashtable *old_ht)
+static t_ft_err	rehash_error(t_hashtable *ht, t_hashtable *old_ht)
 {
 	*ht = *old_ht;
-	return (ftE_bad_alloc);
+	return (ft_err_bad_alloc);
 }
 
-t_ftE	ft_ht_rehash(t_hashtable *ht, size_t new_capacity)
+t_ft_err	ft_ht_rehash(t_hashtable *ht, size_t new_capacity)
 {
 	t_hashtable		old_ht;
 	char			*ht_statuses;
@@ -46,5 +46,5 @@ t_ftE	ft_ht_rehash(t_hashtable *ht, size_t new_capacity)
 		idx++;
 	}
 	free(old_ht.raw_table);
-	return (ftE_ok);
+	return (ft_err_ok);
 }

@@ -23,7 +23,7 @@ enum e_ht_cell_status
 };
 
 t_ht_key_value	__ft_ht_at(t_hashtable *ht, size_t pos);
-t_ftE			__ft_ht_reserv(t_hashtable *ht);
+t_ft_err			__ft_ht_reserv(t_hashtable *ht);
 size_t			__ft_ht_find_free_by_key(t_hashtable *ht, void *key);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "ft_vector.h"
 
-void	ft_vec_pop_back(t_vector *vec, t_destrfunc del)
+void	ft_vec_pop_back(t_vector *vec, t_destr_func del)
 {
 	if (del)
 		del(ft_vec_at(vec, 0));

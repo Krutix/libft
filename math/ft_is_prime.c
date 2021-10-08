@@ -21,13 +21,13 @@ t_bool	ft_is_prime(t_ullint nb)
 		return (0);
 	i = 5;
 	if ((nb % 2 == 0 || nb % 3 == 0) && nb != 2 && nb != 3)
-		return (t_false);
+		return (ft_false);
 	sqrt = ft_sqrt(nb);
 	while (i < sqrt)
 	{
 		if (nb % i == 0)
-			return (t_false);
+			return (ft_false);
 		i += 2;
 	}
-	return (t_true);
+	return (ft_true);
 }

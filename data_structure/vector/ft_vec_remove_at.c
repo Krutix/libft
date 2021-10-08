@@ -13,7 +13,7 @@
 #include "ft_vector.h"
 #include "ft_string.h"
 
-void	ft_vec_remove_at(t_vector *vec, size_t pos, t_destrfunc del)
+void	ft_vec_remove_at(t_vector *vec, size_t pos, t_destr_func del)
 {
 	if (del)
 		del(ft_vec_at(vec, pos));
@@ -22,7 +22,7 @@ void	ft_vec_remove_at(t_vector *vec, size_t pos, t_destrfunc del)
 	vec->size--;
 }
 
-void	ft_vec_pop_front(t_vector *vec, t_destrfunc del)
+void	ft_vec_pop_front(t_vector *vec, t_destr_func del)
 {
 	ft_vec_remove_at(vec, 0, del);
 }

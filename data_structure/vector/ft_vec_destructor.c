@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "ft_vector.h"
 
-void	ft_vec_destructor(t_vector *vec, t_destrfunc del)
+void	ft_vec_destructor(t_vector *vec, t_destr_func del)
 {
 	size_t	i;
 
