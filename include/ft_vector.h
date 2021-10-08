@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:12:44 by fdiego            #+#    #+#             */
-/*   Updated: 2021/10/08 00:58:00 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/08 23:19:26 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ extern void			ft_vec_pop_front(t_vector *vec, void (*del)(void *));
  */
 extern void			ft_vec_remove_at(t_vector *vec, \
 						size_t pos, void (*del)(void*));
+extern void			ft_vec_remove_all(t_vector *vec, void *sample, \
+						t_destr_func destr, t_cmp_func cmp);
 
 /*!
  * \fn t_ft_err ft_vec_push_reserv(t_vector *vec);

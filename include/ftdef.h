@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:11:36 by fdiego            #+#    #+#             */
-/*   Updated: 2021/08/06 17:11:37 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/08 23:13:43 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef size_t (				*t_hash_func)(void *);
 typedef int (					*t_cmp_func)(void *, void *);
 typedef void (					*t_upd_func)(void *, void *);
 typedef void (					*t_destr_func)(void *);
+typedef void (					*t_process_func)(void *);
 typedef void (					*t_construct)(void *, void *);
 
 typedef enum e_bool
