@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtol.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:31:59 by fdiego            #+#    #+#             */
-/*   Updated: 2021/10/08 21:59:08 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/09 03:36:54 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_ft_err	ft_strtol_m(const char *str, t_ullint max_abs, t_llint *r)
 			return (ft_err_overflow);
 	}
 	*r = nb * sign;
+	while (str[i] && ft_isspace(str[i]))
+		i++;
 	if (str[i])
 		return (ft_err_fail);
 	return (ft_err_ok);
@@ -70,6 +72,8 @@ t_ft_err	ft_strtoul_m(const char *str, t_ullint max_abs, t_ullint *r)
 			return (ft_err_overflow);
 	}
 	*r = nb;
+	while (str[i] && ft_isspace(str[i]))
+		i++;
 	if (str[i])
 		return (ft_err_fail);
 	return (ft_err_ok);
