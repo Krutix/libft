@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 01:22:19 by krutix            #+#    #+#             */
-/*   Updated: 2020/11/09 16:22:41 by krutix           ###   ########.fr       */
+/*   Updated: 2021/10/09 01:40:18 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 t_bool	ft_isspace(int ch)
 {
-	return (ch == 32 || (9 <= ch && ch <= 13));
+	return (ch == ' ' || ('\t' <= ch && ch <= '\r'));
 }
