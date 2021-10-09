@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:27:57 by fdiego            #+#    #+#             */
-/*   Updated: 2021/08/06 17:31:11 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/09 07:06:55 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,14 @@ static void	*partition(void *begin, void *end, \
 	return (i);
 }
 
-t_ft_err	ft_qsort(void *begin, void *end, size_t size_of_cell, t_bool (*lower)())
+t_ft_err	ft_qsort(void *begin, void *end, \
+				size_t size_of_cell, t_bool (*lower)())
 {
-	void 	**stack;
+	void	*stack[16384];
 	void	*p;
 	size_t	top;
 
 	top = 0;
-	stack = malloc(sizeof(void *) * ((end - begin) / size_of_cell + 1));
-	if (!stack)
-		return (ft_err_bad_alloc);
 	stack[top++] = begin;
 	stack[top++] = end - size_of_cell;
 	while (top > 0)
@@ -65,6 +63,5 @@ t_ft_err	ft_qsort(void *begin, void *end, size_t size_of_cell, t_bool (*lower)()
 			stack[top++] = end;
 		}
 	}
-	free(stack);
 	return (ft_err_ok);
 }
