@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtol.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:31:59 by fdiego            #+#    #+#             */
-/*   Updated: 2021/10/09 03:36:54 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/10/10 20:21:41 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ t_ft_err	ft_strtol_m(const char *str, t_ullint max_abs, t_llint *r)
 	nb = 0;
 	while (str[i] && '0' <= str[i] && str[i] <= '9')
 	{
-		nb = nb * 10 + str[i++] - '0';
-		if (nb > max_abs)
+		if (nb * 10 + str[i] - '0' > max_abs || nb > nb * 10 + str[i] - '0')
 			return (ft_err_overflow);
+		nb = nb * 10 + str[i++] - '0';
 	}
 	*r = nb * sign;
 	while (str[i] && ft_isspace(str[i]))
@@ -67,9 +67,9 @@ t_ft_err	ft_strtoul_m(const char *str, t_ullint max_abs, t_ullint *r)
 	nb = 0;
 	while (str[i] && '0' <= str[i] && str[i] <= '9')
 	{
-		nb = nb * 10 + str[i++] - '0';
-		if (nb > max_abs)
+		if (nb * 10 + str[i] - '0' > max_abs || nb > nb * 10 + str[i] - '0')
 			return (ft_err_overflow);
+		nb = nb * 10 + str[i++] - '0';
 	}
 	*r = nb;
 	while (str[i] && ft_isspace(str[i]))
