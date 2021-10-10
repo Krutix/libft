@@ -37,5 +37,6 @@ void	ft_vec_remove_all(t_vector *vec, void *sample, \
 	{
 		if (cmp(ft_vec_at(vec, i), sample) == 0)
 			ft_vec_remove_at(vec, i, destr);
+		i++;
 	}
 }
