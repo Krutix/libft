@@ -9,6 +9,7 @@ VEC_SRCS	=	ft_vec_create.c \
 				ft_vec_foreach.c \
 				ft_vec_remove_at.c \
 				ft_vec_clean.c \
+				ft_vec_insert.c \
 				ft_vec_copy.c
 
 VEC_FTST	=	ft_vec_create.ftst.c

@@ -20,6 +20,7 @@ typedef enum e_ft_err
 	ft_err_bad_alloc,
 	ft_err_bad_arg,
 	ft_err_toomanyargs,
+	ft_err_notenoughargs,
 	ft_err_bad_syntax,
 	ft_err_overflow,
 	ft_err_underflow,

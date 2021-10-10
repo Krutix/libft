@@ -21,6 +21,7 @@ char const	*ft_strerr(t_ft_err err)
 	+ (err == ft_err_fail) * (intptr_t)"fail" \
 	+ (err == ft_err_bad_arg) * (intptr_t)"bad argument" \
 	+ (err == ft_err_toomanyargs) * (intptr_t)"too many arguments" \
+	+ (err == ft_err_notenoughargs) * (intptr_t)"not enough arguments" \
 	+ (err == ft_err_bad_alloc) * (intptr_t)"memory allocation failed" \
 	+ (err == ft_err_overflow) * (intptr_t)"overflow" \
 	+ (err == ft_err_underflow) * (intptr_t)"underflow" \
