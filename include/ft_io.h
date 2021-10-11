@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_io.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 17:17:10 by fdiego            #+#    #+#             */
-/*   Updated: 2021/10/07 23:10:18 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/11 23:50:33 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ extern ssize_t	ft_putstr(const char *s);
 extern ssize_t	ft_putmultistr(char *const mutlistring[]);
 extern ssize_t	ft_putmultistr_delim(char *const mutlistring[],
 					const char *delimiter);
+extern ssize_t	ft_putmultistr_fd(char *const mutlistring[], int fd);
 extern void		ft_print_memory(void const *addr, size_t size);
 extern int		ft_get_next_line(int fd, char **ln);
 extern int		ft_read_next_line(int fd, char **line);

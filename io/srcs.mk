@@ -4,6 +4,7 @@ SRCS_IO		=	ft_print_memory.c \
 				ft_putendl_fd.c \
 				ft_putmultistr.c \
 				ft_putmultistr_delim.c \
+				ft_putmultistr_fd.c \
 				ft_putnbr_base_fd.c \
 				ft_putnbr_fd.c \
 				ft_putstr.c \
