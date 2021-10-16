@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 void	ft_list_remove_if(t_list **begin_list, void *data_ref,
-					int (*cmp)(), void (*free_fct)(void*))
+					int (*cmp)(), t_destr_func del)
 {
 	t_list	*buff;
 	t_list	*prev;
@@ -27,8 +27,8 @@ void	ft_list_remove_if(t_list **begin_list, void *data_ref,
 		next = buff->next;
 		if (cmp(buff->data, data_ref) == 0)
 		{
-			if (free_fct)
-				free_fct(buff->data);
+			if (del)
+				del(buff->data);
 			if (prev)
 				prev->next = buff->next;
 			else

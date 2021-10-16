@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:16:57 by fdiego            #+#    #+#             */
+/*   Updated: 2021/10/09 06:54:51 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_LIST_H
 # define FT_LIST_H
 
@@ -11,8 +23,8 @@ typedef struct s_list
 
 t_list				*ft_create_list(void *data);
 t_list				*ft_create_list_i(size_t data_size);
-t_bool				ft_list_push_back(t_list **begin_list, t_list *node);
-t_bool				ft_list_push_front(t_list **begin_list, t_list *node);
+t_ft_err			ft_list_push_back(t_list **begin_list, t_list *node);
+t_ft_err			ft_list_push_front(t_list **begin_list, t_list *node);
 t_list				*ft_list_push_strs(int size, char **strs);
 
 size_t				ft_list_size(t_list *begin_list);

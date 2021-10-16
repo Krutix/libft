@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:01:43 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 09:19:19 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 22:43:00 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ inline static int	ft_memcmp_cmp(const unsigned char *s1,
 	if (s1[7] != s2[7])
 		return (s1[7] - s2[7]);
 	return (0);
+}
+
+int	ft_strncmp_s(const char *s1, const char *s2, size_t n)
+{
+	if (s1 == NULL || s2 == NULL)
+		return ((!s1 * -1) + (!s2 * 1));
+	return (ft_strncmp(s1, s2, n));
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

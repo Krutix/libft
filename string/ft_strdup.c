@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 23:07:13 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 22:38:38 by krutix           ###   ########.fr       */
+/*   Updated: 2021/10/07 22:17:53 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_string.h"
+
+char	*ft_strdup_s(char const *src)
+{
+	if (src == NULL)
+		return (NULL);
+	return (ft_strdup(src));
+}
 
 char	*ft_strdup(char const *src)
 {

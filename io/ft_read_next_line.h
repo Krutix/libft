@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READ_NEXT_LINE_H
-# define READ_NEXT_LINE_H
+#ifndef FT_READ_NEXT_LINE_H
+# define FT_READ_NEXT_LINE_H
 
 # include <stdlib.h>
 # include "ftdef.h"

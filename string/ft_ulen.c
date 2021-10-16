@@ -17,7 +17,7 @@ t_uint	ft_ulen(t_ullint num)
 	t_uint	i;
 
 	i = 1;
-	while (t_true)
+	while (ft_true)
 	{
 		if (num < 10)
 			return (i);
@@ -37,7 +37,7 @@ t_uint	ft_ulen_16(t_ullint num)
 	t_uint	i;
 
 	i = 1;
-	while (t_true)
+	while (ft_true)
 	{
 		if (num < 16)
 			return (i);
@@ -60,7 +60,7 @@ t_uint	ft_ulen_n(t_ullint num, t_uint base)
 	t_uint const	base4 = base3 * base;
 
 	i = 1;
-	while (t_true)
+	while (ft_true)
 	{
 		if (num < base)
 			return (i);
@@ -80,7 +80,7 @@ t_uint	ft_ulen_2(t_ullint num)
 	t_uint	i;
 
 	i = 1;
-	while (t_true)
+	while (ft_true)
 	{
 		if (num < 2)
 			return (i);

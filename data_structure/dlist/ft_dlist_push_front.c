@@ -12,13 +12,13 @@
 
 #include "ft_dlist.h"
 
-t_bool	ft_dlist_push_front(t_dlist **begin_list, t_dlist *node)
+t_ft_err	ft_dlist_push_front(t_dlist **begin_list, t_dlist *node)
 {
 	if (!node)
-		return (t_false);
+		return (ft_err_bad_alloc);
 	node->next = *begin_list;
 	if (*begin_list)
 		(*begin_list)->prev = node;
 	*begin_list = node;
-	return (t_true);
+	return (ft_err_ok);
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/13 17:55:36 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/26 14:51:25 by krutix           ###   ########.fr       */
+/*   Updated: 2021/07/27 15:59:06 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "ft_string.h"
 
-char	*ft_strstr(char *str, char *to_find)
+char const	*ft_strstr(char const *str, char const *to_find)
 {
 	size_t	i;
 

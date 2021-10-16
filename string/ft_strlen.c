@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:48:11 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 09:21:31 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 23:09:38 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,11 @@ size_t	ft_strlen(const char *str)
 			return (ft_strlen_check((const char *)longword_ptr) - start_ptr);
 		longword_ptr++;
 	}
+}
+
+size_t	ft_strlen_s(const char *str)
+{
+	if (str == NULL)
+		return (0);
+	return (ft_strlen(str));
 }

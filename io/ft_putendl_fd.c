@@ -3,17 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krutix <krutix@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:37:30 by fdiego            #+#    #+#             */
-/*   Updated: 2020/11/22 21:20:19 by krutix           ###   ########.fr       */
+/*   Updated: 2021/10/07 23:09:58 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_io.h"
 
-int	ft_putendl_fd(char *s, int fd)
+int	ft_putendl_fd(char const *s, int fd)
 {
 	return (ft_putstr_fd(s, fd) + write(fd, "\n", 1));
+}
+
+int	ft_putendl_fd_s(char const *s, int fd)
+{
+	if (s == NULL)
+		return (write(fd, "\n", 1));
+	return (ft_putendl_fd(s, fd));
 }

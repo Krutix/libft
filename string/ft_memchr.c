@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:40:46 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 10:22:55 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 23:08:34 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		if (*char_ptr++ == (t_uchar)c)
 			return ((void *)--char_ptr);
 	return ((void *)ft_memchr_longword(char_ptr, c, end_ptr));
+}
+
+void	*ft_memchr_s(const void *s, int c, size_t n)
+{
+	if (s == NULL)
+		return (NULL);
+	return (ft_memchr(s, c, n));
 }

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_qsort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 17:27:57 by fdiego            #+#    #+#             */
+/*   Updated: 2021/10/09 07:06:55 by fdiego           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
 #include "ftdef.h"
 #include "ft_algorithm.h"
-#include "stdio.h"
 
 static void	*partition(void *begin, void *end, \
 				size_t size_of_cell, t_bool (*lower)())
@@ -25,9 +37,10 @@ static void	*partition(void *begin, void *end, \
 	return (i);
 }
 
-void	ft_qsort(void *begin, void *end, size_t size_of_cell, t_bool (*lower)())
+t_ft_err	ft_qsort(void *begin, void *end, \
+				size_t size_of_cell, t_bool (*lower)())
 {
-	void	*stack[(end - begin) / size_of_cell + 1];
+	void	*stack[16384];
 	void	*p;
 	size_t	top;
 
@@ -50,4 +63,5 @@ void	ft_qsort(void *begin, void *end, size_t size_of_cell, t_bool (*lower)())
 			stack[top++] = end;
 		}
 	}
+	return (ft_err_ok);
 }

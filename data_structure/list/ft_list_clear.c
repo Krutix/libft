@@ -13,15 +13,15 @@
 #include <stdlib.h>
 #include "ft_list.h"
 
-void	ft_list_clear(t_list *begin_list, void (*free_fct)(void*))
+void	ft_list_clear(t_list *begin_list, t_destr_func del)
 {
 	t_list	*buff;
 
 	while (begin_list)
 	{
 		buff = begin_list;
-		if (free_fct)
-			free_fct(buff->data);
+		if (del)
+			del(buff->data);
 		begin_list = buff->next;
 		free(buff);
 	}

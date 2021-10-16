@@ -6,7 +6,7 @@
 /*   By: fdiego <fdiego@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 22:12:38 by fdiego            #+#    #+#             */
-/*   Updated: 2021/04/28 10:20:07 by fdiego           ###   ########.fr       */
+/*   Updated: 2021/10/07 22:03:27 by fdiego           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ static void	*ft_memcpy_back(void *dest, const void *src, size_t n)
 	while (n-- != 0)
 		*--d = *(char *)(--src);
 	return (dest);
+}
+
+void	*ft_memmove_s(void *dest, const void *src, size_t n)
+{
+	if (dest == NULL || src == NULL)
+		return (NULL);
+	return (ft_memmove(dest, src, n));
 }
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
