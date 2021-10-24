@@ -2,6 +2,42 @@
 #include "ft_list.h"
 #include "stdio.h"
 
+static t_regex_state	create_split(state_id left, state_id right)
+{
+	return ((t_regex_state) {\
+		.chenum = *chenum_create(), \
+		.out1 = left, .out2 = right,
+		.state = restate_split
+	});
+}
+
+static t_regex_state	create_cell(int ch)
+{
+	return ((t_regex_state) {\
+		.chenum = *chenum_createst(ch), \
+		.out1 = REGEX_NONE_STATE, .out2 = REGEX_NONE_STATE,
+		.state = restate_none
+	});
+}
+
+static t_regex_state	create_state(t_restate state)
+{
+	return ((t_regex_state) {\
+		.chenum = *chenum_create(), \
+		.out1 = REGEX_NONE_STATE, .out2 = REGEX_NONE_STATE,
+		.state = state
+	});
+}
+
+static t_regex_state	create_cellm(char const *chset)
+{
+	return ((t_regex_state) {\
+		.chenum = *chenum_createmst(chset), \
+		.out1 = REGEX_NONE_STATE, .out2 = REGEX_NONE_STATE,
+		.state = restate_none
+	});
+}
+
 static void	set_next(t_regex *re, t_list *l_ptr, uint16_t next_value)
 {
 	t_regex_state	*state_ptr;
@@ -26,8 +62,8 @@ static t_list *push_state(t_regex *re, t_vector *frag_stack, t_regex_state state
 
 static void	concat_last(t_regex *re, t_vector *frag_stack)
 {
-	t_list			*l_ptr;
-	t_list			*r_ptr;
+	t_list	*l_ptr;
+	t_list	*r_ptr;
 
 	l_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 2);
 	r_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 1);
@@ -44,8 +80,7 @@ static void split_last(t_regex *re, t_vector *frag_stack)
 
 	l_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 2);
 	r_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 1);
-	spl = push_state(re, frag_stack, (t_regex_state) \
-		{ e_re_code_split, (t_ullint)l_ptr->data, (t_ullint)r_ptr->data });
+	spl = push_state(re, frag_stack, create_split(l_ptr->data, r_ptr->data));
 	ft_list_merge(&l_ptr, r_ptr);
 	ft_list_merge(&spl, l_ptr);
 	ft_vec_pop_back(frag_stack, NULL);
@@ -60,8 +95,7 @@ static void multy_last(t_regex *re, t_vector *frag_stack)
 	t_list	*spl;
 
 	r_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 1);
-	spl = push_state(re, frag_stack, (t_regex_state) \
-		{ e_re_code_split, REGEX_NONE_STATE, (t_ullint)r_ptr->data });
+	spl = push_state(re, frag_stack, create_split(REGEX_NONE_STATE, r_ptr->data));
 	set_next(re, r_ptr, (t_ullint)spl->data);
 	ft_list_merge(&spl, r_ptr);
 	ft_vec_pop_back(frag_stack, NULL);
@@ -75,8 +109,7 @@ static void one_multy_last(t_regex *re, t_vector *frag_stack)
 	t_list	*spl;
 
 	r_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 1);
-	spl = push_state(re, frag_stack, (t_regex_state) \
-		{ e_re_code_split, REGEX_NONE_STATE, (t_ullint)r_ptr->data });
+	spl = push_state(re, frag_stack, create_split(REGEX_NONE_STATE, r_ptr->data));
 	set_next(re, r_ptr, (t_ullint)spl->data);
 	ft_list_merge(&r_ptr, spl);
 	ft_vec_pop_back(frag_stack, NULL);
@@ -88,10 +121,30 @@ static void one_zero_last(t_regex *re, t_vector *frag_stack)
 	t_list	*spl;
 
 	r_ptr = *(t_list**)ft_vec_at(frag_stack, frag_stack->size - 1);
-	spl = push_state(re, frag_stack, (t_regex_state) \
-		{ e_re_code_split, REGEX_NONE_STATE, (t_ullint)r_ptr->data });
+	spl = push_state(re, frag_stack, create_split(REGEX_NONE_STATE, r_ptr->data));
 	ft_list_merge(&spl, r_ptr);
 	ft_vec_remove_at(frag_stack, frag_stack->size - 2, NULL);
+}
+
+static char *basic_charsets[] = {
+	"",
+	"\t\r\v\f\n ",
+	"0123456789",
+	"01234567",
+	"0123456789abcdefABCDEF"
+};
+
+static void	push_chsetstate(t_regex *re, t_vector *frag_stack, t_re_post value)
+{
+	if (value & REPOST_INVCHARSET)
+		push_state(re, frag_stack,\
+			create_cell(\
+				*chenum_inv(\
+					chenum_createmst(basic_charsets[value & REPOST_VALUE]))));
+	else
+		push_state(re, frag_stack,\
+			create_cell(\
+				*chenum_createmst(basic_charsets[value & REPOST_VALUE])));
 }
 
 void	clear_lists(t_list **l)
@@ -101,11 +154,10 @@ void	clear_lists(t_list **l)
 
 t_bool	ft_post2nfa(t_regex *re, t_re_post *post_re)
 {
-	t_vector		frag_stack;
+	t_vector	frag_stack;
 
 	ft_vec_construct(&frag_stack, sizeof(t_list *));
-	push_state(re, &frag_stack, (t_regex_state) \
-		{ e_re_code_start, REGEX_NONE_STATE, REGEX_NONE_STATE });
+	push_state(re, &frag_stack, create_state(restate_start));
 	while (*post_re)
 	{
 		if (*post_re == e_re_code_split)
@@ -118,15 +170,15 @@ t_bool	ft_post2nfa(t_regex *re, t_re_post *post_re)
 			one_multy_last(re, &frag_stack);
 		else if (*post_re == e_re_code_one_zero)
 			one_zero_last(re, &frag_stack);
+		else if (*post_re & REPOST_CHARSET)
+			push_chsetstate(re, &frag_stack, *post_re);
 		else
-			push_state(re, &frag_stack, (t_regex_state) \
-				{ *post_re, REGEX_NONE_STATE, REGEX_NONE_STATE });
+			push_state(re, &frag_stack, create_cell(*post_re));
 		post_re++;
 	}
 	concat_last(re, &frag_stack);
-	push_state(re, &frag_stack, (t_regex_state) \
-		{ e_re_code_end, REGEX_NONE_STATE, REGEX_NONE_STATE });
+	push_state(re, &frag_stack, create_state(restate_end));
 	concat_last(re, &frag_stack);
 	ft_vec_destructor(&frag_stack, (void(*)(void*))&clear_lists);
-	return (t_true);
+	return (ft_true);
 }

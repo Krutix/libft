@@ -1,19 +1,16 @@
 #include "__ft_regex.h"
 
-
-t_bool  pop_op_stack(t_re_post_buffer *buf, t_rep_cell_stack *post_op, int prior)
+void  pop_op_stack(t_re_post_buffer *buf, t_rep_cell_stack *post_op, int prior)
 {
     while (post_op->stack < post_op->ptr && post_op->ptr->prior <= prior)
         *(buf->ptr++) = (post_op->ptr--)->code;
-    return (t_true);
 }
 
-t_bool  pop_op_stack_bracket(t_re_post_buffer *buf, t_rep_cell_stack *post_op)
+void  pop_op_stack_bracket(t_re_post_buffer *buf, t_rep_cell_stack *post_op)
 {
     while (post_op->ptr->type != e_rep_type_bracket_open)
         *(buf->ptr++) = (post_op->ptr--)->code;
     post_op->ptr--;
-    return (t_true);
 }
 
 t_re_post   *ft_re2post(char const *re)

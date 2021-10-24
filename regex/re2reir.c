@@ -74,20 +74,20 @@ t_rep_cell  *ft_re2reir(char const *re)
         c = read_cell(&re);
         if (c.type == e_rep_type_symbol)
         {
-            if (set_concat == t_true)
+            if (set_concat == ft_true)
                 *(reir.ptr++) = REP_CONCAT_CELL;
-            set_concat = t_true;
+            set_concat = ft_true;
         }
         else if (c.type == e_rep_type_bracket_open)
         {
-            if (set_concat == t_true)
+            if (set_concat == ft_true)
                 *(reir.ptr++) = REP_CONCAT_CELL;
-            set_concat = t_false;
+            set_concat = ft_false;
         }
         else if (c.type == e_rep_type_bracket_close)
-            set_concat = t_true;
+            set_concat = ft_true;
         else if (c.type == e_rep_type_operand)
-            set_concat = t_false;
+            set_concat = ft_false;
         *(reir.ptr++) = c;
     }
     *reir.ptr = (t_rep_cell){ 0, e_rep_type_invalid, 0 };

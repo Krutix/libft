@@ -1,6 +1,7 @@
 #ifndef __FT_REGEX_H
 # define __FT_REGEX_H
 
+# include "__charenum.h"
 # include "ft_regex.h"
 
 enum e_rep_type
@@ -13,9 +14,10 @@ enum e_rep_type
     e_rep_type_post_operand
 };
 
-# define REPOST_OPERAND     (1 << 8)
-# define REPOST_CHARSET     (1 << 9)
-# define REPOST_INVCHARSET  (1 << 10)
+# define REPOST_VALUE       ((1 << 8) - 1)
+# define REPOST_OPERAND     ((1 << 8))
+# define REPOST_CHARSET     ((1 << 9))
+# define REPOST_INVCHARSET  ((1 << 10) | REPOST_CHARSET)
 
 enum e_rep_op_code
 {
@@ -63,15 +65,29 @@ typedef struct s_rep_cell_stack
 typedef uint16_t state_id;
 # define REGEX_NONE_STATE UINT16_MAX
 
+enum restate {
+    restate_none,
+    restate_split,
+    restate_start,
+    restate_end
+};
+typedef int8_t t_restate;
+
+enum rechar {
+    rechar_end = 127,
+};
+typedef int16_t t_rechar;
+
 typedef struct s_regex_state
 {
-    int32_t     c;
+    t_chenum    chenum;
     state_id    out1;
     state_id    out2;
+    t_restate   state;
 }       t_regex_state;
 
 t_re_post       *ft_re2post(char const *re);
 t_rep_cell      *ft_re2reir(char const *re);
-t_bool	        ft_post2nfa(t_regex *re, t_re_post *post_re);
+t_bool          ft_post2nfa(t_regex *re, t_re_post *post_re);
 
 #endif
