@@ -1,9 +1,21 @@
-TM_FILE         = ./tm.mk
-.DEFAULT_GOAL  := all
+include make/tm.mk
 
-# include source files from sub dirs
-FTST_SRCS	=
-SRCS		=
+PROJECT_NAME  = libft
+NAME          = libft
+
+CC            = clang
+CXX           = c++
+LD            = c++
+CFLAGS        = -Wall -Wextra -Werror
+CXXFLAGS      = -Wall -Wextra -Werror -pedantic --std=c++98
+LDFLAGS       = -pthread
+ARFLAGS       = rcs
+DEP           = ./Makefile
+INC           = ./include/
+
+BUILD        ?= debug
+
+######## include source files from sub dirs ###########
 include string/srcs.mk
 include algorithm/srcs.mk
 include math/srcs.mk
@@ -14,58 +26,33 @@ include data_structure/dlist/srcs.mk
 include data_structure/hashtable/srcs.mk
 include error/srcs.mk
 include exit/srcs.mk
-
-INC_DIR =	include/
-NAME	=	libft
-
-DEPEND_FILES = ${realpath ./Makefile}
-SETUP         = ${addprefix BUILD_SRCS+=, ${SRCS}} \
-				${addprefix FTST_SRCS+=, ${FTST_SRCS}} \
-				${addprefix INC_DIR+=, ${INC_DIR}} \
-				${addprefix DEPEND_FILES+=, ${DEPEND_FILES}}
-
-#######################################################
-#
-# Release build
-#
-RELEASE_MAKE = release.mk
-
-rl/%:
-		${MAKE} -f ${RELEASE_MAKE} ${@:rl/%=%} ${SETUP}
-
-#######################################################
-#
-# Debug build
-#
-DEBUG_MAKE = debug.mk
-
-db/%:
-		${MAKE} -f ${DEBUG_MAKE} ${@:db/%=%} ${SETUP}
-
-
 #######################################################
 
-.PHONY:	all
-all:		rl/build
+$(call add/project,$(PROJECT_NAME))
 
-${NAME}:	rl/build
+######################## DEBUG ########################
+$(call add/subproj,$(PROJECT_NAME),debug)
+DEBUG_SANS =    -fsanitize=address \
+                -fsanitize=undefined
+debug_CXXFLAGS       += -O0 -g3 $(DEBUG_SANS)
+debug_CFLAGS         += -O0 -g3 $(DEBUG_SANS)
+debug_LDFLAGS        +=         $(DEBUG_SANS)
+$(call add/lib,debug,$(NAME).a)
+#######################################################
 
-include docs/doxygen.mk
-.PHONY: docs
-docs:	doxygen
+####################### RELEASE #######################
+$(call add/subproj,$(PROJECT_NAME),release)
+release_CFLAGS       += -O2
+release_CXXFLAGS     += -O2
+$(call add/lib,release,$(NAME).a)
+#######################################################
 
-.PHONY:	clean
-clean:		rl/clean db/clean
+.PHONY: all clean fclean re
+all: $(debug_BUILD) $(release_BUILD)
 
-.PHONY:	fclean
-fclean:		rl/fclean db/fclean
+clean:  debug/clean  release/clean
+fclean: debug/fclean release/fclean
+re: $(BUILD)/re
 
-.PHONY: norm
-norm:		rl/norm
+$(call add/header_dep)
 
-.PHONY:	re
-re:			rl/re db/re
-
-#so:
-#			@${CC} ${CFLAGS} -fPIC -c ${SRCS}
-#			@${CC} -shared -Wl,-soname,libft.so -o libft.so *.o
