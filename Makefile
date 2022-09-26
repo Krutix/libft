@@ -16,16 +16,7 @@ INC           = ./include/
 BUILD        ?= debug
 
 ######## include source files from sub dirs ###########
-include string/srcs.mk
-include algorithm/srcs.mk
-include math/srcs.mk
-include io/srcs.mk
-include data_structure/vector/srcs.mk
-include data_structure/list/srcs.mk
-include data_structure/dlist/srcs.mk
-include data_structure/hashtable/srcs.mk
-include error/srcs.mk
-include exit/srcs.mk
+include srcs/srcs.mk
 #######################################################
 
 $(call add/project,$(PROJECT_NAME))

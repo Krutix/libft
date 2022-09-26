@@ -1,0 +1,10 @@
+include srcs/string/srcs.mk
+include srcs/algorithm/srcs.mk
+include srcs/math/srcs.mk
+include srcs/io/srcs.mk
+include srcs/data_structure/vector/srcs.mk
+include srcs/data_structure/list/srcs.mk
+include srcs/data_structure/dlist/srcs.mk
+include srcs/data_structure/hashtable/srcs.mk
+include srcs/error/srcs.mk
+include srcs/exit/srcs.mk
