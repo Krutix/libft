@@ -173,7 +173,7 @@ endef
 define __add/baserules
 .PHONY: $(1)/clean
 $(1)/clean: $$($(1)_CLEAN_DEP)
-	-$(silent)$(RM) $$($(1)_CLEAN) $$($(1)_OBJS) $$($(1)_DFILES) || ($(call __failed,$$@,compile) && false)
+	-$(silent)$(RM) $$($(1)_CLEAN) $$($(1)_OBJS) $$($(1)_DFILES) || ($(call __failed,$$@,clean) && false)
 	@$(call __clean,$$@)
 
 .PHONY: $(1)/fclean
@@ -201,7 +201,7 @@ $(1)_BUILD += $$($(1)_EXE)
 
 $$($(1)_EXE): $$($(1)_OBJS) $$($(1)_LD_DEP)
 	$(call __in_work,$$@,linking)
-	$(silent)$$($(1)_LD) $$($(1)_LDFLAGS) $$($(1)_OBJS) -o $$($(1)_EXE) $$($(1)_LIBS) || ($(call __failed,$$@,compile) && false)
+	$(silent)$$($(1)_LD) $$($(1)_LDFLAGS) $$($(1)_OBJS) -o $$($(1)_EXE) $$($(1)_LIBS) || ($(call __failed,$$@,linking) && false)
 	$(call __done,$$@,linking)
 
 .PHONY: $(1)/exe
