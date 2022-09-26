@@ -7,7 +7,16 @@ static t_regex_state	create_split(state_id left, state_id right)
 	return ((t_regex_state) {\
 		.chenum = *chenum_create(), \
 		.out1 = left, .out2 = right,
-		.state = restate_split
+		.state = restate_split, .data = NULL
+	});
+}
+
+static t_regex_state	create_chenum(t_chenum const *chenum)
+{
+	return ((t_regex_state) {\
+		.chenum = *chenum, \
+		.out1 = REGEX_NONE_STATE, .out2 = REGEX_NONE_STATE,
+		.state = restate_none, .data = NULL
 	});
 }
 
@@ -16,7 +25,7 @@ static t_regex_state	create_cell(int ch)
 	return ((t_regex_state) {\
 		.chenum = *chenum_createst(ch), \
 		.out1 = REGEX_NONE_STATE, .out2 = REGEX_NONE_STATE,
-		.state = restate_none
+		.state = restate_none, .data = NULL
 	});
 }
 
@@ -25,7 +34,7 @@ static t_regex_state	create_state(t_restate state)
 	return ((t_regex_state) {\
 		.chenum = *chenum_create(), \
 		.out1 = REGEX_NONE_STATE, .out2 = REGEX_NONE_STATE,
-		.state = state
+		.state = state, .data = NULL
 	});
 }
 
@@ -33,8 +42,8 @@ static t_regex_state	create_cellm(char const *chset)
 {
 	return ((t_regex_state) {\
 		.chenum = *chenum_createmst(chset), \
-		.out1 = REGEX_NONE_STATE, .out2 = REGEX_NONE_STATE,
-		.state = restate_none
+		.out1 = REGEX_NONE_STATE, .out2 = REGEX_NONE_STATE, \
+		.state = restate_none, .data = NULL \
 	});
 }
 
@@ -138,13 +147,13 @@ static void	push_chsetstate(t_regex *re, t_vector *frag_stack, t_re_post value)
 {
 	if (value & REPOST_INVCHARSET)
 		push_state(re, frag_stack,\
-			create_cell(\
-				*chenum_inv(\
+			create_chenum(\
+				chenum_inv(\
 					chenum_createmst(basic_charsets[value & REPOST_VALUE]))));
 	else
 		push_state(re, frag_stack,\
-			create_cell(\
-				*chenum_createmst(basic_charsets[value & REPOST_VALUE])));
+			create_chenum(\
+				chenum_createmst(basic_charsets[value & REPOST_VALUE])));
 }
 
 void	clear_lists(t_list **l)

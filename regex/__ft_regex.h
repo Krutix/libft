@@ -81,6 +81,7 @@ typedef int16_t t_rechar;
 typedef struct s_regex_state
 {
     t_chenum    chenum;
+    void        *data;
     state_id    out1;
     state_id    out2;
     t_restate   state;
